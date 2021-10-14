@@ -26,6 +26,8 @@ public interface CustomerDAO {
     List<Map> get_customerMemo_list(Map map);
     // 고객 상담 저장
     int customer_counseling_save(Map map);
+    // 고객 상담 수정
+    int member_counseling_update(Map map);
     // 고객 상담 삭제
     int member_counseling_delete(Map map);
 }

@@ -79,6 +79,9 @@
 		    AGE,
 		    SEX,
 		    TEL,
+			SOCIAL_SECURITY_NUMBER1,
+			SOCIAL_SECURITY_NUMBER2,
+		    EMAIL,
 		    ADDRESS1,
 		    ADDRESS2,
 		    CONNECT_PATH,
@@ -99,6 +102,9 @@
 			#{age},
 			#{sex},
 			#{tel},
+			#{socialSecurityNumber1},
+			#{socialSecurityNumber2},
+			#{email},
 			#{address1},
 			#{address2},
 			#{connect_path},
@@ -118,20 +124,23 @@
 	<update id="customer_update" parameterType="java.util.Map">
 		/* customer_update */
 		UPDATE CUSTOMER
-		SET    NAME         = #{name},
-			   AGE          = #{age},
-			   SEX          = #{sex},
-			   TEL          = #{tel},
-			   ADDRESS1     = #{address1},
-			   ADDRESS2     = #{address2},
-			   CONNECT_PATH = #{connect_path},
-			   `RANK`       = #{rank},
-			   M_START      = #{m_start},
-			   M_END        = #{m_end},
-			   AGO_PAY_YN   = #{ago_pay_yn},
-			   MEMO         = #{memo},
-			   MODDATE      = NOW(),
-			   MODID        = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
+		SET    NAME                    = #{name},
+			   AGE                     = #{age},
+			   SEX                     = #{sex},
+			   TEL                     = #{tel},
+			   SOCIAL_SECURITY_NUMBER1 = #{socialSecurityNumber1},
+			   SOCIAL_SECURITY_NUMBER2 = #{socialSecurityNumber2},
+			   EMAIL                   = #{email},
+			   ADDRESS1                = #{address1},
+			   ADDRESS2                = #{address2},
+			   CONNECT_PATH            = #{connect_path},
+			   `RANK`                  = #{rank},
+			   M_START                 = #{m_start},
+			   M_END                   = #{m_end},
+			   AGO_PAY_YN              = #{ago_pay_yn},
+			   MEMO                    = #{memo},
+			   MODDATE                 = NOW(),
+			   MODID                   = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
 		WHERE IDX = #{idx}
 	</update>
 
@@ -146,9 +155,9 @@
 
 	<select id="get_customer_info" parameterType="java.util.Map" resultType="java.util.Map">
 		/* get_customer_info */
-		SELECT    IDX, NAME, AGE, SEX, TEL, ADDRESS1, ADDRESS2, CONNECT_PATH,
-		          `RANK`, M_START, M_END, AGO_PAY_YN, MEMO, REGDATE, REGID,
-		          MODDATE, MODID, MEMBER_IDX
+		SELECT    IDX, NAME, AGE, SEX, TEL, SOCIAL_SECURITY_NUMBER1, SOCIAL_SECURITY_NUMBER2,
+		          EMAIL, ADDRESS1, ADDRESS2, CONNECT_PATH,  `RANK`, M_START, M_END, AGO_PAY_YN,
+		          MEMO, REGDATE, REGID, MODDATE, MODID, MEMBER_IDX
 		FROM      CUSTOMER
 		WHERE     IDX = #{idx}
 	</select>
@@ -182,6 +191,10 @@
 		VALUES
 		(#{customer_idx}, #{content}, NOW())
 	</insert>
+
+	<update id="member_counseling_update" parameterType="java.util.Map">
+		UPDATE CUSTOMER_MEMO SET CONTENT = #{content} WHERE IDX = #{idx}
+	</update>
 
 	<delete id="member_counseling_delete" parameterType="java.util.Map">
 		/* member_counseling_delete */

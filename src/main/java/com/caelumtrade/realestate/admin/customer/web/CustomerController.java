@@ -210,6 +210,28 @@ public class CustomerController extends Base {
     }
 
     /**
+     * 고객 상담 수정
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/member_counseling_update")
+    @ResponseBody
+    @Transactional
+    public Map member_counseling_update(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        if(dao.member_counseling_update(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
+    /**
      * 고객 상담 삭제
      * @param map
      * @param request

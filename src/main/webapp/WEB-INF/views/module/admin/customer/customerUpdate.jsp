@@ -31,17 +31,31 @@
                             </colgroup>
                             <tr>
                                 <td class="infotd">성명*</td>
-                                <td colspan="3">
+                                <td>
                                     <div class="input_wrap w283">
                                         <input type="text" id="name" name="name" value="${data.NAME}">
+                                    </div>
+                                </td>
+                                <td class="infotd">주민번호</td>
+                                <td>
+                                    <div class="input_wrap w283" style="display: flex;">
+                                        <input class="mr10" type="text" id="socialSecurityNumber1" name="socialSecurityNumber1" value="${data.SOCIAL_SECURITY_NUMBER1}">
+                                        -
+                                        <input class="ml10" type="text" id="socialSecurityNumber2" name="socialSecurityNumber2" value="${data.SOCIAL_SECURITY_NUMBER2}">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="infotd">핸드폰번호*</td>
-                                <td colspan="3">
+                                <td>
                                     <div class="input_wrap w283">
                                         <input type="text" id="tel" name="tel" value="${data.TEL}">
+                                    </div>
+                                </td>
+                                <td class="infotd">E-Mail</td>
+                                <td>
+                                    <div class="input_wrap w283">
+                                        <input type="text" id="email" name="email" value="${data.EMAIL}">
                                     </div>
                                 </td>
                             </tr>
@@ -144,7 +158,7 @@
                             <tr>
                                 <td class="infotd">특이사항</td>
                                 <td colspan="3">
-                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 300px;">${data.MEMO}</textarea>
+                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 150px;">${data.MEMO}</textarea>
                                 </td>
                             </tr>
                         </table>

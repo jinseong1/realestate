@@ -23,17 +23,31 @@
                             </colgroup>
                             <tr>
                                 <td class="infotd">성명*</td>
-                                <td colspan="3">
+                                <td>
                                     <div class="input_wrap w283">
                                         <input type="text" id="name" name="name">
+                                    </div>
+                                </td>
+                                <td class="infotd">주민번호</td>
+                                <td>
+                                    <div class="input_wrap w283" style="display: flex;">
+                                        <input class="mr10" type="text" id="socialSecurityNumber1" name="socialSecurityNumber1">
+                                        -
+                                        <input class="ml10" type="text" id="socialSecurityNumber2" name="socialSecurityNumber2">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="infotd">핸드폰번호*</td>
-                                <td colspan="3">
+                                <td>
                                     <div class="input_wrap w283">
                                         <input type="text" id="tel" name="tel">
+                                    </div>
+                                </td>
+                                <td class="infotd">E-Mail</td>
+                                <td>
+                                    <div class="input_wrap w283">
+                                        <input type="text" id="email" name="email">
                                     </div>
                                 </td>
                             </tr>
@@ -136,7 +150,7 @@
                             <tr>
                                 <td class="infotd">특이사항</td>
                                 <td colspan="3">
-                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 300px;"></textarea>
+                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 150px;"></textarea>
                                 </td>
                             </tr>
                         </table>

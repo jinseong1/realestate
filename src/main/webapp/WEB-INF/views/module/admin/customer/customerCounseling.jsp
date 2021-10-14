@@ -136,11 +136,14 @@
                     html += '    <td>';
                     html += '        '+data.list[i].no;
                     html += '    </td>';
-                    html += '    <td>'+data.list[i].CONTENT.replaceAll('\n', '</br>')+'</td>';
+                    html += '    <td><textarea id="content_'+data.list[i].IDX+'" style="width: 100%; height: 150px;">'+data.list[i].CONTENT+'</textarea></td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE
                     html += '    </td>';
                     html += '    <td>';
+                    html += '        <div class="button_90 mb10">';
+                    html += '            <button type="button" style="width: 100%;" class="button_gray" onclick="javascript:line_update('+data.list[i].IDX+')">수정</button>';
+                    html += '        </div>';
                     html += '        <div class="button_90">';
                     html += '            <button type="button" style="width: 100%;" class="button_gray" onclick="javascript:line_delete('+data.list[i].IDX+')">삭제</button>';
                     html += '        </div>';
@@ -155,6 +158,37 @@
                 console.log(err);
             }
         });
+    }
+
+    function line_update(idx){
+
+        if(!confirm(update_msg)){
+            return false;
+        }
+
+        var ajax_data = {};
+        ajax_data.idx  = idx;
+        ajax_data.content = $('#content_'+idx).val();
+
+        $.ajax({
+            url:'/admin/customer/member_counseling_update', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            data:ajax_data, //보낼 데이터
+            async : false,
+            success: function(data) {
+                if(data.code == 'S'){
+                    alert(update_finish);
+                    getList(1);
+                } else {
+                    alert(update_error);
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+                console.log(err);
+            }
+        });
+
     }
 
     /**
