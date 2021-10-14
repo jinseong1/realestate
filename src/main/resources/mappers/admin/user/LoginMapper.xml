@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.user.dao.LoginDAO">
+
+	<resultMap id="menuMap" type="com.caelumtrade.realestate.admin.user.vo.MenuVO">
+		<result property="idx" column="idx"/>
+		<result property="menuName" column="menuName"/>
+		<result property="menuParentIdx" column="menuParentIdx"/>
+		<result property="menuLevel" column="menuLevel"/>
+		<result property="menuSno" column="menuSno"/>
+		<result property="activeId" column="activeId"/>
+		<result property="menuUrl" column="menuUrl"/>
+		<result property="roleDetailCode" column="roleDetailCode"/>
+		<collection property="menuSubList" column="{MENU_SNO=MENU_SNO}" javaType="java.util.ArrayList" ofType="com.caelumtrade.realestate.admin.user.vo.MenuVO" select="getMenuSubList"/>
+	</resultMap>
+
+	<select id="get_member" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_member */
+		SELECT    idx, id, pw, name, sex, tel, age, address1, address2, company_idx, regdate, regid, moddate, modid
+		FROM      MEMBER
+		WHERE     1 = 1
+	</select>
+
+	<!-- 로그인 후 가능한 메뉴 -->
+	<select id="loginConfirm" parameterType="java.util.Map" resultType="java.lang.String">
+		/* loginConfirm */
+		SELECT MENU_URL FROM MENU ORDER BY MENU_SNO LIMIT 1
+	</select>
+
+	<!-- 메뉴 최상단 호출 -->
+	<select id="menuList" parameterType="java.util.HashMap" resultMap="menuMap">
+		/* admin.user..UserMapper.menuList */
+		SELECT    IDX, MENU_NAME, MENU_PARENT_IDX, MENU_LEVEL, MENU_SNO, ACTIVE_ID, MENU_URL, ROLE_DETAIL_CODE
+		FROM      MENU
+		WHERE     MENU_LEVEL = 1
+		ORDER BY  MENU_SNO
+	</select>
+
+	<!-- 메뉴 2단계 호출 -->
+	<select id="getMenuSubList" resultType="com.caelumtrade.realestate.admin.user.vo.MenuVO">
+		/* admin.user.UserMapper.getMenuSubList */
+		SELECT    IDX, MENU_NAME, MENU_PARENT_IDX, MENU_LEVEL, MENU_SNO, ACTIVE_ID, MENU_URL, ROLE_DETAIL_CODE
+		FROM      MENU
+		WHERE     1=1
+		AND       MENU_PARENT_IDX = #{MENU_SNO}
+		AND       MENU_LEVEL = 2
+		ORDER BY  MENU_SNO
+	</select>
+
+	<select id="selectUser" parameterType="com.caelumtrade.realestate.admin.user.vo.MemberVO" resultType="com.caelumtrade.realestate.admin.user.vo.MemberVO">
+		/* admin.user.UserMapper.selectUser */
+		SELECT    ID, PW
+		FROM      MEMBER
+		WHERE     ID = #{id}
+	</select>
+
+	<select id="getRoleMenu" parameterType="java.lang.String" resultType="java.lang.String">
+		/* getRoleMenu */
+		SELECT    MENU_URL
+		FROM      MENU
+		ORDER BY  idx ASC
+		LIMIT     1
+	</select>
+
+</mapper>

@@ -1,0 +1,323 @@
+@charset "utf-8";
+/*
+* File       : layout.css
+* Author     : m-sync (baeyoungseop)
+*
+* SUMMARY:
+* 1) 헤더
+*/
+
+body {position:relative;}
+
+/*
+** 1) 헤더
+*/
+#header .top_header {
+    background: #fff;
+}
+#header .top_header_inner {
+    max-width: 1520px;
+    min-width: 1200px;
+    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+#header .logo_wrap {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+#header .logo_wrap h1 img {
+    display: block;
+}
+#header .logo_wrap h1:nth-child(2) {
+    margin-left: 10px;
+    color: #000;
+    line-height: 100%;
+    font-size: 20px;
+}
+
+#header .util_menu_wrap {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+#header .admin_menu_wrap {
+    margin-right: 30px;
+    position: relative;
+}
+#header .admin_menu_wrap h4 {
+    color: #000;
+    padding: 0.5em;
+    cursor: pointer;
+    line-height: 100%;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    font-size: 16px;
+}
+#header .admin_menu_wrap h4:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+#header .admin_menu_wrap .admin_menu {
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    left: 0;
+    top: 100%;
+    width: 77px;
+    background: #fff;
+    margin-top: 10px;
+    box-shadow: 2px 2px 4px rgba(0,0,0, .12);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+#header .admin_menu_wrap .admin_menu li a {
+    display: block;
+    padding: 0.5em;
+    font-size: 14px;
+}
+#header .admin_menu_wrap .admin_menu li a:hover {
+    background: rgba(0, 0, 0, .082)
+}
+#header .util_menu {
+    position:relative;
+}
+#header .util_menu ul {
+    display: none;
+    position:absolute;
+    padding: 10px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bbb;
+}
+#header .util_menu li {
+    margin-bottom: 10px;
+}
+#header .util_menu li:last-child{
+    margin-bottom: 0;
+}
+
+#header .util_menu li a {
+    color: #555;
+}
+
+
+#header .bottom_header {
+    background: #eee;
+    /* border: 1px solid #ffffff; */
+    border-right: 0;
+    border-left: 0;
+    box-shadow: 2px 2px 5px #dedede;
+}
+#header .bottom_header_inner {
+    max-width: 1520px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+#header .gnb ul.menu {
+    display: flex;
+    flex-flow: row wrap;
+}
+#header .gnb .menu li {
+    position: relative;
+    width: 130px;
+    line-height: 50px;
+    padding: 0;
+}
+#header .gnb .menu li a {
+    display: block;
+    height: 100%;
+    color: #616161;
+    text-align: center;
+    font-size: 16px;
+    width:150px;
+}
+#header .gnb li.on>a {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+#header .gnb li:hover .hover_menu {
+    display: block;
+}
+/* #header .gnb li.on a:hover {
+    background: #e5e5e5;
+} */
+
+#header .hover_menu {
+    width: 150px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 0px;
+    left: 0;
+    background: #fff;
+    /* border: 1px solid #999; */
+    z-index: 10;
+    box-shadow: 2px 4px 4px #d2d2d2;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#header .gnb .hover_menu li {
+    line-height: 30px;
+}
+#header .gnb .hover_menu li a {
+    font-size: 14px;
+    color: #737373;
+
+}
+
+
+@media screen and (max-width: 1537px) {
+    #header .top_header_inner,
+    #header .bottom_header_inner {
+        padding: 0 20px;
+    }
+}
+
+/*popup - subin 210421*/
+.admin_popup {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 1000px;
+    /*min-height: 500px;*/
+    background: #FFFFFF;
+    -webkit-box-shadow: 2px -1px 15px 0px #969696;
+    box-shadow: 2px -1px 15px 0px #969696;
+}
+.admin_popup .admin_popup_inner {
+    padding: 30px 20px;
+}
+.admin_popup h4 {
+    font-size: 18px;
+}
+.admin_popup .tit {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+.admin_popup .tit h4 {
+    display: flex;
+    align-items: center;
+}
+.admin_popup .tit h4 span {
+    margin-left: 10px;
+}
+.admin_popup .tit .close {
+    float: right;
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/layout/close_btn.png) no-repeat;
+    -moz-background-size: 15px;
+    background-size: 15px;
+    cursor:pointer;
+}
+.admin_popup .content {
+    margin-top: 15px;
+}
+.popup_button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.admin_popup .content .popup_button button {
+    margin: 0;
+}
+.admin_popup .content .popup_button button:first-child {
+    margin-right: 10px;
+}
+/*popup common end */
+
+/*도서 검색 popup*/
+.admin_popup .content .search_form {}
+.admin_popup .content .search_form select {
+    margin-right: 20px;
+    padding-left: 10px;
+    width: 120px;
+    height: 40px;
+    background: url('../images/layout/bottom.png') center right no-repeat;
+    border: none;
+    font-size: 14px;
+    outline: none;
+}
+.admin_popup .content .search_form input {}
+.admin_popup .content button {
+    margin: 0 auto;
+    width: 120px;
+    height: 40px;
+    background: #7d7d7d;
+    color: #fff;
+}
+.admin_popup .content .btn_wrap {
+    margin-top: 20px;
+    text-align: center;
+}
+.admin_popup .book_search_result {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #bfbfbf;
+}
+.admin_popup .book_search_list {
+    overflow-y: scroll;
+    margin-top: 10px;
+    max-height: 300px;
+}
+.admin_popup .book_search_list .none {
+    font-size: 16px;
+}
+.admin_popup .book_search_list li:not(.none) {
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.admin_popup .book_search_list li:last-child {
+    margin-bottom: 0;
+}
+.admin_popup .book_search_list li:not(.none)::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    margin-right: 10px;
+    width: 5px;
+    height: 5px;
+    background: #000;
+    border-radius: 50%;
+}
+/* popup end */
+
+/* 변경할 카테고리 선택 팝업 추가 210504 */
+.admin_popup.small_popup{
+    width: 400px;
+    min-height: 220px;
+}
+.admin_popup.small_popup .search_form select {
+    width: 100%;
+    border: 1px solid #000;
+    background-position: center right 10px;
+}
+.admin_popup .content .btn_white{
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+.pay_order_table .pay_save {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.customer.dao.CustomerDAO">
+
+	<select id="get_total_customer_count" parameterType="java.util.Map" resultType="Integer">
+		/* get_total_customer_count */
+		SELECT    COUNT(*)
+		FROM      CUSTOMER
+		WHERE     1=1
+		AND       MEMBER_IDX = #{member_idx}
+		<if test="rank != null and rank != ''">
+		AND       RANK = #{rank}
+		</if>
+		<if test="ago_pay_yn != null and ago_pay_yn != ''">
+		AND       AGO_PAY_YN = #{ago_pay_yn}
+		</if>
+		<if test="money != null and money != ''">
+		AND       (M_START <![CDATA[ <= ]]> #{money} AND M_END <![CDATA[ >= ]]> #{money})
+		</if>
+		<if test="category_text != null and category_text != ''">
+			<choose>
+				<when test='"NAME".equals(category)'>
+					AND NAME LIKE CONCAT('%', #{category_text}, '%')
+				</when>
+				<when test='"TEL".equals(category)'>
+					AND REPLACE(TEL, '-', '') LIKE CONCAT('%', REPLACE(#{category_text}, '-', ''), '%')
+				</when>
+				<otherwise>
+					AND (NAME LIKE CONCAT('%', #{category_text}, '%') OR REPLACE(TEL, '-', '') LIKE CONCAT('%', REPLACE(#{category_text}, '-', ''), '%'))
+				</otherwise>
+			</choose>
+		</if>
+	</select>
+
+	<select id="get_customer_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_customer_list */
+		SELECT    a.*
+		FROM      (
+					  SELECT    @rownum:=@rownum+1 AS no,
+								b.IDX, b.NAME, b.AGE, b.SEX, b.TEL, b.ADDRESS1, b.ADDRESS2,
+					            b.CONNECT_PATH, b.`RANK`, b.M_START, b.M_END, b.AGO_PAY_YN,
+								date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') as REGDATE , b.REGID,
+					            b.MODDATE, b.MODID, b.MEMBER_IDX
+					  FROM      CUSTOMER b, (SELECT @ROWNUM := 0) R
+					  WHERE     1 = 1
+		              AND       MEMBER_IDX = #{member_idx}
+					  <if test="rank != null and rank != ''">
+					  AND       RANK = #{rank}
+					  </if>
+		              <if test="ago_pay_yn != null and ago_pay_yn != ''">
+		              AND       AGO_PAY_YN = #{ago_pay_yn}
+		              </if>
+		              <if test="money != null and money != ''">
+		              AND       (M_START <![CDATA[ <= ]]> #{money} AND M_END <![CDATA[ >= ]]> #{money})
+		              </if>
+					  <if test="category_text != null and category_text != ''">
+						  <choose>
+							  <when test='"NAME".equals(category)'>
+								  AND NAME LIKE CONCAT('%', #{category_text}, '%')
+							  </when>
+							  <when test='"TEL".equals(category)'>
+								  AND REPLACE(TEL, '-', '') LIKE CONCAT('%', REPLACE(#{category_text}, '-', ''), '%')
+							  </when>
+							  <otherwise>
+								  AND (NAME LIKE CONCAT('%', #{category_text}, '%') OR REPLACE(TEL, '-', '') LIKE CONCAT('%', REPLACE(#{category_text}, '-', ''), '%'))
+							  </otherwise>
+						  </choose>
+					  </if>
+					  ORDER BY  IDX DESC
+				  ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<insert id="customer_insert" parameterType="java.util.Map">
+		/* customer_insert */
+		INSERT INTO CUSTOMER
+		(
+		    NAME,
+		    AGE,
+		    SEX,
+		    TEL,
+		    ADDRESS1,
+		    ADDRESS2,
+		    CONNECT_PATH,
+		    `RANK`,
+		    M_START,
+		    M_END,
+		    AGO_PAY_YN,
+		    MEMO,
+		    REGDATE,
+		    REGID,
+		    MODDATE,
+		    MODID,
+		    MEMBER_IDX
+		 )
+		 VALUES
+		(
+			#{name},
+			#{age},
+			#{sex},
+			#{tel},
+			#{address1},
+			#{address2},
+			#{connect_path},
+			#{rank},
+			#{m_start},
+			#{m_end},
+			#{ago_pay_yn},
+			#{memo},
+			NOW(),
+			(SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
+			NOW(),
+			(SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
+			#{member_idx}
+		)
+	</insert>
+
+	<update id="customer_update" parameterType="java.util.Map">
+		/* customer_update */
+		UPDATE CUSTOMER
+		SET    NAME         = #{name},
+			   AGE          = #{age},
+			   SEX          = #{sex},
+			   TEL          = #{tel},
+			   ADDRESS1     = #{address1},
+			   ADDRESS2     = #{address2},
+			   CONNECT_PATH = #{connect_path},
+			   `RANK`       = #{rank},
+			   M_START      = #{m_start},
+			   M_END        = #{m_end},
+			   AGO_PAY_YN   = #{ago_pay_yn},
+			   MEMO         = #{memo},
+			   MODDATE      = NOW(),
+			   MODID        = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
+		WHERE IDX = #{idx}
+	</update>
+
+	<delete id="customer_delete">
+		/* customer_delete */
+		DELETE FROM CUSTOMER
+		WHERE idx in
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<select id="get_customer_info" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_customer_info */
+		SELECT    IDX, NAME, AGE, SEX, TEL, ADDRESS1, ADDRESS2, CONNECT_PATH,
+		          `RANK`, M_START, M_END, AGO_PAY_YN, MEMO, REGDATE, REGID,
+		          MODDATE, MODID, MEMBER_IDX
+		FROM      CUSTOMER
+		WHERE     IDX = #{idx}
+	</select>
+
+	<select id="get_total_customerMemo_count" parameterType="java.util.Map" resultType="Integer">
+		/* get_total_customerMemo_count */
+		SELECT    COUNT(*)
+		FROM      CUSTOMER_MEMO
+		WHERE     CUSTOMER_IDX = #{customer_idx}
+	</select>
+
+	<select id="get_customerMemo_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_customerMemo_list */
+		SELECT    a.*
+		FROM      (
+		           SELECT    @rownum:=@rownum+1 AS no,
+		                     b.IDX, b.CONTENT,
+		                     date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') AS REGDATE
+		           FROM      CUSTOMER_MEMO b, (SELECT @ROWNUM := 0) R
+		           WHERE     1 = 1
+		           AND       CUSTOMER_IDX = #{customer_idx}
+		           ORDER BY  IDX DESC
+		          ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<insert id="customer_counseling_save" parameterType="java.util.Map">
+		/* customer_counseling_save */
+		INSERT INTO CUSTOMER_MEMO
+		(CUSTOMER_IDX, CONTENT, REGDATE)
+		VALUES
+		(#{customer_idx}, #{content}, NOW())
+	</insert>
+
+	<delete id="member_counseling_delete" parameterType="java.util.Map">
+		/* member_counseling_delete */
+		DELETE FROM CUSTOMER_MEMO WHERE IDX = #{idx}
+	</delete>
+
+</mapper>
