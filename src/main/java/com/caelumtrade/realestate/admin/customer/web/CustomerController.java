@@ -57,7 +57,13 @@ public class CustomerController extends Base {
         return MODULE+"/admin/customer/customerInsert"+ADMIN_GNB_SUFFIX;
     }
 
-
+    /**
+     * 고객 정보 저장
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/customer/customer_insert")
     @ResponseBody
     @Transactional
@@ -65,6 +71,13 @@ public class CustomerController extends Base {
         Map result = new HashMap();
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(map.get("m_start") == null || map.get("m_start").equals("")) {
+            map.put("m_start", null);
+        }
+        if(map.get("m_end") == null || map.get("m_end").equals("")) {
+            map.put("m_end", null);
+        }
 
         if(dao.customer_insert(map) > 0){
             result.put("code", "S");
@@ -85,6 +98,7 @@ public class CustomerController extends Base {
     public String customer_update_move(@RequestParam Map map, Model model) throws Exception {
         model.addAttribute("top_type", "info");
         model.addAttribute("idx", map.get("idx"));
+
         if(map.get("page") != null && !map.get("page").equals("")){
             model.addAttribute("page", map.get("page"));
         } else {
@@ -110,6 +124,13 @@ public class CustomerController extends Base {
         Map result = new HashMap();
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(map.get("m_start") == null || map.get("m_start").equals("")) {
+            map.put("m_start", null);
+        }
+        if(map.get("m_end") == null || map.get("m_end").equals("")) {
+            map.put("m_end", null);
+        }
 
         if(dao.customer_update(map) > 0){
             result.put("code", "S");
