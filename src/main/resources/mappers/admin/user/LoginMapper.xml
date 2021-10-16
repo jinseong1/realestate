@@ -19,6 +19,7 @@
 		SELECT    idx, id, pw, name, sex, tel, age, address1, address2, company_idx, regdate, regid, moddate, modid
 		FROM      MEMBER
 		WHERE     1 = 1
+		AND       ID = #{id}
 	</select>
 
 	<!-- 로그인 후 가능한 메뉴 -->

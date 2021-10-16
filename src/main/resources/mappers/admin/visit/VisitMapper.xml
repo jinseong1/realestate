@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.visit.dao.VisitDAO">
+
+    <select id="get_visit_cnt" parameterType="java.util.Map" resultType="Integer">
+        /* get_visit_cnt */
+        SELECT    COUNT(*)
+        FROM      VISIT v JOIN CUSTOMER c ON v.CUSTOMER_IDX = c.IDX
+        WHERE     v.MEMBER_IDX = #{member_idx}
+        <if test="start_date != null and start_date != ''">
+        AND       DATE_FORMAT(CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M), '%Y-%m-%d %H:%i:%s') >= DATE_FORMAT(CONCAT(#{start_date}, ' ', #{start_date_h}, ':', #{start_date_m}), '%Y-%m-%d %H:%i:%s')
+        </if>
+        <if test="end_date != null and end_date != ''">
+        AND       DATE_FORMAT(CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M), '%Y-%m-%d %H:%i:%s')  &lt;= DATE_FORMAT(CONCAT(#{end_date}, ' ', #{end_date_h}, ':', #{end_date_m}), '%Y-%m-%d %H:%i:%s')
+        </if>
+    </select>
+
+    <select id="get_visit_list" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_visit_list */
+        SELECT    a.*
+        FROM      (
+                      SELECT    @rownum:=@rownum+1 AS no,
+                                v.IDX, c.NAME, c.AGE, c.RANK, c.SEX, c.TEL, c.IDX AS customer_idx,
+                                CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M) AS DATE
+                      FROM      VISIT v JOIN CUSTOMER c ON v.CUSTOMER_IDX = c.IDX, (SELECT @ROWNUM := 0) R
+                      WHERE     1 = 1
+                      AND       v.MEMBER_IDX = #{member_idx}
+                      <if test="start_date != null and start_date != ''">
+                      AND       DATE_FORMAT(CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M), '%Y-%m-%d %H:%i:%s') >= DATE_FORMAT(CONCAT(#{start_date}, ' ', #{start_date_h}, ':', #{start_date_m}), '%Y-%m-%d %H:%i:%s')
+                      </if>
+                      <if test="end_date != null and end_date != ''">
+                      AND       DATE_FORMAT(CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M), '%Y-%m-%d %H:%i:%s')  &lt;= DATE_FORMAT(CONCAT(#{end_date}, ' ', #{end_date_h}, ':', #{end_date_m}), '%Y-%m-%d %H:%i:%s')
+                      </if>
+                      ORDER BY  DATE_FORMAT(CONCAT(v.DATE, ' ', v.TIME_H, ':', v.TIME_M), '%Y-%m-%d %H:%i:%s') DESC
+                  ) a
+        WHERE     no BETWEEN #{start} AND #{end}
+    </select>
+
+</mapper>

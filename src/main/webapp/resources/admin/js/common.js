@@ -151,6 +151,91 @@ function windowReload(){
     location.reload();
 }
 
+/**
+ * 시간 세팅
+ * @param className
+ * @param type
+ */
+function setTime(className, type){
+
+    $("."+className).html('');
+
+    switch(type){
+        case 'Y':
+            var thisYear = new Date().getFullYear();
+
+            for(var i = thisYear ; i >= 1995; i--){
+                $("."+className).append("<option value='" + i + "'>" + i + "년" + "</option>");
+            }
+            break;
+        case 'y':
+            var thisYear = new Date().getFullYear();
+
+            for(var i = thisYear ; i >= 1900; i--){
+                $("."+className).append("<option value='" + i + "'>" + i + "년" + "</option>");
+            }
+            break;
+
+        case 'y_d':
+            var thisYear = new Date().getFullYear();
+
+            $("."+className).append("<option value=''>선택</option>");
+
+            for(var i = 1955 ; i <= thisYear; i++){
+                $("."+className).append("<option value='" + i + "'>" + i + "년" + "</option>");
+            }
+            /*
+            for(var i = thisYear ; i >= 1900; i--){
+                $("."+className).append("<option value='" + i + "'>" + i + "년" + "</option>");
+            }
+             */
+            break;
+
+        case 'M':
+            for(var i = 1 ; i <= 12; i++){
+                $("."+className).append("<option value='" + i + "'>" + i + "월" + "</option>");
+            }
+            break;
+        case '0M':
+            for(var i = 1 ; i <= 12; i++){
+                if(i > 9){
+                    $("."+className).append("<option value='" + i + "'>" + i + "월" + "</option>");
+                } else {
+                    $("."+className).append("<option value='0" + i + "'>" + i + "월" + "</option>");
+                }
+            }
+            break;
+        case 'H':
+            for(var i = 0 ; i <= 23; i++){
+                $("."+className).append("<option value='" + i + "'>" + i + "시" + "</option>");
+            }
+            break;
+        case 'm':
+            for(var i = 0 ; i <= 59; i++){
+                $("."+className).append("<option value='" + i + "'>" + i + "분" + "</option>");
+            }
+            break;
+        case '0H':
+            for(var i = 0 ; i <= 23; i++){
+                if(i > 9){
+                    $("."+className).append("<option value='" + i + "'>" + i + "시" + "</option>");
+                } else {
+                    $("."+className).append("<option value='0" + i + "'>" + i + "시" + "</option>");
+                }
+            }
+            break;
+        case '0m':
+            for(var i = 0 ; i <= 59; i++){
+                if(i > 9){
+                    $("."+className).append("<option value='" + i + "'>" + i + "분" + "</option>");
+                } else {
+                    $("."+className).append("<option value='0" + i + "'>" + i + "분" + "</option>");
+                }
+            }
+            break;
+    }
+}
+
 function history_change(page){
     var renewURL = location.href; // 현재 url 가져오기
     

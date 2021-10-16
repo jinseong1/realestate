@@ -20,6 +20,14 @@ public interface CustomerDAO {
     int customer_delete(List list);
     // 고객 상세 조회
     Map get_customer_info(Map map);
+    // 고객 방문 총 갯수
+    int get_member_visit_cnt(Map map);
+    // 고객 방문 리스트
+    List<Map> get_member_visit_list(Map map);
+    // 고객 방문 저장
+    int visit_save(Map map);
+    // 고객 방문 삭제
+    int member_visit_delete(Map map);
     // 고객 상담 총 갯수
     int get_total_customerMemo_count(Map map);
     // 고객 상담 리스트

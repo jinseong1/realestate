@@ -78,6 +78,12 @@ public class CustomerController extends Base {
         if(map.get("m_end") == null || map.get("m_end").equals("")) {
             map.put("m_end", null);
         }
+        if(map.get("socialSecurityNumber1") == null || map.get("socialSecurityNumber1").equals("")) {
+            map.put("socialSecurityNumber1", null);
+        }
+        if(map.get("socialSecurityNumber2") == null || map.get("socialSecurityNumber2").equals("")) {
+            map.put("socialSecurityNumber2", null);
+        }
 
         if(dao.customer_insert(map) > 0){
             result.put("code", "S");
@@ -95,9 +101,11 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_update_move")
-    public String customer_update_move(@RequestParam Map map, Model model) throws Exception {
+    public String customer_update_move(@RequestParam Map map, Model model, HttpServletRequest request) throws Exception {
         model.addAttribute("top_type", "info");
         model.addAttribute("idx", map.get("idx"));
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
 
         if(map.get("page") != null && !map.get("page").equals("")){
             model.addAttribute("page", map.get("page"));
@@ -131,8 +139,111 @@ public class CustomerController extends Base {
         if(map.get("m_end") == null || map.get("m_end").equals("")) {
             map.put("m_end", null);
         }
+        if(map.get("socialSecurityNumber1") == null || map.get("socialSecurityNumber1").equals("")) {
+            map.put("socialSecurityNumber1", null);
+        }
+        if(map.get("socialSecurityNumber2") == null || map.get("socialSecurityNumber2").equals("")) {
+            map.put("socialSecurityNumber2", null);
+        }
 
         if(dao.customer_update(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
+    /**
+     * 고객 방문 등록 이동
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/customer_visit")
+    public String customer_visit(@RequestParam Map map, Model model) throws Exception {
+        model.addAttribute("top_type", "visit");
+        model.addAttribute("idx", map.get("idx"));
+        if(map.get("page") != null && !map.get("page").equals("")){
+            model.addAttribute("page", map.get("page"));
+        } else {
+            model.addAttribute("page", 1);
+        }
+
+        return MODULE+"/admin/customer/customerVisit"+ADMIN_GNB_SUFFIX;
+    }
+
+    /**
+     * 고객 상담 리스트 호출 처리.
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/get_visit_list")
+    @ResponseBody
+    @Transactional
+    public Map get_visit_list(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        int total_count = dao.get_member_visit_cnt(map);
+
+        int page      = Integer.parseInt(map.get("page").toString());
+        int pageSize  = 20;
+        int blockSize = 10;
+
+        map.put("start", (page-1)* pageSize+1);
+        map.put("end",   page *pageSize);
+
+        result.put("list",         dao.get_member_visit_list(map));
+        result.put("pagingString", PagingUtil.adminPaging(total_count, pageSize, blockSize, page));
+        result.put("total_count",  total_count);
+
+        return result;
+    }
+
+    /**
+     * 고객 상담 저장
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/visit_save")
+    @ResponseBody
+    @Transactional
+    public Map visit_save(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(dao.visit_save(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
+    /**
+     * 고객 상담 삭제
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/member_visit_delete")
+    @ResponseBody
+    @Transactional
+    public Map member_visit_delete(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(dao.member_visit_delete(map) > 0){
             result.put("code", "S");
         } else {
             result.put("code", "E");

@@ -159,8 +159,65 @@
 		          EMAIL, ADDRESS1, ADDRESS2, CONNECT_PATH,  `RANK`, M_START, M_END, AGO_PAY_YN,
 		          MEMO, REGDATE, REGID, MODDATE, MODID, MEMBER_IDX
 		FROM      CUSTOMER
-		WHERE     IDX = #{idx}
+		WHERE     MEMBER_IDX = #{member_idx}
+		AND       IDX = #{idx}
 	</select>
+
+	<select id="get_member_visit_cnt" parameterType="java.util.Map" resultType="Integer">
+		/* get_member_visit_cnt */
+		SELECT    COUNT(*)
+		FROM      VISIT
+		WHERE     CUSTOMER_IDX = #{customer_idx}
+	</select>
+
+	<select id="get_member_visit_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_member_visit_list */
+		SELECT    a.*
+		FROM      (
+					  SELECT    @rownum:=@rownum+1 AS no,
+								b.IDX, CONCAT(b.DATE, ' ', b.TIME_H, ':', b.TIME_M) AS DATE
+					  FROM      VISIT b, (SELECT @ROWNUM := 0) R
+					  WHERE     1 = 1
+					  AND       CUSTOMER_IDX = #{customer_idx}
+					  ORDER BY  DATE_FORMAT(CONCAT(DATE, ' ', TIME_H, ':', TIME_M), '%Y-%m-%d %H:%i:%s') DESC
+				  ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<insert id="visit_save" parameterType="java.util.Map">
+		/* visit_save */
+		INSERT INTO VISIT
+		(
+		 CUSTOMER_IDX,
+		 MEMBER_IDX,
+		 DATE,
+		 TIME_H,
+		 TIME_M,
+		 REGDATE,
+		 REGID,
+		 MODDATE,
+		 MODID
+		)
+		VALUES
+		(
+		 #{customer_idx},
+		 #{member_idx},
+		 #{date},
+		 #{time_h},
+		 #{time_h},
+		 (SELECT DATE_ADD(NOW(), INTERVAL 9 HOUR)),
+		 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
+		 (SELECT DATE_ADD(NOW(), INTERVAL 9 HOUR)),
+		 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
+		)
+	</insert>
+
+	<delete id="member_visit_delete" parameterType="java.util.Map">
+		/* member_visit_delete */
+		DELETE FROM VISIT
+		WHERE  MEMBER_IDX = #{member_idx}
+		AND    IDX = #{idx}
+	</delete>
 
 	<select id="get_total_customerMemo_count" parameterType="java.util.Map" resultType="Integer">
 		/* get_total_customerMemo_count */

@@ -19,7 +19,7 @@
                     <%--
                     <li <c:if test="${top_type == 'payList'}">class="on"</c:if>><a href="/admin/customer/customer_payList?idx=${idx}&page=${page}">계약내역</a></li>
                     --%>
-                    <li><a href="javascript:alert('개발 진행 중입니다.')">계약내역</a></li>
+                    <li <c:if test="${top_type == 'visit'}">class="on"</c:if>><a href="/admin/customer/customer_visit?idx=${idx}&page=${page}">방문등록</a></li>
                     <li <c:if test="${top_type == 'counseling'}">class="on"</c:if>><a href="/admin/customer/customer_counseling?idx=${idx}&page=${page}">상담등록/상담내역</a></li>
                 </ul>
                 <div class="form_wrap">
