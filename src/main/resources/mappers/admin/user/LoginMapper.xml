@@ -30,13 +30,13 @@
 
 	<!-- 메뉴 최상단 호출 -->
 	<select id="menuList" parameterType="java.util.HashMap" resultMap="menuMap">
-		/* admin.user..UserMapper.menuList */
+		/* admin.user.UserMapper.menuList */
 		SELECT    M.IDX, M.MENU_NAME, M.MENU_PARENT_IDX, M.MENU_LEVEL, M.MENU_SNO, M.ACTIVE_ID, M.MENU_URL, M.ROLE_DETAIL_CODE
 		FROM      MENU M
 		              JOIN MENU_LEVEL L ON M.ACTIVE_ID = L.ACTIVE_ID
 		WHERE     M.MENU_LEVEL = 1
 		AND       L.LEVLE = #{level}
-		ORDER BY  M.MENU_SNO
+		ORDER BY  CAST(M.MENU_SNO AS unsigned)
 	</select>
 
 	<!-- 메뉴 2단계 호출 -->
@@ -48,7 +48,7 @@
 		WHERE     1=1
 		AND       M.MENU_PARENT_IDX = #{MENU_SNO}
 		AND       M.MENU_LEVEL = 2
-		ORDER BY  M.MENU_SNO
+		ORDER BY  CAST(M.MENU_SNO AS unsigned)
 	</select>
 
 	<select id="selectUser" parameterType="com.caelumtrade.realestate.admin.user.vo.MemberVO" resultType="com.caelumtrade.realestate.admin.user.vo.MemberVO">
