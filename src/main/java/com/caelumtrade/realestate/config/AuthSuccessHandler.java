@@ -38,9 +38,10 @@ public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         input_data = dao.get_member(input_data);
 
         session.removeAttribute("msg");
-        session.setAttribute("admin_idx",  input_data.get("idx"));
-        session.setAttribute("admin_id",   request.getParameter("id"));
-        session.setAttribute("admin_name", input_data.get("name"));
+        session.setAttribute("admin_idx",   input_data.get("idx"));
+        session.setAttribute("admin_id",    request.getParameter("id"));
+        session.setAttribute("admin_name",  input_data.get("name"));
+        session.setAttribute("admin_level", input_data.get("level"));
 
         response.sendRedirect("/admin/user/loginConfirm");
     }

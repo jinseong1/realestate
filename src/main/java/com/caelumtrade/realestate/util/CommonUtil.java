@@ -88,6 +88,15 @@ public class CommonUtil {
     }
 
     /**
+     * 어드민 level
+     * @param req
+     * @return
+     */
+    public static String getSessionLevel(HttpServletRequest req){
+        return req.getSession().getAttribute("admin_level").toString();
+    }
+
+    /**
      * 고객 접속 아이디
      * @param req
      * @return

@@ -93,7 +93,8 @@ public class LoginController extends Base {
     @ResponseBody
     @Transactional
     public String admin_getMenu(@RequestParam Map map, HttpServletRequest req) throws Exception{
-        map.put("id", CommonUtil.getSessionId(req));
+        map.put("id",    CommonUtil.getSessionId(req));
+        map.put("level", CommonUtil.getSessionLevel(req));
 
         StringBuilder bf = new StringBuilder();
         List<MenuVO> result =  loginDAO.menuList(map);
