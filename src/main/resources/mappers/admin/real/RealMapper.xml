@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.real.dao.RealDAO">
+
+	<select id="get_real_cnt" parameterType="java.util.Map" resultType="Integer">
+		/* get_real_cnt */
+		SELECT    COUNT(*)
+		FROM      REAL_ESTATE
+		WHERE     1=1
+		AND       MEMBER_IDX = #{member_idx}
+	</select>
+
+	<select id="get_real_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_real_list */
+		SELECT    a.*
+		FROM      (SELECT    @rownum := @rownum + 1                      AS no,
+						     b.IDX, b.TEL, b.NAME, b.PLACE_TYPE, b.EMAIL, b.PREFERENCE, b.TYPE,
+						     date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') as REGDATE,
+						     b.REGID
+				   FROM      REAL_ESTATE b, (SELECT @ROWNUM := 0) R
+				   WHERE     1 = 1
+				   AND       b.MEMBER_IDX = #{member_idx}
+				   ORDER BY  IDX DESC
+			      ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+</mapper>

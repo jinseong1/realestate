@@ -203,6 +203,7 @@
                     html += '            <input type="checkbox" class="blind" id="check_'+data.list[i].IDX+'" name="restock_ck" data-idx="'+data.list[i].IDX+'">';
                     html += '            <label for="check_'+data.list[i].IDX+'"></label>';
                     html += '        </div>';
+                    html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].no;
                     html += '    </td>';

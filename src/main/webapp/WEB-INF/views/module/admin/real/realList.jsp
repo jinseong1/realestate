@@ -11,7 +11,7 @@
 
                 <div class="common_title_wrap">
                     <div class="title_wrap">
-                        <h2>고객 리스트</h2>
+                        <h2>부동산 리스트</h2>
                     </div>
                 </div>
                 <div class="form_wrap">
@@ -25,36 +25,53 @@
                                 <col style="width: calc(100% - 180px)">
                             </colgroup>
                             <tr>
-                                <td class="infotd">등급별</td>
+                                <td class="infotd">구분</td>
                                 <td>
                                     <div class="td_inner">
                                         <div class="option_list">
-                                            <span class="option_txt">등급</span>
-                                            <select class="hidden_option" name="rank">
+                                            <span class="option_txt">구분</span>
+                                            <select class="hidden_option" name="type">
                                                 <option value ="">선택</option>
-                                                <option value ="S">S등급</option>
-                                                <option value ="A">A등급</option>
-                                                <option value ="B">B등급</option>
-                                                <option value ="C">C등급</option>
+                                                <option value ="">부동산</option>
+                                                <option value ="">개인</option>
+                                                <option value ="">시행사</option>
+                                                <option value ="">건설사</option>
                                             </select>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="infotd">기존 고객 여부</td>
+                                <td class="infotd">장소구분</td>
                                 <td>
                                     <div class="td_inner">
-                                        <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="ago_pay_yn" id="ago_pay_yn" value="Y" class="blind"/>
-                                            <label for="ago_pay_yn"></label>
+                                        <div class="option_list">
+                                            <span class="option_txt">구분</span>
+                                            <select class="hidden_option" name="type">
+                                                <option value ="">선택</option>
+                                                <option value ="">부동산</option>
+                                                <option value ="">개인</option>
+                                                <option value ="">시행사</option>
+                                                <option value ="">건설사</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="infotd">자금대</td>
+                                <td class="infotd">선호물건</td>
                                 <td>
-                                    <div class="input_wrap w283">
-                                        <input type="text" id="money" name="money" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                    <div class="td_inner">
+                                        <div class="check_wrap routeCheck">
+                                            <input type="checkbox" name="pay_cash_yn_all" id="pay_cash_yn_all" value="A" class="blind" checked/>
+                                            <label for="pay_cash_yn_all"><span>전체</span></label>
+                                        </div>
+                                        <div class="check_wrap routeCheck">
+                                            <input type="checkbox" name="pay_cash_yn_y" id="pay_cash_yn_y" value="Y" class="blind" checked/>
+                                            <label for="pay_cash_yn_y"><span>발급</span></label>
+                                        </div>
+                                        <div class="check_wrap routeCheck">
+                                            <input type="checkbox" name="pay_cash_yn_n" id="pay_cash_yn_n" value="N" class="blind" checked/>
+                                            <label for="pay_cash_yn_n"><span>미발급</span></label>
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="infotd">검색어</td>
@@ -92,7 +109,7 @@
                             </li>
                         </ul>
                         <div class="right_btn button_90 flex_center">
-                            <button class="download_btn" onclick="javascript:insertMove()">고객 등록</button>
+                            <button class="download_btn" onclick="javascript:insertMove()">부동산 등록</button>
                         </div>
                     </div>
                 </div>
@@ -109,7 +126,6 @@
                                 <col width="15%;">
                                 <col width="10%;">
                                 <col width="10%;">
-                                <col width="10%;">
                                 <col width="15%;">
                                 <col width="15%;">
                             </colgroup>
@@ -123,11 +139,10 @@
                                 </th>
                                 <th class="arrange">NO</th>
                                 <th class="arrange">성명</th>
-                                <th class="arrange">핸드폰</th>
-                                <th class="arrange">등급</th>
-                                <th class="arrange">성별</th>
-                                <th class="arrange">연령대</th>
-                                <th class="arrange">자금력</th>
+                                <th class="arrange">구분</th>
+                                <th class="arrange">전화번호</th>
+                                <th class="arrange">장소구분</th>
+                                <th class="arrange">선호물건</th>
                                 <th class="arrange">둥록일</th>
                             </tr>
                             </thead>
@@ -178,11 +193,11 @@
     });
 
     function insertMove(){
-        location.href = "/admin/customer/customer_insert_move?page="+$('#page').val();
+        location.href = "/admin/real/real_insert_move?page="+$('#page').val();
     }
 
     function update(idx){
-        location.href = "/admin/customer/customer_update_move?idx="+idx+"&page="+$('#page').val();
+        location.href = "/admin/real/real_update_move?idx="+idx+"&page="+$('#page').val();
     }
 
     /**
@@ -195,7 +210,7 @@
         var ajax_data =  $('#searchForm').serialize();
 
         $.ajax({
-            url:'/admin/customer/get_customer_list', //request 보낼 서버의 경로
+            url:'/admin/real/get_real_list', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             async:false,
@@ -205,7 +220,7 @@
 
                 if(data.list.length == 0){
                     html += '<tr>';
-                    html += '    <td colspan="9">저장된 고객이 없습니다.</td>';
+                    html += '    <td colspan="9">저장된 부동산이 없습니다.</td>';
                     html += '<tr>';
                 }
 
@@ -218,41 +233,24 @@
                     html += '        </div>';
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].no;
+                    html += data.list[i].no;
                     html += '    </td>';
                     html += '    <td>';
                     html += '    <a href="javascript:void(0);" onclick="update('+data.list[i].IDX+');">';
-                    html += '        '+data.list[i].NAME;
+                    html += data.list[i].NAME;
                     html += '    </a>';
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].TEL;
+                    html += data.list[i].TYPE;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].RANK;
+                    html += data.list[i].TEL;
                     html += '    </td>';
                     html += '    <td>';
-                    if(data.list[i].SEX == 'M'){
-                        html += '남자';
-                    } else {
-                        html += '여자';
-                    }
+                    html += data.list[i].PLACE_TYPE;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].AGE;
-                    html += '    </td>';
-                    html += '    <td>';
-                    if(data.list[i].M_START != null || data.list[i].M_END != null){
-                        if(data.list[i].M_START != null){
-                            html += data.list[i].M_START.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                        }
-                        html += ' ~ ';
-                        if(data.list[i].M_END != null){
-                            html += data.list[i].M_END.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-                        }
-                    } else {
-                        html += '-';
-                    }
+                    html += '        '+data.list[i].PREFERENCE;
                     html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE;

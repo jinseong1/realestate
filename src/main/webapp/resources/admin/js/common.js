@@ -262,28 +262,6 @@ function localStorogeSave(url){
     /**
      * 달력이 여러개 인 경우가 있어 화면 별 달력 정보를 담는다.
      */
-    if(url.indexOf('/admin/member/dormantMember') != -1){ // 휴먼 회원
-        localStorage.setItem("first_becoming_start", $('input[name=first_becoming_start]').val());
-        localStorage.setItem("first_becoming_end",   $('input[name=first_becoming_end]').val());
-        localStorage.setItem("dormant_date_start",   $('input[name=dormant_date_start]').val());
-        localStorage.setItem("dormant_date_end",     $('input[name=dormant_date_end]').val());
-    } else if (url.indexOf('/admin/site/popup') != -1) { // 팝업관리
-        localStorage.setItem("reg_date_start", $('input[name=reg_date_start]').val());
-        localStorage.setItem("reg_date_end",   $('input[name=reg_date_end]').val());
-        localStorage.setItem("start_date",     $('input[name=start_date]').val());
-        localStorage.setItem("end_date",       $('input[name=end_date]').val());
-    } else if(url.indexOf('/admin/books/published_volume') != -1 || url.indexOf('/admin/books/polar_books') != -1) { // 단행본 혹은 폴라북시
-        localStorage.setItem("reg_date_start", $('input[name=reg_date_start]').val());
-        localStorage.setItem("reg_date_end",   $('input[name=reg_date_end]').val());
-        localStorage.setItem("pub_date_start", $('input[name=pub_date_start]').val());
-        localStorage.setItem("pub_date_end",   $('input[name=pub_date_end]').val());
-    } else if(url.indexOf('/admin/customerService/inquiry') != -1) { // 1:1 문의
-        localStorage.setItem("reg_date_start", $('input[name=reg_date_start]').val());
-        localStorage.setItem("reg_date_end",   $('input[name=reg_date_end]').val());
-        localStorage.setItem("start_date",     $('input[name=start_date]').val());
-        localStorage.setItem("end_date",       $('input[name=end_date]').val());
-    } else { // 나머지
-        localStorage.setItem("start_date", $('.start .picker').val());
-        localStorage.setItem("end_date",   $('.end .picker').val());
-    }
+    localStorage.setItem("start_date", $('.start .picker').val());
+    localStorage.setItem("end_date",   $('.end .picker').val());
 }
