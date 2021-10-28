@@ -59,9 +59,7 @@
 					<h4><%=session.getAttribute("admin_name")%> 님</h4>
 					<div class="admin_menu">
 						<ul>
-							<%--
-							<li><a href="javascript:void(0);" onclick="jsUserModForm()">사용자 정보</a></li>
-							--%>
+							<li><a href="/admin/user/user_change">사용자 정보</a></li>
 							<li><a href="/admin/user/logout">로그아웃</a></li>
 						</ul>
 					</div>

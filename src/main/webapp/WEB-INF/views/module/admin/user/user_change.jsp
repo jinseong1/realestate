@@ -12,35 +12,31 @@
                 <div class="common_title_wrap">
                     <div class="title_wrap">
                         <h2>내 정보 수정</h2>
-
-                        <img src="" onerror=""/>
-
                     </div>
                 </div>
                 <div class="form_wrap">
                     <form name="regForm" id="regForm" onsubmit="return false;" method="post">
-                        <input type="hidden" name="temp_id" value="${data.id}">
                         <table>
                             <colgroup>
                                 <col style="width: 180px">
                                 <col style="width: calc(100% - 180px)">
                             </colgroup>
                             <tr>
-                                <td class="infotd">이름*</td>
+                                <td class="infotd">아이디*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="input_wrap w400">
-                                            <input type="text" id="name" name="name" value="${data.name}" disabled>
+                                            <input type="text" id="id" name="id" value="${data.ID}" disabled>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="infotd">아이디*</td>
+                                <td class="infotd">이름*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="input_wrap w400">
-                                            <input type="text" id="id" name="id" value="${data.id}" disabled>
+                                            <input type="text" id="name" name="name" value="${data.NAME}">
                                         </div>
                                     </div>
                                 </td>
@@ -70,7 +66,7 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="input_wrap w400">
-                                            <input type="text" id="cell" name="cell" value="${data.cell}">
+                                            <input type="text" id="tel" name="tel" value="${data.TEL}">
                                         </div>
                                     </div>
                                 </td>
@@ -80,33 +76,11 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="input_wrap w400">
-                                            <input type="text" id="email" name="email" value="${data.email}">
+                                            <input type="text" id="email" name="email" value="${data.EMAIL}">
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="infotd">1:1문의 상담 지정</td>
-                                <td colspan="3">
-                                    <div class="td_inner">
-                                        <div class="input_wrap w400">
-                                            <input type="text" id="role" name="role" value="${inquiry_person_in_charge}" disabled>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <%--
-                            <tr>
-                                <td class="infotd">최근변경일자</td>
-                                <td colspan="3">
-                                    <div class="td_inner">
-                                        <div class="input_wrap w400">
-                                            <input type="text" id="mod_date" name="mod_date" value="" disabled>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            --%>
                         </table>
                     </form>
                 </div>
@@ -128,6 +102,11 @@
      */
     function save(){
 
+        if($.trim($('#name').val()) == ''){
+            alert('이름을 입력하여 주세요.');
+            $('#name').focus();
+            return false;
+        }
         if(
             ($.trim($('#pwd').val()) != '' && $.trim($('#pwd_temp').val()) == '')
             ||
@@ -154,9 +133,9 @@
             $('#pwd').focus();
             return false;
         }
-        if($.trim($('#cell').val()) == ''){
+        if($.trim($('#tel').val()) == ''){
             alert('연락처를 입력하여 주세요.');
-            $('#cell').focus();
+            $('#tel').focus();
             return false;
         }
         if($.trim($('#email').val()) == ''){
@@ -170,7 +149,7 @@
         }
 
         $.ajax({
-            url:'/admin/admin/user_change_save', //request 보낼 서버의 경로
+            url:'/admin/user/user_change_save', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:$('#regForm').serialize(), //보낼 데이터
             async : false,
@@ -182,7 +161,7 @@
                 }
             },
             error: function(err) {
-                alert_msg(err);
+                console.log(err);
             }
         });
     }

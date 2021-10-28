@@ -4,9 +4,21 @@
 
 	<select id="getUser" parameterType="java.util.Map" resultType="java.util.Map">
 		/* getUser */
-		SELECT    IDX, ID, NAME, SEX, TEL, AGE, ADDRESS1, ADDRESS2, COMPANY_IDX
+		SELECT    IDX, ID, NAME, SEX, TEL, AGE, EMAIL, ADDRESS1, ADDRESS2, COMPANY_IDX
 		FROM      MEMBER
 		WHERE     IDX = #{admin_idx}
 	</select>
+
+	<update id="user_change_save" parameterType="java.util.Map">
+		/* user_change_save */
+		UPDATE MEMBER
+		SET    NAME  = #{name},
+		       TEL   = #{tel},
+		       <if test="pwd != null and pwd != ''">
+		       PW    = #{pwd},
+			   </if>
+		       EMAIL = #{email}
+		WHERE  IDX   = #{admin_idx}
+	</update>
 
 </mapper>

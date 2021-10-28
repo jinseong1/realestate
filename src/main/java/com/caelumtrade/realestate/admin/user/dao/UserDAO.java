@@ -7,7 +7,9 @@ import java.util.Map;
 @Repository
 public interface UserDAO {
 
-    int getUser(Map map);
+    Map getUser(Map map);
+
+    int user_change_save(Map map);
 
 }
 
