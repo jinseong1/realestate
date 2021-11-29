@@ -128,7 +128,7 @@
                                 <th class="arrange">성별</th>
                                 <th class="arrange">연령대</th>
                                 <th class="arrange">자금력</th>
-                                <th class="arrange">둥록일</th>
+                                <th class="arrange">등록일</th>
                             </tr>
                             </thead>
                             <tbody id="ajax_data">

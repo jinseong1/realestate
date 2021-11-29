@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.common.dao.CommonDAO">
+
+    <select id="get_administrative_district" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_administrative_district */
+        SELECT    IDX, CITY, DISTRICT
+        FROM      ADMINISTRATIVE_DISTRICT
+        WHERE     1 = 1
+        <if test="country != null and country != ''">
+        AND       COUNTRY   = #{country}
+        </if>
+        <choose>
+          <when test="city != null and city != ''">
+              AND       CITY = (SELECT CITY FROM ADMINISTRATIVE_DISTRICT WHERE IDX = #{city})
+              AND       DISTRICT  != '전체'
+          </when>
+          <otherwise>
+              AND       DISTRICT  = '전체'
+          </otherwise>
+        </choose>
+        ORDER BY  CITY DESC, DISTRICT DESC
+    </select>
+
+</mapper>

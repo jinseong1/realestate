@@ -14,15 +14,80 @@
 		/* get_real_list */
 		SELECT    a.*
 		FROM      (SELECT    @rownum := @rownum + 1                      AS no,
-						     b.IDX, b.TEL, b.NAME, b.PLACE_TYPE, b.EMAIL, b.PREFERENCE, b.TYPE,
+						     b.IDX, b.TEL, b.NAME, ADB.CITY AS PLACE_TYPE, b.EMAIL, b.PREFERENCE, CC.CODE_NAME AS TYPE,
 						     date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') as REGDATE,
 						     b.REGID
-				   FROM      REAL_ESTATE b, (SELECT @ROWNUM := 0) R
+				   FROM      REAL_ESTATE b
+								 LEFT OUTER JOIN ADMINISTRATIVE_DISTRICT ADB ON b.PLACE_TYPE = ADB.idx
+								 LEFT OUTER JOIN ADMINISTRATIVE_DISTRICT ADP ON b.PREFERENCE = ADP.idx
+								 LEFT OUTER JOIN COMMON_CODE_D CC            ON b.TYPE = CC.CODE AND CC.CODE_H = 'TYPE',
+				             (SELECT @ROWNUM := 0) R
 				   WHERE     1 = 1
 				   AND       b.MEMBER_IDX = #{member_idx}
 				   ORDER BY  IDX DESC
 			      ) a
 		WHERE     no BETWEEN #{start} AND #{end}
 	</select>
+
+	<select id="get_real" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_real */
+		SELECT    IDX, NAME, TYPE, TEL, EMAIL, COUNTRY,
+		          CITY, PLACE_TYPE, PREFERENCE
+		FROM      REAL_ESTATE
+		WHERE     MEMBER_IDX = #{member_idx}
+		AND       IDX = #{IDX}
+	</select>
+
+	<insert id="real_insert" parameterType="java.util.Map">
+		/* real_insert */
+		INSERT INTO REAL_ESTATE
+		(
+			 NAME,
+			 TYPE,
+			 TEL,
+			 EMAIL,
+			 COUNTRY,
+			 CITY,
+			 PLACE_TYPE,
+			 PREFERENCE,
+			 REGDATE,
+			 REGID,
+			 MODDATE,
+			 MODID,
+			 MEMBER_IDX
+		)
+		VALUES
+		(
+			#{name},
+			#{type},
+			#{tel},
+			#{email},
+			#{country},
+			#{city},
+			#{district},
+			#{preference},
+			NOW(),
+			(SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
+			NOW(),
+			(SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
+			#{member_idx}
+		)
+	</insert>
+
+	<update id="real_update" parameterType="java.util.Map">
+		/* real_update */
+		UPDATE REAL_ESTATE
+		SET    NAME       = #{name},
+		       TYPE       = #{type},
+		       TEL        = #{tel},
+		       EMAIL      = #{email},
+		       COUNTRY    = #{country},
+		       CITY       = #{city},
+		       PLACE_TYPE = #{district},
+		       PREFERENCE = #{preference},
+		       MODDATE    = NOW(),
+		       MODID      = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
+		WHERE  IDX = #{idx}
+	</update>
 
 </mapper>

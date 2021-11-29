@@ -236,6 +236,27 @@ function setTime(className, type){
     }
 }
 
+function get_administrative_district(country, city){
+
+    var ajax_data = {};
+    ajax_data.country = country;
+    ajax_data.city    = city;
+
+    $.ajax({
+        url:'/common/get_administrative_district', //request 보낼 서버의 경로
+        type:'post', // 메소드(get, post, put 등)
+        data:ajax_data, //보낼 데이터
+        async : false,
+        success: function(data) {
+            return data;
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+
+}
+
 function history_change(page){
     var renewURL = location.href; // 현재 url 가져오기
     

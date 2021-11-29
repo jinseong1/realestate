@@ -81,7 +81,57 @@ public class RealController extends Base {
         return result;
     }
 
+    /**
+     * 부동산 등록
+     * @param map
+     * @param model
+     * @return
+     */
+    @RequestMapping("/real/real_insert_move")
+    public String real_insert_move(@RequestParam Map map, Model model,  HttpServletRequest request){
 
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        // 수정일 시
+        if(map.get("idx") != null && !map.get("idx").equals("")){
+            model.addAttribute("data", dao.get_real(map));
+            model.addAttribute("idx", map.get("idx"));
+        }
+
+        return MODULE+"/admin/real/realInsert"+ADMIN_GNB_SUFFIX;
+    }
+
+    /**
+     * 부동산 저장
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/real/real_save")
+    @ResponseBody
+    @Transactional
+    public Map real_save(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(map.get("idx") != null && !map.get("idx").equals("")){ // 수정
+            if(dao.real_update(map) > 0){
+                result.put("code", "S");
+            } else {
+                result.put("code", "E");
+            }
+        } else { // 저장
+            if(dao.real_insert(map) > 0){
+                result.put("code", "S");
+            } else {
+                result.put("code", "E");
+            }
+        }
+
+        return result;
+    }
 
 
 }

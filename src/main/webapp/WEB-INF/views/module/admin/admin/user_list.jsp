@@ -43,7 +43,7 @@
                             </tr>
                         </table>
                         <div class="btn_submit">
-                            <button type="button" onclick="jsReset();">초기화</button>
+                            <button type="button" onclick="windowReload();">초기화</button>
                             <button type="button" onclick="getList(1);">검색</button>
                         </div>
                     </form>

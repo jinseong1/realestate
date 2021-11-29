@@ -143,7 +143,7 @@
                                 <th class="arrange">전화번호</th>
                                 <th class="arrange">장소구분</th>
                                 <th class="arrange">선호물건</th>
-                                <th class="arrange">둥록일</th>
+                                <th class="arrange">등록일</th>
                             </tr>
                             </thead>
                             <tbody id="ajax_data">
@@ -197,7 +197,7 @@
     }
 
     function update(idx){
-        location.href = "/admin/real/real_update_move?idx="+idx+"&page="+$('#page').val();
+        location.href = "/admin/real/real_insert_move?idx="+idx+"&page="+$('#page').val();
     }
 
     /**
