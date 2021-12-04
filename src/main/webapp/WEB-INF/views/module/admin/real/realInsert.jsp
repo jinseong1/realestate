@@ -16,7 +16,7 @@
                 </div>
                 <div class="form_wrap">
                     <form name="regForm" id="regForm" onsubmit="return false;" method="post">
-                        <input type="hidden" id="idx" name="idx" value="${idx}">
+                        <input type="hidden" id="idx" name="idx" value="${data.IDX}">
                         <table>
                             <colgroup>
                                 <col style="width: 10%">
@@ -26,17 +26,17 @@
                                 <td class="infotd">업체명*</td>
                                 <td>
                                     <div class="input_wrap w283">
-                                        <input type="text" id="name" name="name">
+                                        <input type="text" id="name" name="name" value="${data.NAME}">
                                     </div>
                                 </td>
                                 <td class="infotd">구분</td>
                                 <td>
                                     <div class="option_list">
                                         <select class="hidden_option" name="type">
-                                            <option value ="20">부동산</option>
-                                            <option value ="30">시행사</option>
-                                            <option value ="40">건설사</option>
-                                            <option value ="50">일반인</option>
+                                            <option value="20">부동산</option>
+                                            <option value="30">시행사</option>
+                                            <option value="40">건설사</option>
+                                            <option value="50">일반인</option>
                                         </select>
                                     </div>
                                 </td>
@@ -45,13 +45,13 @@
                                 <td class="infotd">전화번호*</td>
                                 <td>
                                     <div class="input_wrap w283">
-                                        <input type="text" id="tel" name="tel">
+                                        <input type="text" id="tel" name="tel" value="${data.TEL}">
                                     </div>
                                 </td>
                                 <td class="infotd">E-Mail</td>
                                 <td>
                                     <div class="input_wrap w283">
-                                        <input type="text" id="email" name="email">
+                                        <input type="text" id="email" name="email" value="${data.EMAIL}">
                                     </div>
                                 </td>
                             </tr>
@@ -80,39 +80,39 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind"/>
                                             <label for="preference_1"><span>상가</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_2" id="preference_2" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_2" id="preference_2" value="Y" class="blind"/>
                                             <label for="preference_2"><span>상가주택</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_3" id="preference_3" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_3" id="preference_3" value="Y" class="blind"/>
                                             <label for="preference_3"><span>주택</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_4" id="preference_4" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_4" id="preference_4" value="Y" class="blind"/>
                                             <label for="preference_4"><span>아파트</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_5" id="preference_5" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_5" id="preference_5" value="Y" class="blind"/>
                                             <label for="preference_5"><span>오피스텔</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_6" id="preference_6" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_6" id="preference_6" value="Y" class="blind"/>
                                             <label for="preference_6"><span>호텔</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_7" id="preference_7" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_7" id="preference_7" value="Y" class="blind"/>
                                             <label for="preference_7"><span>토지</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_8" id="preference_8" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_8" id="preference_8" value="Y" class="blind"/>
                                             <label for="preference_8"><span>생활형<br/>숙박시설</span></label>
                                         </div>
                                         <div class="check_wrap">
-                                            <input type="checkbox" name="preference_9" id="preference_9" value="Y" class="blind" checked/>
+                                            <input type="checkbox" name="preference_9" id="preference_9" value="Y" class="blind"/>
                                             <label for="preference_9"><span>도시형<br/>생활주택</span></label>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                             <tr>
                                 <td class="infotd">특이사항</td>
                                 <td colspan="3">
-                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 150px;"></textarea>
+                                    <textarea name="memo" id="memo" maxlength="1000" style="width: 100%; height: 150px;">${data.MEMO}</textarea>
                                 </td>
                             </tr>
                         </table>
@@ -156,6 +156,45 @@
         });
 
         get_administrative_district();
+
+        if('${data.IDX}' != '') { // 수정일 경우
+            $('[name=type]').val('${data.TYPE}');
+            $('[name=city]').val('${data.CITY}');
+            get_administrative_district('${data.CITY}');
+            $('[name=city]').val('${data.CITY}');
+            $('[name=district]').val('${data.PLACE_TYPE}');
+
+            const preference = '${data.PREFERENCE}';
+            if(preference.indexOf('1A') != -1) {
+                $('#preference_1').prop('checked', true);
+            }
+            if(preference.indexOf('2A') != -1) {
+                $('#preference_2').prop('checked', true);
+            }
+            if(preference.indexOf('3A') != -1) {
+                $('#preference_3').prop('checked', true);
+            }
+            if(preference.indexOf('4A') != -1) {
+                $('#preference_4').prop('checked', true);
+            }
+            if(preference.indexOf('5A') != -1) {
+                $('#preference_5').prop('checked', true);
+            }
+            if(preference.indexOf('6A') != -1) {
+                $('#preference_6').prop('checked', true);
+            }
+            if(preference.indexOf('7A') != -1) {
+                $('#preference_7').prop('checked', true);
+            }
+            if(preference.indexOf('8A') != -1) {
+                $('#preference_8').prop('checked', true);
+            }
+            if(preference.indexOf('9A') != -1) {
+                $('#preference_9').prop('checked', true);
+            }
+
+
+        }
 
     });
 

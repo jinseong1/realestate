@@ -82,7 +82,7 @@ public class RealController extends Base {
     }
 
     /**
-     * 부동산 등록
+     * 부동산 등록 이동
      * @param map
      * @param model
      * @return
@@ -95,7 +95,6 @@ public class RealController extends Base {
         // 수정일 시
         if(map.get("idx") != null && !map.get("idx").equals("")){
             model.addAttribute("data", dao.get_real(map));
-            model.addAttribute("idx", map.get("idx"));
         }
 
         return MODULE+"/admin/real/realInsert"+ADMIN_GNB_SUFFIX;
@@ -116,6 +115,36 @@ public class RealController extends Base {
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
 
+        StringBuffer preference = new StringBuffer();
+        if(nvl(map.get("preference_1"), "").equals("Y")){
+            preference.append("1A");
+        }
+        if(nvl(map.get("preference_2"), "").equals("Y")){
+            preference.append("2A");
+        }
+        if(nvl(map.get("preference_3"), "").equals("Y")){
+            preference.append("3A");
+        }
+        if(nvl(map.get("preference_4"), "").equals("Y")){
+            preference.append("4A");
+        }
+        if(nvl(map.get("preference_5"), "").equals("Y")){
+            preference.append("5A");
+        }
+        if(nvl(map.get("preference_6"), "").equals("Y")){
+            preference.append("6A");
+        }
+        if(nvl(map.get("preference_7"), "").equals("Y")){
+            preference.append("7A");
+        }
+        if(nvl(map.get("preference_8"), "").equals("Y")){
+            preference.append("8A");
+        }
+        if(nvl(map.get("preference_9"), "").equals("Y")){
+            preference.append("9A");
+        }
+
+        map.put("preference", preference.toString());
         if(map.get("idx") != null && !map.get("idx").equals("")){ // 수정
             if(dao.real_update(map) > 0){
                 result.put("code", "S");
@@ -131,6 +160,14 @@ public class RealController extends Base {
         }
 
         return result;
+    }
+
+    public Object nvl(Object obj, Object defaults) {
+        if(obj == null || obj.equals("")){
+            return defaults;
+        } else {
+            return obj;
+        }
     }
 
 

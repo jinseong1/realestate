@@ -32,25 +32,25 @@
                                             <span class="option_txt">구분</span>
                                             <select class="hidden_option" name="type">
                                                 <option value ="">선택</option>
-                                                <option value ="">부동산</option>
-                                                <option value ="">개인</option>
-                                                <option value ="">시행사</option>
-                                                <option value ="">건설사</option>
+                                                <option value="20">부동산</option>
+                                                <option value="30">시행사</option>
+                                                <option value="40">건설사</option>
+                                                <option value="50">일반인</option>
                                             </select>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="infotd">장소구분</td>
                                 <td>
-                                    <div class="td_inner">
+                                    <div style="display: flex;">
                                         <div class="option_list">
-                                            <span class="option_txt">구분</span>
-                                            <select class="hidden_option" name="type">
-                                                <option value ="">선택</option>
-                                                <option value ="">부동산</option>
-                                                <option value ="">개인</option>
-                                                <option value ="">시행사</option>
-                                                <option value ="">건설사</option>
+                                            <select class="hidden_option" name="city">
+                                                <option value="">선택</option>
+                                            </select>
+                                        </div>
+                                        <div class="option_list" style="margin-left: 10px;">
+                                            <select class="hidden_option" name="district">
+                                                <option value="">선택</option>
                                             </select>
                                         </div>
                                     </div>
@@ -58,37 +58,63 @@
                             </tr>
                             <tr>
                                 <td class="infotd">선호물건</td>
-                                <td>
+                                <td colspan="3">
                                     <div class="td_inner">
-                                        <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="pay_cash_yn_all" id="pay_cash_yn_all" value="A" class="blind" checked/>
-                                            <label for="pay_cash_yn_all"><span>전체</span></label>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind"/>
+                                            <label for="preference_1"><span>상가</span></label>
                                         </div>
-                                        <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="pay_cash_yn_y" id="pay_cash_yn_y" value="Y" class="blind" checked/>
-                                            <label for="pay_cash_yn_y"><span>발급</span></label>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_2" id="preference_2" value="Y" class="blind"/>
+                                            <label for="preference_2"><span>상가주택</span></label>
                                         </div>
-                                        <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="pay_cash_yn_n" id="pay_cash_yn_n" value="N" class="blind" checked/>
-                                            <label for="pay_cash_yn_n"><span>미발급</span></label>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_3" id="preference_3" value="Y" class="blind"/>
+                                            <label for="preference_3"><span>주택</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_4" id="preference_4" value="Y" class="blind"/>
+                                            <label for="preference_4"><span>아파트</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_5" id="preference_5" value="Y" class="blind"/>
+                                            <label for="preference_5"><span>오피스텔</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_6" id="preference_6" value="Y" class="blind"/>
+                                            <label for="preference_6"><span>호텔</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_7" id="preference_7" value="Y" class="blind"/>
+                                            <label for="preference_7"><span>토지</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_8" id="preference_8" value="Y" class="blind"/>
+                                            <label for="preference_8"><span>생활형<br/>숙박시설</span></label>
+                                        </div>
+                                        <div class="check_wrap">
+                                            <input type="checkbox" name="preference_9" id="preference_9" value="Y" class="blind"/>
+                                            <label for="preference_9"><span>도시형<br/>생활주택</span></label>
                                         </div>
                                     </div>
                                 </td>
+                            </tr>
+                            <tr>
                                 <td class="infotd">검색어</td>
-                               <td>
-                                   <div class="td_inner">
-                                       <div class="option_list">
-                                           <select class="hidden_option" name="category">
-                                               <option value ="">전체</option>
-                                               <option value ="NAME">이름</option>
-                                               <option value ="TEL">연락처</option>
-                                           </select>
-                                       </div>
-                                       <div class="input_wrap w283">
-                                           <input type="text" id="category_text" name="category_text" value="" class="text">
-                                       </div>
-                                   </div>
-                               </td>
+                                <td>
+                                    <div class="td_inner">
+                                        <div class="option_list">
+                                            <select class="hidden_option" name="category">
+                                                <option value ="">전체</option>
+                                                <option value ="NAME">이름</option>
+                                                <option value ="TEL">연락처</option>
+                                            </select>
+                                        </div>
+                                        <div class="input_wrap w283">
+                                            <input type="text" id="category_text" name="category_text" value="" class="text">
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
                         </table>
                         <div class="btn_submit">
@@ -190,7 +216,54 @@
             }
         }
 
+        $('select[name=city]').change(function(){ // 도시 변경 시 이벤트
+            let city = $(this).val();
+            if(city == '') {
+                $('select[name=district]').html('<option value="">선택</option>');
+                return false;
+            }
+            get_administrative_district(city);
+        });
+
+        get_administrative_district();
+
     });
+
+    function get_administrative_district(city) {
+
+        let ajax_data = {};
+        ajax_data.country = 'KOREA';
+        if(city != null && city != '') {
+            ajax_data.city = city;
+        }
+
+        $.ajax({
+            url:'/common/get_administrative_district', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            data:ajax_data, //보낼 데이터
+            async : false,
+            success: function(data) {
+                let html = '<option value="">선택</option>';
+
+                if(city != null && city != '') {
+                    for(let i = 0 ; data.length > i ; i++) {
+                        html += '<option value="'+data[i].IDX+'">'+data[i].DISTRICT+'</option>';
+                    }
+                    $('select[name=district]').html(html);
+                } else {
+                    for(let i = 0 ; data.length > i ; i++) {
+                        html += '<option value="'+data[i].IDX+'">'+data[i].CITY+'</option>';
+                    }
+                    $('select[name=city]').html(html);
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+                console.log(err);
+            }
+        });
+
+    }
 
     function insertMove(){
         location.href = "/admin/real/real_insert_move?page="+$('#page').val();
@@ -220,7 +293,7 @@
 
                 if(data.list.length == 0){
                     html += '<tr>';
-                    html += '    <td colspan="9">저장된 부동산이 없습니다.</td>';
+                    html += '    <td colspan="9">검색된 부동산이 없습니다.</td>';
                     html += '<tr>';
                 }
 
@@ -250,7 +323,19 @@
                     html += data.list[i].PLACE_TYPE;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].PREFERENCE;
+
+                    let preference = data.list[i].PREFERENCE;
+                    preference = preference.replace('1A', ' 상가 |')
+                                           .replace('2A', ' 상가주택 |')
+                                           .replace('3A', ' 주택 |')
+                                           .replace('4A', ' 아파트 |')
+                                           .replace('5A', ' 오피스텔 |')
+                                           .replace('6A', ' 호텔 |')
+                                           .replace('7A', ' 토지 |')
+                                           .replace('8A', ' 생활형 숙박시설 |')
+                                           .replace('9A', ' 도시형 생활주택 |')
+                                           .replace('A', '');
+                    html += '        '+preference;
                     html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE;
