@@ -1,6 +1,7 @@
 package com.caelumtrade.realestate.common.web;
 
 import com.caelumtrade.realestate.common.dao.CommonDAO;
+import com.caelumtrade.realestate.util.BCryptCipherUtil;
 import com.caelumtrade.realestate.util.PagingUtil;
 import com.google.gson.JsonObject;
 import org.mybatis.spring.annotation.MapperScan;
@@ -32,6 +33,28 @@ public class CommonController {
     @ResponseBody
     public List<Map> get_administrative_district(@RequestParam Map param) throws Exception {
         return dao.get_administrative_district(param);
+    }
+
+    /**
+     * 문의 내용 저장하기
+     * @param param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/inquiry_save")
+    @ResponseBody
+    @Transactional
+    public boolean inquiry_save(@RequestParam Map param) throws Exception {
+
+        boolean flag = false;
+
+        if(dao.get_js_key_match(param) != 0) {
+            if(dao.inquiry_save(param) != 0) {
+                flag = true;
+            }
+        }
+
+        return flag;
     }
 
 }

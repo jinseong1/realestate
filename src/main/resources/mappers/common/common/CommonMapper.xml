@@ -22,4 +22,31 @@
         ORDER BY  CITY DESC, DISTRICT DESC
     </select>
 
+    <select id="get_js_key_match" parameterType="java.util.Map" resultType="Integer">
+        SELECT    COUNT(*)
+        FROM      MEMBER
+        WHERE     MATCH_KEY = #{MATCH_KEY}
+    </select>
+
+    <insert id="inquiry_save" parameterType="java.util.Map">
+        INSERT INTO INQURITY
+        (
+             NAME,
+             TITLE,
+             CONTENT,
+             REGDATE,
+             MATCH_KEY
+        )
+        VALUES
+        (
+            #{NAME},
+            #{TITLE},
+            #{CONTENT},
+            NOW(),
+            #{MATCH_KEY}
+        )
+    </insert>
+
+
+
 </mapper>

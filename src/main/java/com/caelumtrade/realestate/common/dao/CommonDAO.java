@@ -12,4 +12,10 @@ public interface CommonDAO {
     // 행정구역 조회
     List<Map> get_administrative_district(Map param);
 
+    // 매칭되는 키 조회
+    int get_js_key_match(Map mpa);
+    //
+    int inquiry_save(Map map);
+
+
 }
