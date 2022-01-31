@@ -57,9 +57,9 @@ public class LoginController extends Base {
 
         model.addAttribute("active", active_type);
 
-        System.out.println(CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX);
+        System.out.println(CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE"));
 
-        return CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
+        return CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE");
     }
 
     /**
@@ -79,7 +79,7 @@ public class LoginController extends Base {
         String url = loginDAO.loginConfirm(input_data); // 권한별 메뉴 가져오기
 
         if(url == null){ // 메뉴 권한이 없는 경우 로그인 페이지로 이동 처리한다.
-            return CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
+            return CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE");
         }
 
         return "redirect:" + url;

@@ -9,8 +9,14 @@ import org.springframework.stereotype.Controller;
 public class Base {
 
     // 타일즈 경로
-    protected final static String ADMIN_SIMPLE_SUFFIX = ".aSimple";
-    public final static String ADMIN_GNB_SUFFIX = ".aGnb";
+    public final static String ADMIN_PC_SIMPLE_SUFFIX = ".aPcSimple";
+    public final static String ADMIN_MOB_SIMPLE_SUFFIX = ".aMobSimple";
+
+    public final static String ADMIN_PC_MOVE_DEVICE = "/module/admin/pc";
+    public final static String ADMIN_MOB_MOVE_DEVICE = "/module/admin/mob";
+
+    public final static String ADMIN_PC_GNB_SUFFIX = ".aPcGnb";
+    public final static String ADMIN_MOB_GNB_SUFFIX = ".aMobGnb";
 
     // view 시작 경로
     public final static String ADMIN = "/admin";

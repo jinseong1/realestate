@@ -44,7 +44,7 @@ public class VisitController extends Base {
 
         model.addAttribute("end", new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime()));
 
-        return CommonUtil.device_move(device) +"/admin/visit/visitList"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device) +"/visit/visitList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**

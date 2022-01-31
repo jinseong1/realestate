@@ -49,7 +49,7 @@ public class RealController extends Base {
 
         model.addAttribute("end", new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime()));
 
-        return CommonUtil.device_move(device)+"/admin/real/realList"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/real/realList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -99,7 +99,7 @@ public class RealController extends Base {
             model.addAttribute("data", dao.get_real(map));
         }
 
-        return CommonUtil.device_move(device)+"/admin/real/realInsert"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/real/realInsert"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**

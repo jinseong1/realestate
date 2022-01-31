@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,18 +35,25 @@ public class InquiryController extends Base {
     private InquiryDAO dao;
 
     /**
-     * 고객관리 리스트 이동 처리.
+     * 문의관리 리스트 이동 처리.
      * @param
      * @return
      * @throws Exception
      */
     @RequestMapping("/inquiry/inquiryList")
-    public String inquiryListMove(Device device) throws Exception {
-        return CommonUtil.device_move(device) +"/admin/inquiry/inquiryList"+ADMIN_GNB_SUFFIX;
+    public String inquiryListMove(Model model, Device device) throws Exception {
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -7);
+
+        model.addAttribute("start", new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime()));
+        model.addAttribute("end", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+
+        return CommonUtil.device_move(device)+"/inquiry/inquiryList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
-     * 고객 문의 리스트 호출 처리.
+     * 문의 리스트 호출 처리.
      * @param map
      * @param request
      * @return
@@ -68,6 +79,31 @@ public class InquiryController extends Base {
         result.put("list",         dao.get_inquiry_list(map));
         result.put("pagingString", PagingUtil.adminPaging(total_count, pageSize, blockSize, page));
         result.put("total_count",  total_count);
+
+        return result;
+    }
+
+    /**
+     * 문의 삭제
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/inquiry/inquiry_delete")
+    @ResponseBody
+    @Transactional
+    public Map inquiry_delete(@RequestParam Map map, HttpServletRequest request) throws Exception {
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        Map result = new HashMap();
+
+        if(dao.inquiry_delete(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
 
         return result;
     }

@@ -18,7 +18,7 @@ import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class CommonUtil {
+public class CommonUtil extends Base{
 
     private static Properties properties = null;
     private static MessageSourceAccessor messageSourceAccessor = null;
@@ -30,15 +30,29 @@ public class CommonUtil {
      * @return
      */
     public static String device_move(Device device){
-        String result;
         if(device.isMobile() || device.isTablet()){
-            result = "/module/mob";
+            return ADMIN_MOB_MOVE_DEVICE;
         } else {
-            result = "/module/pc";
+            return ADMIN_PC_MOVE_DEVICE;
         }
-        return result;
     }
-
+    public static String device_gnb(Device device, String type){
+        String gnb = null;
+        if(device.isMobile() || device.isTablet()){
+            if(type.equals("SIMPLE")) {
+                gnb = ADMIN_MOB_SIMPLE_SUFFIX;
+            } else if (type.equals("SUFFIX")) {
+                gnb = ADMIN_MOB_GNB_SUFFIX;
+            }
+        } else {
+            if(type.equals("SIMPLE")) {
+                gnb = ADMIN_PC_SIMPLE_SUFFIX;
+            } else if (type.equals("SUFFIX")) {
+                gnb = ADMIN_PC_GNB_SUFFIX;
+            }
+        }
+        return gnb;
+    }
 
     /**
      * 쿠키 세팅

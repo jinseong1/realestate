@@ -39,7 +39,7 @@ public class CustomerController extends Base {
      */
     @RequestMapping("/customer/customerList")
     public String customerListMove(Device device) throws Exception {
-        return CommonUtil.device_move(device)+"/admin/customer/customerList"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -56,7 +56,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return CommonUtil.device_move(device)+"/admin/customer/customerInsert"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerInsert"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -117,7 +117,7 @@ public class CustomerController extends Base {
 
         model.addAttribute("data", dao.get_customer_info(map));
 
-        return CommonUtil.device_move(device)+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerUpdate"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -172,7 +172,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return CommonUtil.device_move(device)+"/admin/customer/customerVisit"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerVisit"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -269,7 +269,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return CommonUtil.device_move(device)+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerUpdate"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -287,7 +287,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return CommonUtil.device_move(device)+"/admin/customer/customerCounseling"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/customer/customerCounseling"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**

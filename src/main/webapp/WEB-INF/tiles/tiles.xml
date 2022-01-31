@@ -4,52 +4,56 @@
 
 	<!--ADMIN-->
 	<!-- 헤더 푸터가 없는 레이아웃 -->
-	<definition name="simpleLayout" template="/WEB-INF/views/template/admin/simpleLayout.jsp">
-		<put-attribute name="meta" value="/WEB-INF/views/template/admin/meta.jsp" />
-		<put-attribute name="css" value="/WEB-INF/views/template/admin/styles.jsp" />
+	<definition name="pcSimpleLayout" template="/WEB-INF/views/template/admin/pc/simpleLayout.jsp">
+		<put-attribute name="meta" value="/WEB-INF/views/template/admin/pc/meta.jsp" />
+		<put-attribute name="css" value="/WEB-INF/views/template/admin/pc/styles.jsp" />
 		<put-attribute name="contents" />
-		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/scripts.jsp" />
+		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/pc/scripts.jsp" />
 		<put-attribute name="moduleJs" />
 	</definition>
-	<definition name="/module/*/*.aSimple" extends="simpleLayout">
+	<definition name="/module/*/*.aPcSimple" extends="pcSimpleLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}.jsp"/>
 		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}Js.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*.aSimple" extends="simpleLayout">
+	<definition name="/module/*/*/*.aPcSimple" extends="pcSimpleLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}.jsp"/>
 		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}Js.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*/*.aSimple" extends="simpleLayout">
+	<definition name="/module/*/*/*/*.aPcSimple" extends="pcSimpleLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}.jsp"/>
 		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}Js.jsp"/>
 	</definition>
+	<definition name="/module/*/*/*/*/*.aPcSimple" extends="pcSimpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}.jsp"/>
+		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}Js.jsp"/>
+	</definition>
 
 	<!-- GNB 가 포함된 레이아웃 -->
-	<definition name="aHead" template="/WEB-INF/views/template/admin/head.jsp">
-		<put-attribute name="meta" value="/WEB-INF/views/template/admin/meta.jsp" />
-		<put-attribute name="css" value="/WEB-INF/views/template/admin/styles.jsp" />
+	<definition name="aPcHead" template="/WEB-INF/views/template/admin/pc/head.jsp">
+		<put-attribute name="meta" value="/WEB-INF/views/template/admin/pc/meta.jsp" />
+		<put-attribute name="css" value="/WEB-INF/views/template/admin/pc/styles.jsp" />
 	</definition>
-	<definition name="/module/*/*.aGnb" extends="adminGnbLayout">
+	<definition name="/module/*/*.aPcGnb" extends="adminPcGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*.aGnb" extends="adminGnbLayout">
+	<definition name="/module/*/*/*.aPcGnb" extends="adminPcGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*/*.aGnb" extends="adminGnbLayout">
+	<definition name="/module/*/*/*/*.aPcGnb" extends="adminPcGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*/*/*.aGnb" extends="adminGnbLayout">
+	<definition name="/module/*/*/*/*/*.aPcGnb" extends="adminPcGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}.jsp"/>
 	</definition>
-	<definition name="/module/*/*/*/*/*/*.aGnb" extends="adminGnbLayout">
+	<definition name="/module/*/*/*/*/*/*.aPcGnb" extends="adminPcGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}/{6}.jsp"/>
 	</definition>
-	<definition name="adminGnbLayout" template="/WEB-INF/views/template/admin/gnbLayout.jsp">
-		<put-attribute name="head"     value="aHead"/>
-		<put-attribute name="header"   value="/WEB-INF/views/template/admin/header.jsp"/>
-		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/scripts.jsp" />
+	<definition name="adminPcGnbLayout" template="/WEB-INF/views/template/admin/pc/gnbLayout.jsp">
+		<put-attribute name="head"     value="aPcHead"/>
+		<put-attribute name="header"   value="/WEB-INF/views/template/admin/pc/header.jsp"/>
+		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/pc/scripts.jsp" />
 		<put-attribute name="contents" />
-		<put-attribute name="footer"   value="/WEB-INF/views/template/admin/footer.jsp"/>
+		<put-attribute name="footer"   value="/WEB-INF/views/template/admin/pc/footer.jsp"/>
 	</definition>
 	<!--/ADMIN-->
 

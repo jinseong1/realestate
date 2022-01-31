@@ -2,10 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.caelumtrade.realestate.admin.inquiry.dao.InquiryDAO">
 
+    <select id="get_total_inquiry_count" parameterType="java.util.Map" resultType="Integer">
+        /* get_total_inquiry_count */
+        SELECT     COUNT(*)
+        FROM       INQURITY I
+                       JOIN MEMBER M ON I.MATCH_KEY = M.MATCH_KEY AND M.IDX = #{member_idx}
+        WHERE      1 = 1
+    </select>
+
+    <select id="get_inquiry_list" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_inquiry_list */
+        SELECT    *
+        FROM      (
+                   SELECT     @rownum := @rownum + 1 AS no,
+                              I.IDX,
+                              I.NAME,
+                              I.TEL,
+                              I.TITLE,
+                              I.CONTENT,
+                              I.REGDATE
+                   FROM       INQURITY I
+                                  JOIN MEMBER M ON I.MATCH_KEY = M.MATCH_KEY AND M.IDX = #{member_idx},
+                                  (SELECT @ROWNUM := 0) R
+                   ORDER BY  IDX DESC
+                  ) a
+        WHERE     no BETWEEN #{start} AND #{end}
+    </select>
+
     <delete id="inquiry_delete">
         /* customer_delete */
         DELETE FROM INQURITY
-        WHERE idx in
+        WHERE MATCH_KEY = (SELECT MATCH_KEY FROM MEMBER WHERE IDX = #{member_idx})
+        AND   idx IN
         <foreach collection="list" item="item" separator="," open="(" close=")">
             #{item}
         </foreach>

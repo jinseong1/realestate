@@ -50,7 +50,7 @@ public class UserController extends Base {
 
         model.addAttribute("data", dao.getUser(inputData));
 
-        return CommonUtil.device_move(device)+"/admin/user/user_change"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/user/user_change"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     //

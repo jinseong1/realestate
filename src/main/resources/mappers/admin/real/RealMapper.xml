@@ -75,7 +75,6 @@
 		               </choose>
 		           </if>
 				   ORDER BY  IDX DESC
-
 			      ) a
 		WHERE     no BETWEEN #{start} AND #{end}
 	</select>
