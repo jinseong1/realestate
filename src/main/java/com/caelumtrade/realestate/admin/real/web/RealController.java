@@ -2,9 +2,11 @@ package com.caelumtrade.realestate.admin.real.web;
 
 import com.caelumtrade.realestate.admin.real.dao.RealDAO;
 import com.caelumtrade.realestate.util.Base;
+import com.caelumtrade.realestate.util.CommonUtil;
 import com.caelumtrade.realestate.util.PagingUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -38,7 +40,7 @@ public class RealController extends Base {
      * @return
      */
     @RequestMapping("/real/realList")
-    public String realListMove(Model model){
+    public String realListMove(Model model, Device device){
 
         model.addAttribute("start", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 
@@ -47,7 +49,7 @@ public class RealController extends Base {
 
         model.addAttribute("end", new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime()));
 
-        return MODULE+"/admin/real/realList"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/real/realList"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -88,7 +90,7 @@ public class RealController extends Base {
      * @return
      */
     @RequestMapping("/real/real_insert_move")
-    public String real_insert_move(@RequestParam Map map, Model model,  HttpServletRequest request){
+    public String real_insert_move(@RequestParam Map map, Model model,  HttpServletRequest request, Device device){
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
 
@@ -97,7 +99,7 @@ public class RealController extends Base {
             model.addAttribute("data", dao.get_real(map));
         }
 
-        return MODULE+"/admin/real/realInsert"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/real/realInsert"+ADMIN_GNB_SUFFIX;
     }
 
     /**

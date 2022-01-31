@@ -4,10 +4,12 @@ import com.caelumtrade.realestate.admin.user.dao.LoginDAO;
 import com.caelumtrade.realestate.admin.user.dao.UserDAO;
 import com.caelumtrade.realestate.util.BCryptCipherUtil;
 import com.caelumtrade.realestate.util.Base;
+import com.caelumtrade.realestate.util.CommonUtil;
 import com.caelumtrade.realestate.util.PagingUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -41,14 +43,14 @@ public class UserController extends Base {
      * @throws Exception
      */
     @RequestMapping("/user/user_change")
-    public String user_change(Model model, HttpServletRequest request) throws Exception{
+    public String user_change(Model model, HttpServletRequest request, Device device) throws Exception{
 
         Map inputData = new HashMap();
         inputData.put("admin_idx", request.getSession().getAttribute("admin_idx"));
 
         model.addAttribute("data", dao.getUser(inputData));
 
-        return MODULE+"/admin/user/user_change"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/user/user_change"+ADMIN_GNB_SUFFIX;
     }
 
     //

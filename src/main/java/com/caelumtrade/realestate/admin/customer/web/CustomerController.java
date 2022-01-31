@@ -3,9 +3,11 @@ package com.caelumtrade.realestate.admin.customer.web;
 import com.caelumtrade.realestate.admin.customer.dao.CustomerDAO;
 import com.caelumtrade.realestate.admin.user.dao.LoginDAO;
 import com.caelumtrade.realestate.util.Base;
+import com.caelumtrade.realestate.util.CommonUtil;
 import com.caelumtrade.realestate.util.PagingUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -36,8 +38,8 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customerList")
-    public String customerListMove() throws Exception {
-        return MODULE+"/admin/customer/customerList"+ADMIN_GNB_SUFFIX;
+    public String customerListMove(Device device) throws Exception {
+        return CommonUtil.device_move(device)+"/admin/customer/customerList"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -46,7 +48,7 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_insert_move")
-    public String customer_insert_move(@RequestParam Map map, Model model) throws Exception {
+    public String customer_insert_move(@RequestParam Map map, Model model, Device device) throws Exception {
 
         if(map.get("page") != null){
             model.addAttribute("page", map.get("page"));
@@ -54,7 +56,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return MODULE+"/admin/customer/customerInsert"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/customer/customerInsert"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -101,7 +103,7 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_update_move")
-    public String customer_update_move(@RequestParam Map map, Model model, HttpServletRequest request) throws Exception {
+    public String customer_update_move(@RequestParam Map map, Model model, HttpServletRequest request, Device device) throws Exception {
         model.addAttribute("top_type", "info");
         model.addAttribute("idx", map.get("idx"));
 
@@ -115,7 +117,7 @@ public class CustomerController extends Base {
 
         model.addAttribute("data", dao.get_customer_info(map));
 
-        return MODULE+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -161,7 +163,7 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_visit")
-    public String customer_visit(@RequestParam Map map, Model model) throws Exception {
+    public String customer_visit(@RequestParam Map map, Model model, Device device) throws Exception {
         model.addAttribute("top_type", "visit");
         model.addAttribute("idx", map.get("idx"));
         if(map.get("page") != null && !map.get("page").equals("")){
@@ -170,7 +172,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return MODULE+"/admin/customer/customerVisit"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/customer/customerVisit"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -258,7 +260,7 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_payList")
-    public String customer_payList(@RequestParam Map map, Model model) throws Exception {
+    public String customer_payList(@RequestParam Map map, Model model, Device device) throws Exception {
         model.addAttribute("top_type", "payList");
         model.addAttribute("idx", map.get("idx"));
         if(map.get("page") != null && !map.get("page").equals("")){
@@ -267,7 +269,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return MODULE+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/customer/customerUpdate"+ADMIN_GNB_SUFFIX;
     }
 
     /**
@@ -276,7 +278,7 @@ public class CustomerController extends Base {
      * @throws Exception
      */
     @RequestMapping("/customer/customer_counseling")
-    public String customer_counseling(@RequestParam Map map, Model model) throws Exception {
+    public String customer_counseling(@RequestParam Map map, Model model, Device device) throws Exception {
         model.addAttribute("top_type", "counseling");
         model.addAttribute("idx", map.get("idx"));
         if(map.get("page") != null && !map.get("page").equals("")){
@@ -285,7 +287,7 @@ public class CustomerController extends Base {
             model.addAttribute("page", 1);
         }
 
-        return MODULE+"/admin/customer/customerCounseling"+ADMIN_GNB_SUFFIX;
+        return CommonUtil.device_move(device)+"/admin/customer/customerCounseling"+ADMIN_GNB_SUFFIX;
     }
 
     /**

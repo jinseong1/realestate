@@ -13,7 +13,6 @@ public class Base {
     public final static String ADMIN_GNB_SUFFIX = ".aGnb";
 
     // view 시작 경로
-    public final static String MODULE = "/module";
     public final static String ADMIN = "/admin";
 
     /**

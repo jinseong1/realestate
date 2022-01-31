@@ -19,6 +19,10 @@
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}.jsp"/>
 		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}Js.jsp"/>
 	</definition>
+	<definition name="/module/*/*/*/*.aSimple" extends="simpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}.jsp"/>
+		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}Js.jsp"/>
+	</definition>
 
 	<!-- GNB 가 포함된 레이아웃 -->
 	<definition name="aHead" template="/WEB-INF/views/template/admin/head.jsp">
@@ -36,6 +40,9 @@
 	</definition>
 	<definition name="/module/*/*/*/*/*.aGnb" extends="adminGnbLayout">
 		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*/*/*.aGnb" extends="adminGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}/{6}.jsp"/>
 	</definition>
 	<definition name="adminGnbLayout" template="/WEB-INF/views/template/admin/gnbLayout.jsp">
 		<put-attribute name="head"     value="aHead"/>

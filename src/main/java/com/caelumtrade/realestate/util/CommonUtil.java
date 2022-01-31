@@ -29,12 +29,12 @@ public class CommonUtil {
      * @param device
      * @return
      */
-    public static String device(Device device){
+    public static String device_move(Device device){
         String result;
         if(device.isMobile() || device.isTablet()){
-            result = "m";
+            result = "/module/mob";
         } else {
-            result = "pc";
+            result = "/module/pc";
         }
         return result;
     }

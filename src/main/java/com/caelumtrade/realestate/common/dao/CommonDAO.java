@@ -14,7 +14,7 @@ public interface CommonDAO {
 
     // 매칭되는 키 조회
     int get_js_key_match(Map mpa);
-    //
+    // 문의 저장
     int inquiry_save(Map map);
 
 

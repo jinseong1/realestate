@@ -7,6 +7,7 @@ import com.caelumtrade.realestate.util.CommonUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -40,7 +41,7 @@ public class LoginController extends Base {
      * @throws Exception
      */
     @RequestMapping("/user/login")
-    public String admin_login_page(Model model) throws Exception{
+    public String admin_login_page(Model model, Device device) throws Exception{
 
         String active_type = null;
 
@@ -56,7 +57,9 @@ public class LoginController extends Base {
 
         model.addAttribute("active", active_type);
 
-        return MODULE+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
+        System.out.println(CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX);
+
+        return CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
     }
 
     /**
@@ -67,7 +70,7 @@ public class LoginController extends Base {
      */
     @RequestMapping("/user/loginConfirm")
     @Transactional
-    public String admin_login_action(Model model, HttpServletRequest req, HttpServletResponse resp) throws Exception{
+    public String admin_login_action(Model model, HttpServletRequest req, HttpServletResponse resp, Device device) throws Exception{
         model.addAttribute("page", req.getParameter("page"));
 
         Map input_data = new HashMap();
@@ -76,7 +79,7 @@ public class LoginController extends Base {
         String url = loginDAO.loginConfirm(input_data); // 권한별 메뉴 가져오기
 
         if(url == null){ // 메뉴 권한이 없는 경우 로그인 페이지로 이동 처리한다.
-            return MODULE+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
+            return CommonUtil.device_move(device)+"/admin/user/login"+ADMIN_SIMPLE_SUFFIX;
         }
 
         return "redirect:" + url;
