@@ -28,6 +28,24 @@
 		<put-attribute name="moduleJs" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}Js.jsp"/>
 	</definition>
 
+	<definition name="mobSimpleLayout" template="/WEB-INF/views/template/admin/mob/simpleLayout.jsp">
+		<put-attribute name="meta" value="/WEB-INF/views/template/admin/mob/meta.jsp" />
+		<put-attribute name="css" value="/WEB-INF/views/template/admin/mob/styles.jsp" />
+		<put-attribute name="contents" />
+	</definition>
+	<definition name="/module/*/*.aMobSimple" extends="mobSimpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*.aMobSimple" extends="mobSimpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*.aMobSimple" extends="mobSimpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*/*.aMobSimple" extends="mobSimpleLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}.jsp"/>
+	</definition>
+
 	<!-- GNB 가 포함된 레이아웃 -->
 	<definition name="aPcHead" template="/WEB-INF/views/template/admin/pc/head.jsp">
 		<put-attribute name="meta" value="/WEB-INF/views/template/admin/pc/meta.jsp" />
@@ -54,6 +72,33 @@
 		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/pc/scripts.jsp" />
 		<put-attribute name="contents" />
 		<put-attribute name="footer"   value="/WEB-INF/views/template/admin/pc/footer.jsp"/>
+	</definition>
+
+	<definition name="aMobHead" template="/WEB-INF/views/template/admin/mob/head.jsp">
+		<put-attribute name="meta" value="/WEB-INF/views/template/admin/mob/meta.jsp" />
+		<put-attribute name="css" value="/WEB-INF/views/template/admin/mob/styles.jsp" />
+	</definition>
+	<definition name="/module/*/*.aMobGnb" extends="adminMobGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*.aMobGnb" extends="adminMobGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*.aMobGnb" extends="adminMobGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*/*.aMobGnb" extends="adminMobGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}.jsp"/>
+	</definition>
+	<definition name="/module/*/*/*/*/*/*.aMobGnb" extends="adminMobGnbLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/module/{1}/{2}/{3}/{4}/{5}/{6}.jsp"/>
+	</definition>
+	<definition name="adminMobGnbLayout" template="/WEB-INF/views/template/admin/mob/gnbLayout.jsp">
+		<put-attribute name="head"     value="aMobHead"/>
+		<put-attribute name="header"   value="/WEB-INF/views/template/admin/mob/header.jsp"/>
+		<put-attribute name="contents" />
+		<put-attribute name="footer"   value="/WEB-INF/views/template/admin/mob/footer.jsp"/>
+		<put-attribute name="commonJs" value="/WEB-INF/views/template/admin/mob/scripts.jsp" />
 	</definition>
 	<!--/ADMIN-->
 

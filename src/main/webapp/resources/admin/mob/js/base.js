@@ -55,20 +55,6 @@ var appSidebar = document.getElementById("sidebarPanel")
 var loader = document.getElementById('loader');
 //-----------------------------------------------------------------------
 
-
-//-----------------------------------------------------------------------
-// Service Workers
-//-----------------------------------------------------------------------
-if (Mobilekit.PWA.enable) {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('service worker registered'))
-            .catch(err => console.log('service worker not registered - there is an error.', err));
-    }
-}
-//-----------------------------------------------------------------------
-
-
 //-----------------------------------------------------------------------
 // Page Loader
 //----------------------------------------------------------------------
@@ -79,7 +65,6 @@ setTimeout(() => {
     }, 1000);
 }, 450);
 //-----------------------------------------------------------------------
-
 
 //-----------------------------------------------------------------------
 // RTL (Right to Left)
