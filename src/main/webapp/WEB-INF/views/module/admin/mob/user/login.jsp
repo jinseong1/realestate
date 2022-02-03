@@ -7,7 +7,7 @@
             <img src="/resources/admin/mob/img/sample/photo/vector4.png" alt="image" class="form-image">
         </div>
         <div class="section mt-1">
-            <h1>관리자(${active})</h1>
+            <h1>부동산 관리<c:if test="${active == '로컬'}">(LOCAL)</c:if></h1>
             <%--<h4>Fill the form to log in</h4>--%>
         </div>
         <div class="section mt-1 mb-5">
@@ -30,12 +30,12 @@
                 </div>
                 <div class="form-links mt-2">
                     <div>
-                        <a href="page-register.html">Register Now</a>
+                        <a href="page-register.html">가입요청</a>
                     </div>
-                    <div><a href="page-forgot-password.html" class="text-muted">Forgot Password?</a></div>
+                    <div><a href="page-forgot-password.html" class="text-muted">비밀번호 찾기</a></div>
                 </div>
                 <div class="form-button-group">
-                    <button type="button" id="btnLogin" class="btn btn-primary btn-block btn-lg">Log in</button>
+                    <button type="button" id="btnLogin" class="btn btn-primary btn-block btn-lg">로그인</button>
                 </div>
             </form>
         </div>
