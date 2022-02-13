@@ -57,8 +57,6 @@ public class LoginController extends Base {
 
         model.addAttribute("active", active_type);
 
-        System.out.println(CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE"));
-
         return CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE");
     }
 

@@ -286,3 +286,19 @@ function localStorogeSave(url){
     localStorage.setItem("start_date", $('.start .picker').val());
     localStorage.setItem("end_date",   $('.end .picker').val());
 }
+
+/**
+ * 파일 사이즈 체크
+ * @param fileObj
+ * @param listSize
+ * @returns {boolean}
+ */
+function filesize_check(fileObj, listSize){
+    var fileSize = document.getElementById($(fileObj).attr("id")).files[0].size;
+    var maxSize = listSize * 1024 * 1024;//2MB
+    if(fileSize > maxSize){
+        return false;
+    } else {
+        return true;
+    }
+}
