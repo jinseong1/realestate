@@ -2,30 +2,29 @@
 <%@ include file="/WEB-INF/views/common/admin/mob/include.jsp"%>
 <!-- App Bottom Menu -->
 <div class="appBottomMenu">
-    <a href="index.html" class="item active">
+    <a href="javascript:void(0);" class="item active">
         <div class="col">
             <ion-icon name="home-outline"></ion-icon>
         </div>
     </a>
-    <a href="app-components.html" class="item">
+    <a href="javascript:void(0);" class="item">
         <div class="col">
-            <ion-icon name="cube-outline"></ion-icon>
+            <ion-icon name="person-outline"></ion-icon>
         </div>
     </a>
-    <a href="page-chat.html" class="item">
+    <a href="javascript:void(0);" class="item">
         <div class="col">
-            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-            <span class="badge badge-danger">5</span>
+            <ion-icon name="calendar-outline"></ion-icon>
         </div>
     </a>
-    <a href="app-pages.html" class="item">
+    <a href="javascript:void(0);" class="item">
         <div class="col">
-            <ion-icon name="layers-outline"></ion-icon>
+            <ion-icon name="business-outline"></ion-icon>
         </div>
     </a>
-    <a href="#sidebarPanel" class="item" data-bs-toggle="offcanvas">
+    <a href="javascript:void(0);" class="item">
         <div class="col">
-            <ion-icon name="menu-outline"></ion-icon>
+            <ion-icon name="body-outline"></ion-icon>
         </div>
     </a>
 </div>
@@ -46,7 +45,7 @@
                     California
                 </div>
             </div>
-            <a href="#" class="close-sidebar-button" data-bs-dismiss="offcanvas">
+            <a href="javascript:void(0);" class="close-sidebar-button" data-bs-dismiss="offcanvas">
                 <ion-icon name="close"></ion-icon>
             </a>
         </div>
@@ -54,104 +53,85 @@
 
         <ul class="listview flush transparent no-line image-listview mt-2">
             <li>
-                <a href="index.html" class="item">
+                <a href="javascript:void(0);" class="item">
                     <div class="icon-box bg-primary">
                         <ion-icon name="home-outline"></ion-icon>
                     </div>
                     <div class="in">
-                        Discover
+                        중개 관리
                     </div>
                 </a>
             </li>
-            <li>
-                <a href="app-components.html" class="item">
-                    <div class="icon-box bg-primary">
-                        <ion-icon name="cube-outline"></ion-icon>
-                    </div>
-                    <div class="in">
-                        Components
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="app-pages.html" class="item">
-                    <div class="icon-box bg-primary">
-                        <ion-icon name="layers-outline"></ion-icon>
-                    </div>
-                    <div class="in">
-                        <div>Pages</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="page-chat.html" class="item">
-                    <div class="icon-box bg-primary">
-                        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-                    </div>
-                    <div class="in">
-                        <div>Chat</div>
-                        <span class="badge badge-danger">5</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <div class="item">
-                    <div class="icon-box bg-primary">
-                        <ion-icon name="moon-outline"></ion-icon>
-                    </div>
-                    <div class="in">
-                        <div>Dark Mode</div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input dark-mode-switch" type="checkbox" id="darkmodesidebar">
-                            <label class="form-check-label" for="darkmodesidebar"></label>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
 
-        <div class="listview-title mt-2 mb-1">
-            <span>Friends</span>
-        </div>
-        <ul class="listview image-listview flush transparent no-line">
             <li>
-                <a href="page-chat.html" class="item">
-                    <img src="/resources/admin/mob/img/sample/avatar/avatar7.jpg" alt="image" class="image">
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
                     <div class="in">
-                        <div>Sophie Asveld</div>
+                        고객 관리
                     </div>
                 </a>
             </li>
             <li>
-                <a href="page-chat.html" class="item">
-                    <img src="/resources/admin/mob/img/sample/avatar/avatar3.jpg" alt="image" class="image">
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
                     <div class="in">
-                        <div>Sebastian Bennett</div>
-                        <span class="badge badge-danger">6</span>
+                        방문 관리
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
+                    <div class="in">
+                        익명 자유게시판
+                    </div>
+                </a>
+            </li>
+
+            <li>
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
+                    <div class="in">
+                        부동산 관리
                     </div>
                 </a>
             </li>
             <li>
-                <a href="page-chat.html" class="item">
-                    <img src="/resources/admin/mob/img/sample/avatar/avatar10.jpg" alt="image" class="image">
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
                     <div class="in">
-                        <div>Beth Murphy</div>
+                        구인구직
                     </div>
                 </a>
             </li>
             <li>
-                <a href="page-chat.html" class="item">
-                    <img src="/resources/admin/mob/img/sample/avatar/avatar2.jpg" alt="image" class="image">
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
                     <div class="in">
-                        <div>Amelia Cabal</div>
+                        중개관리
                     </div>
                 </a>
             </li>
             <li>
-                <a href="page-chat.html" class="item">
-                    <img src="/resources/admin/mob/img/sample/avatar/avatar5.jpg" alt="image" class="image">
+                <a href="javascript:void(0);" class="item">
+                    <div class="icon-box bg-primary">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </div>
                     <div class="in">
-                        <div>Henry Doe</div>
+                        중개관리
                     </div>
                 </a>
             </li>
@@ -159,16 +139,16 @@
     </div>
     <!-- sidebar buttons -->
     <div class="sidebar-buttons">
-        <a href="#" class="button">
+        <a href="javascript:void(0);" class="button">
             <ion-icon name="person-outline"></ion-icon>
         </a>
-        <a href="#" class="button">
+        <a href="javascript:void(0);" class="button">
             <ion-icon name="archive-outline"></ion-icon>
         </a>
-        <a href="#" class="button">
+        <a href="javascript:void(0);" class="button">
             <ion-icon name="settings-outline"></ion-icon>
         </a>
-        <a href="#" class="button">
+        <a href="javascript:void(0);" class="button">
             <ion-icon name="log-out-outline"></ion-icon>
         </a>
     </div>

@@ -1,0 +1,106 @@
+@charset "utf-8";
+/*
+* File       : common.css
+* Author     : m-sync ( kimkyungran)
+*
+* SUMMARY:
+* 1) 로그인 페이지
+*/
+
+
+/* 
+**  1) 로그인페이지///
+*/
+
+#main {
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color: #fff;
+    text-align: center;
+    float: none;
+}
+#main .login {
+    position:absolute;
+    top: 200px;;
+    left: 50%;
+    height: 0px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+#main .login .title {
+    margin-bottom: 64px;
+}
+#main .login .title span{
+    position:relative;
+    padding: 0 13px;
+    color: #7d7d7d;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.069em;
+}
+
+
+#main .login .login_wrap {
+    padding: 35px;
+    width: 390px;
+    height: 425px;
+    background-color: #f2f2f2;
+    border :1px solid #bfbfbf
+}
+#main .login_wrap .title {
+    text-align: left;
+}
+#main .login_wrap .title h1 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.069em;
+    line-height: 42px
+}
+
+#main .input_wrap{
+    margin-bottom: 40px;
+    width: 100%;
+}
+#main .input_wrap input {
+    display: block;
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    width: 100%;
+    height: 40px;
+    border:1px solid #bfbfbf !important;
+}
+#main .input_wrap input::placeholder {
+    color: #b7b7b7;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.069em;
+}
+#main .login_btn {
+    background-color: #000;
+}
+#main .login_btn a {
+    display: block;
+    width: 100%;
+    height:48px;
+    color:#fff;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.069em;
+    line-height: 48px;
+}
+#main .login .logo {
+    margin-top: 200px;
+}
+#main .login .logo .copyright {
+    margin-top: 12px;
+}
+#main .login .logo .copyright p {
+    color:#7d7d7d;
+    font-size: 13px;
+    font-family: 'Roboto',sans-serif;
+    letter-spacing: 0;
+}
