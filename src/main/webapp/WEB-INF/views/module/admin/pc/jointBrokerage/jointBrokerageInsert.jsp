@@ -541,17 +541,16 @@
                             <tr>
                                 <td class="infotd">방수/욕실수*</td>
                                 <td>
-                                    <div class="input_wrap input_file">
-                                        <div class="file">
-                                            <input type="text" id="zip_code" name="zip_code" value="" readonly>
-                                        </div>
+                                    <div class="input_wrap w200">
+                                        <input type="text" id="zip_code" name="zip_code" value="" readonly>
                                     </div>
                                 </td>
                                 <td class="infotd">단기임대 여부*</td>
                                 <td>
-                                    <div class="input_wrap input_file">
-                                        <div class="file">
-                                            <input type="text" id="zip_code" name="zip_code" value="" readonly>
+                                    <div class="td_inner">
+                                        <div class="check_wrap routeCheck">
+                                            <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind"/>
+                                            <label for="preference_1"><span></span></label>
                                         </div>
                                     </div>
                                 </td>
@@ -596,7 +595,7 @@
                             </tr>
                             <tr>
                                 <td class="infotd">베란다/발코디 여부*</td>
-                                <td>
+                                <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
                                             <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind"/>
@@ -604,15 +603,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="infotd">엘리베이터 여부*</td>
-                                <td>
-                                    <div class="td_inner">
-                                        <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="preference_1" id="preference_1" value="Y" class="blind"/>
-                                            <label for="preference_1"><span></span></label>
-                                        </div>
-                                    </div>
-                                </td>
+
                             </tr>
                             <tr>
                                 <td class="infotd">주용도*</td>
