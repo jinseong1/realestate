@@ -9,19 +9,26 @@
     });
 
     function jsMenuList() {
-        // 상단 메뉴 세팅
-        var ajax_data = {};
-        $.ajax({
-            url:'/admin/getMenu',
-            type:'post',
-            data:ajax_data,
-            success: function(data) {
-                $(".menu").append(data);
-            },
-            error: function(err) {
-                console.log(err);
-            }
-        });
+
+		const menu = sessionStorage.getItem('menu');
+		if(menu == null) {
+			// 상단 메뉴 세팅
+			let ajax_data = {};
+			$.ajax({
+				url:'/admin/getMenu',
+				type:'post',
+				data:ajax_data,
+				success: function(data) {
+					sessionStorage.setItem('menu', data);
+					$(".menu").append(sessionStorage.getItem('menu'));
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		} else {
+			$(".menu").append(menu);
+		}
 
     }
 

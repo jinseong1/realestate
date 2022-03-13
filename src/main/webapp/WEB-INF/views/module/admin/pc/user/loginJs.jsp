@@ -56,15 +56,17 @@
     }
 
     $(document).ready(function() {
-        var id = getCookie("admin_id_save");
+        sessionStorage.clear();
+
+        let id = getCookie("admin_id_save");
         if(id != null){
             $('#id').val(id);
             $('#id_save').prop('checked', true);
         }
     });
 
-    var getCookie = function(name) {
-        var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    const getCookie = function(name) {
+        const value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
         return value? value[2] : null;
     };
 </script>
