@@ -36,20 +36,20 @@
                                 <td>
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="type_1" id="type_1" value="Y" class="blind"/>
-                                            <label for="type_1"><span>전세</span></label>
+                                            <input type="checkbox" name="type_charter" id="type_charter" value="Y" class="blind"/>
+                                            <label for="type_charter"><span>전세</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="type_2" id="type_2" value="Y" class="blind"/>
-                                            <label for="type_2"><span>월세</span></label>
+                                            <input type="checkbox" name="type_rental" id="type_rental" value="Y" class="blind"/>
+                                            <label for="type_rental"><span>월세</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="type_3" id="type_3" value="Y" class="blind"/>
-                                            <label for="type_3"><span>매매</span></label>
+                                            <input type="checkbox" name="type_sell" id="type_sell" value="Y" class="blind"/>
+                                            <label for="type_sell"><span>매매</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="type_4" id="type_4" value="Y" class="blind"/>
-                                            <label for="type_4"><span>분양</span></label>
+                                            <input type="checkbox" name="type_parcel_out" id="type_parcel_out" value="Y" class="blind"/>
+                                            <label for="type_parcel_out"><span>분양</span></label>
                                         </div>
                                     </div>
                                 </td>
@@ -59,10 +59,10 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(1, this)" name="preview_video" id="preview_video">
+                                            <input type="file" onchange="javascript:file_change(1, this, 'video')" name="preview_video" id="preview_video">
                                             <input type="text" readonly id="preview_txt_video" name="preview_txt_video" value="">
                                             <label for="preview_video" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1)">삭제</button>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1, 'video')">삭제</button>
                                             <span>비디오 파일, 최대 80MB까지 업로드 가능</span>
                                         </div>
                                     </div>
@@ -73,11 +73,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(1, this)" name="preview_img_1" id="preview_img_1">
+                                            <input type="file" onchange="javascript:file_change(1, this, 'img')" name="preview_img_1" id="preview_img_1">
                                             <input type="text" readonly id="preview_txt_img_1" name="preview_txt_img_1" value="">
                                             <label for="preview_img_1" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_add();">추가</button>
@@ -88,11 +88,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(2, this)" name="preview_img_2" id="preview_img_2">
+                                            <input type="file" onchange="javascript:file_change(2, this, 'img')" name="preview_img_2" id="preview_img_2">
                                             <input type="text" readonly id="preview_txt_img_2" name="preview_txt_img_2" value="">
                                             <label for="preview_img_2" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(2)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(2, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(2);">삭제</button>
@@ -103,11 +103,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(3, this)" name="preview_img_3" id="preview_img_3">
+                                            <input type="file" onchange="javascript:file_change(3, this, 'img')" name="preview_img_3" id="preview_img_3">
                                             <input type="text" readonly id="preview_txt_img_3" name="preview_txt_img_3" value="">
                                             <label for="preview_img_3" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(3)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(3, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(3);">삭제</button>
@@ -118,11 +118,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(4, this)" name="preview_img_4" id="preview_img_4">
+                                            <input type="file" onchange="javascript:file_change(4, this, 'img')" name="preview_img_4" id="preview_img_4">
                                             <input type="text" readonly id="preview_txt_img_4" name="preview_txt_img_4" value="">
                                             <label for="preview_img_4" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(4)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(4, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(4);">삭제</button>
@@ -133,11 +133,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(5, this)" name="preview_img_5" id="preview_img_5">
+                                            <input type="file" onchange="javascript:file_change(5, this, 'img')" name="preview_img_5" id="preview_img_5">
                                             <input type="text" readonly id="preview_txt_img_5" name="preview_txt_img_5" value="">
                                             <label for="preview_img_5" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(5)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(5, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(5);">삭제</button>
@@ -148,11 +148,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(6, this)" name="preview_img_6" id="preview_img_6">
+                                            <input type="file" onchange="javascript:file_change(6, this, 'img')" name="preview_img_6" id="preview_img_6">
                                             <input type="text" readonly id="preview_txt_img_6" name="preview_txt_img_6" value="">
                                             <label for="preview_img_6" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(6)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(6, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(6);">삭제</button>
@@ -163,11 +163,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(7, this)" name="preview_img_7" id="preview_img_7">
+                                            <input type="file" onchange="javascript:file_change(7, this, 'img')" name="preview_img_7" id="preview_img_7">
                                             <input type="text" readonly id="preview_txt_img_7" name="preview_txt_img_7" value="">
                                             <label for="preview_img_7" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(7)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(7, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(7);">삭제</button>
@@ -178,11 +178,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(8, this)" name="preview_img_8" id="preview_img_8">
+                                            <input type="file" onchange="javascript:file_change(8, this, 'img')" name="preview_img_8" id="preview_img_8">
                                             <input type="text" readonly id="preview_txt_img_8" name="preview_txt_img_8" value="">
                                             <label for="preview_img_8" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(8)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(8, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(8);">삭제</button>
@@ -193,11 +193,11 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(9, this)" name="preview_img_9" id="preview_img_9">
+                                            <input type="file" onchange="javascript:file_change(9, this, 'img')" name="preview_img_9" id="preview_img_9">
                                             <input type="text" readonly id="preview_txt_img_9" name="preview_txt_img_9" value="">
                                             <label for="preview_img_9" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(9)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(9, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(9);">삭제</button>
@@ -208,45 +208,45 @@
                                 <td colspan="3">
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
-                                            <input type="file" onchange="javascript:file_change(10, this)" name="preview_img_10" id="preview_img_10">
+                                            <input type="file" onchange="javascript:file_change(10, this, 'img')" name="preview_img_10" id="preview_img_10">
                                             <input type="text" readonly id="preview_txt_img_10" name="preview_txt_img_10" value="">
                                             <label for="preview_img_10" class="button_90">찾아보기</label>
-                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(10)">삭제</button>
-                                            <span>jpg파일, 최대 10MB까지 업로드 가능</span>
+                                            <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(10, 'img')">삭제</button>
+                                            <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                         </div>
                                     </div>
                                     <button type="button" class="ml10 btn_gray" onclick="file_line_delete(10);">삭제</button>
                                 </td>
                             </tr>
                             <!--방종류-->
-                            <tr style="display: none">
+                            <tr class="type_charter" style="display: none">
                                 <td class="infotd">방종류*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="rental_type_1" id="rental_type_1" value="Y" class="blind"/>
-                                            <label for="rental_type_1"><span>원룸</span></label>
+                                            <input type="checkbox" name="one_room" id="one_room" value="Y" class="blind"/>
+                                            <label for="one_room"><span>원룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="rental_type_2" id="rental_type_2" value="Y" class="blind"/>
-                                            <label for="rental_type_2"><span>투룸</span></label>
+                                            <input type="checkbox" name="two_room" id="two_room" value="Y" class="blind"/>
+                                            <label for="two_room"><span>투룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="rental_type_3" id="rental_type_3" value="Y" class="blind"/>
-                                            <label for="rental_type_3"><span>쓰리룸</span></label>
+                                            <input type="checkbox" name="three_room" id="three_room" value="Y" class="blind"/>
+                                            <label for="three_room"><span>쓰리룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="rental_type_4" id="rental_type_4" value="Y" class="blind"/>
-                                            <label for="rental_type_4"><span>포룸이상</span></label>
+                                            <input type="checkbox" name="for_room" id="for_room" value="Y" class="blind"/>
+                                            <label for="for_room"><span>포룸이상</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="rental_type_5" id="rental_type_5" value="Y" class="blind"/>
-                                            <label for="rental_type_5"><span>오피스텔</span></label>
+                                            <input type="checkbox" name="office" id="office" value="Y" class="blind"/>
+                                            <label for="office"><span>오피스텔</span></label>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr class="type_parcel_out" style="display: none">
                                 <td class="infotd">분양 종류*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
@@ -293,7 +293,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr class="type_sell" style="display: none">
                                 <td class="infotd">매매 종류*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
@@ -340,7 +340,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr class="type_parcel_out" style="display: none">
                                 <td class="infotd">분양가*</td>
                                 <td>
                                     <div class="tb_inner">
@@ -364,7 +364,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr class="type_sell" style="display: none">
                                 <td class="infotd">매매가격*</td>
                                 <td>
                                     <div class="tb_inner">
@@ -388,34 +388,34 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr  class="type_charter" style="display: none">
                                 <td class="infotd">전세*</td>
                                 <td colspan="3">
                                     <div class="tb_inner">
                                         <div class="input_wrap w150">
                                             <label for="charter_price">
-                                                <input type="text" id="charter_price" name="charter_price" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                                <input type="text" id="charter_deposit" name="charter_deposit" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                 <span class="ml5 w40">만원</span>
                                             </label>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr class="type_rental" style="display: none">
                                 <td class="infotd">월세*</td>
                                 <td colspan="3">
                                     <div class="tb_inner">
                                         <div class="input_wrap w150">
                                             보증금
-                                            <label for="monthly_rent_deposit_price">
-                                                <input type="text" id="monthly_rent_deposit_price" name="monthly_rent_deposit_price" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            <label for="rent_deposit">
+                                                <input type="text" id="rent_deposit" name="rent_deposit" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                 <span class="ml5 w40">만원</span>
                                             </label>
                                         </div>
                                         <div class="input_wrap w150">
                                             월세
-                                            <label for="monthly_rent_price">
-                                                <input type="text" id="monthly_rent_price" name="monthly_rent_price" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            <label for="rent_price">
+                                                <input type="text" id="rent_price" name="rent_price" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                 <span class="ml5 w40">만원</span>
                                             </label>
                                         </div>
@@ -455,7 +455,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="infotd">관리비*</td>
+                                <td class="infotd">관리비</td>
                                 <td colspan="3">
                                     <div class="tb_inner">
                                         <div class="input_wrap w150">
@@ -468,7 +468,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="infotd">관리비 항목*</td>
+                                <td class="infotd">관리비 항목</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
@@ -507,7 +507,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="infotd">관리비 별도 부과 항목*</td>
+                                <td class="infotd">관리비 별도 부과 항목</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
@@ -550,7 +550,7 @@
                                 <td>
                                     <div class="input_wrap input_file">
                                         <div class="file">
-                                            <input type="text" id="all_parking" name="all_parking" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            <input type="text" id="all_parking_cnt" name="all_parking_cnt" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                         </div>
                                     </div>
                                 </td>
@@ -558,7 +558,7 @@
                                 <td>
                                     <div class="input_wrap input_file">
                                         <div class="file">
-                                            <input type="text" id="one_parking" name="one_parking" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                            <input type="text" id="one_parking_cnt" name="one_parking_cnt" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                         </div>
                                     </div>
                                 </td>
@@ -633,7 +633,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr>
                                 <td class="infotd">빌트인 여부</td>
                                 <td>
                                     <div class="td_inner">
@@ -653,7 +653,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr>
                                 <td class="infotd">베란다/발코디 여부</td>
                                 <td colspan="3">
                                     <div class="td_inner">
@@ -664,7 +664,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr>
                                 <td class="infotd">주용도*</td>
                                 <td colspan="3">
                                     <div class="input_wrap input_file">
@@ -674,15 +674,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
-                                <td class="infotd">입주 가능일*</td>
-                                <td>
-                                    <div class="td_inner">
-                                        <div class="input_wrap w120 start mr10">
-                                            <input type="text" class="picker" name="move_in_start_date" readonly>
-                                        </div>
-                                    </div>
-                                </td>
+                            <tr>
                                 <td class="infotd">사용 승인일*</td>
                                 <td>
                                     <div class="td_inner">
@@ -691,9 +683,17 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="infotd type_charter type_rental" style="display: none">입주 가능일</td>
+                                <td>
+                                    <div class="td_inner">
+                                        <div class="input_wrap w120 start mr10">
+                                            <input type="text" class="picker" name="move_in_start_date" readonly>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
-                            <tr style="display: none">
-                                <td class="infotd">옵션*</td>
+                            <tr>
+                                <td class="infotd">옵션</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
@@ -735,8 +735,8 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
-                                <td class="infotd">보안/안전시설*</td>
+                            <tr>
+                                <td class="infotd">보안/안전시설</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
@@ -788,15 +788,15 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
-                                <td class="infotd">집주인 연락처*</td>
+                            <tr class="type_charter type_rental type_sell" style="display: none">
+                                <td class="infotd">집주인 연락처</td>
                                 <td colspan="3">
                                     <div class="input_wrap w283">
                                         <input type="text" id="master_tel" name="master_tel" value="">
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="display: none">
+                            <tr>
                                 <td class="infotd">중개 담당자 전화번호*</td>
                                 <td colspan="3">
                                     <div class="input_wrap w283">
@@ -841,12 +841,24 @@
         });
 
         // 구분 클릭
-        $('[name=type_1], [name=type_2], [name=type_3], [name=type_4]').click(function(){
-            const $this = $(this);
-            if($this.is(':checked')) {
-                $('.'+$this.attr('name')).show();
-            } else {
-                $('.'+$this.attr('name')).hide();
+        $('[name=type_charter], [name=type_rental], [name=type_sell], [name=type_parcel_out]').click(function(){
+
+            $('.type_charter').hide();
+            $('.type_rental').hide();
+            $('.type_sell').hide();
+            $('.type_parcel_out').hide();
+
+            if($('[name=type_charter]').is(':checked')) {
+                $('.type_charter').show();
+            }
+            if($('[name=type_rental]').is(':checked')) {
+                $('.type_rental').show();
+            }
+            if($('[name=type_sell]').is(':checked')) {
+                $('.type_sell').show();
+            }
+            if($('[name=type_parcel_out]').is(':checked')) {
+                $('.type_parcel_out').show();
             }
         });
 
@@ -922,33 +934,23 @@
      */
     function save(){
 
-        if($('#name').val().trim() == ''){
-            alert('업체명을 입력하여 주세요.');
-            return false;
-        }
-        if($('#tel').val().trim() == ''){
-            alert('전화번호를 입력하여 주세요.');
-            return false;
-        }
-        if($('#city').val() == '') {
-            alert('지역 중 도시를 선택하여 주세요.');
-            return false;
-        }
-        if($('#district').val() == '') {
-            alert('지역 중 구를 선택하여 주세요.');
+        if(!validation_check()){
+            return;
+        } else if(!confirm(save_msg)){
+            return;
         }
 
-        if(!confirm(save_msg)){
-            return false;
-        }
-
-        let ajax_data = $('#regForm').serialize();
+        let ajax_data = new FormData($("#regForm")[0]);
 
         $.ajax({
-            url:'/admin/real/real_save', //request 보낼 서버의 경로
+            url:'/admin/jointBrokerage/jointBrokerage_save', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
-            data:ajax_data, //보낼 데이터
-            async : false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: ajax_data, //보낼 데이터
+            async:false,
             success: function(data) {
                 if(data.code == 'S'){
                     alert(save_finish);
@@ -962,5 +964,249 @@
                 console.log(err);
             }
         });
+
+    }
+
+    function validation_check(){
+
+        if($('[name=title]').val().trim() == ''){
+            alert('제목을 입력하여 주세요.');
+            return;
+        } else if(!$('[name=type_charter]').is(':checked') && !$('[name=type_rental]').is(':checked') && !$('[name=type_sell]').is(':checked') && !$('[name=type_parcel_out]').is(':checked')) {
+            alert('구분을 선택하여 주세요.');
+            return;
+        }
+
+        if($('[name=type_charter]').is(':checked')) {
+            if(!$('[name=one_room]').is(':checked') &&
+                !$('[name=two_room]').is(':checked') &&
+                !$('[name=three_room]').is(':checked') &&
+                !$('[name=for_room]').is(':checked') &&
+                !$('[name=office]').is(':checked')) {
+                alert('방종류를 선택하여 주세요.');
+                return;
+            } else if($('[name=charter_price]').val().trim() == '') {
+                alert('전세가격을 입력하여 주세요.');
+                return;
+            } else if($('[name=all_area]').val().trim() == '') {
+                alert('전체면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=exclusive_area]').val().trim() == '') {
+                alert('전용면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=common_area]').val().trim() == '') {
+                alert('공통면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=maintenance_cost]').val().trim() == '') {
+                alert('관리비를 입력하여 주세요.');
+                return;
+            } else if(!$('[name=maintenance_cost_type_1]').is(':checked') &&
+                !$('[name=maintenance_cost_type_2]').is(':checked') &&
+                !$('[name=maintenance_cost_type_3]').is(':checked') &&
+                !$('[name=maintenance_cost_type_4]').is(':checked') &&
+                !$('[name=maintenance_cost_type_5]').is(':checked') &&
+                !$('[name=maintenance_cost_type_6]').is(':checked') &&
+                !$('[name=maintenance_cost_type_7]').is(':checked') &&
+                !$('[name=maintenance_cost_type_8]').is(':checked')
+            ) {
+                alert('관리지 항목을 선택하여 주세요.');
+                return;
+            } else if(!$('[name=maintenance_cost_other_type_1]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_2]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_3]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_4]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_5]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_6]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_7]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_8]').is(':checked')
+            ) {
+                alert('관리지 별도 항목을 선택하여 주세요.');
+                return;
+            } else if(!$('[name=east]').is(':checked') &&
+                !$('[name=west]').is(':checked') &&
+                !$('[name=south]').is(':checked') &&
+                !$('[name=north]').is(':checked')
+            ) {
+                alert('방향을 선택하여 주세요.');
+                return;
+            } else if($('[name=zip_code]').val().trim() == '') {
+                alert('우편번호를 입력하여 주세요.');
+                return;
+            } else if($('[name=address1]').val().trim() == '') {
+                alert('주소를 입력하여 주세요.');
+                return;
+            } else if($('[name=broker_tel]').val().trim() == '') {
+                alert('중개 담당자 전화번호를 입력하여 주세요.');
+                return;
+            }
+
+        }
+
+        if($('[name=type_rental]').is(':checked')) { // 월세
+
+            if(!$('[name=one_room]').is(':checked') &&
+                !$('[name=two_room]').is(':checked') &&
+                !$('[name=three_room]').is(':checked') &&
+                !$('[name=for_room]').is(':checked') &&
+                !$('[name=office]').is(':checked')) {
+                alert('방종류를 선택하여 주세요.');
+                return;
+            } else if($('[name=rent_deposit]').val().trim() == '') {
+                alert('월세 보증금을 입력하여 주세요.');
+                return;
+            } else if($('[name=rent_price]').val().trim() == '') {
+                alert('월세를 입력하여 주세요.');
+                return;
+            } else if($('[name=all_area]').val().trim() == '') {
+                alert('전체면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=exclusive_area]').val().trim() == '') {
+                alert('전용면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=common_area]').val().trim() == '') {
+                alert('공통면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=maintenance_cost]').val().trim() == '') {
+                alert('관리비를 입력하여 주세요.');
+                return;
+            } else if(!$('[name=maintenance_cost_type_1]').is(':checked') &&
+                !$('[name=maintenance_cost_type_2]').is(':checked') &&
+                !$('[name=maintenance_cost_type_3]').is(':checked') &&
+                !$('[name=maintenance_cost_type_4]').is(':checked') &&
+                !$('[name=maintenance_cost_type_5]').is(':checked') &&
+                !$('[name=maintenance_cost_type_6]').is(':checked') &&
+                !$('[name=maintenance_cost_type_7]').is(':checked') &&
+                !$('[name=maintenance_cost_type_8]').is(':checked')
+            ) {
+                alert('관리지 항목을 선택하여 주세요.');
+                return;
+            } else if(!$('[name=maintenance_cost_other_type_1]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_2]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_3]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_4]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_5]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_6]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_7]').is(':checked') &&
+                !$('[name=maintenance_cost_other_type_8]').is(':checked')
+            ) {
+                alert('관리지 별도 항목을 선택하여 주세요.');
+                return;
+            } else if(!$('[name=east]').is(':checked') &&
+                !$('[name=west]').is(':checked') &&
+                !$('[name=south]').is(':checked') &&
+                !$('[name=north]').is(':checked')
+            ) {
+                alert('방향을 선택하여 주세요.');
+                return;
+            } else if($('[name=zip_code]').val().trim() == '') {
+                alert('우편번호를 입력하여 주세요.');
+                return;
+            } else if($('[name=address1]').val().trim() == '') {
+                alert('주소를 입력하여 주세요.');
+                return;
+            } else if($('[name=broker_tel]').val().trim() == '') {
+                alert('중개 담당자 전화번호를 입력하여 주세요.');
+                return;
+            }
+
+        }
+        if($('[name=type_sell]').is(':checked')) { // 매매
+
+            if(!$('[name=sell_1]').is(':checked') &&
+                !$('[name=sell_2]').is(':checked') &&
+                !$('[name=sell_3]').is(':checked') &&
+                !$('[name=sell_4]').is(':checked') &&
+                !$('[name=sell_5]').is(':checked') &&
+                !$('[name=sell_6]').is(':checked') &&
+                !$('[name=sell_7]').is(':checked') &&
+                !$('[name=sell_8]').is(':checked') &&
+                !$('[name=sell_9]').is(':checked') &&
+                !$('[name=sell_10]').is(':checked')
+            ) {
+                alert('매매 종류를 선택하여 주세요.');
+                return;
+            } else if ($('[name=sell_price]').val().trim() == '') {
+                alert('매매가격을 입력하여 주세요.');
+                return;
+            } else if ($('[name=sell_fee]').val().trim() == '') {
+                alert('매매 수수료를 입력하여 주세요.');
+                return;
+            } else if($('[name=all_area]').val().trim() == '') {
+                alert('전체면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=exclusive_area]').val().trim() == '') {
+                alert('전용면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=common_area]').val().trim() == '') {
+                alert('공통면적을 입력하여 주세요.');
+                return;
+            } else if(!$('[name=east]').is(':checked') &&
+                !$('[name=west]').is(':checked') &&
+                !$('[name=south]').is(':checked') &&
+                !$('[name=north]').is(':checked')
+            ) {
+                alert('방향을 선택하여 주세요.');
+                return;
+            } else if($('[name=zip_code]').val().trim() == '') {
+                alert('우편번호를 입력하여 주세요.');
+                return;
+            } else if($('[name=address1]').val().trim() == '') {
+                alert('주소를 입력하여 주세요.');
+                return;
+            } else if($('[name=broker_tel]').val().trim() == '') {
+                alert('중개 담당자 전화번호를 입력하여 주세요.');
+                return;
+            }
+
+        }
+
+        if($('[name=type_parcel_out]').is(':checked')) { // 분양
+
+            if(!$('[name=sale_in_lots_1]').is(':checked') &&
+                !$('[name=sale_in_lots_2]').is(':checked') &&
+                !$('[name=sale_in_lots_3]').is(':checked') &&
+                !$('[name=sale_in_lots_4]').is(':checked') &&
+                !$('[name=sale_in_lots_5]').is(':checked') &&
+                !$('[name=sale_in_lots_6]').is(':checked') &&
+                !$('[name=sale_in_lots_7]').is(':checked') &&
+                !$('[name=sale_in_lots_8]').is(':checked') &&
+                !$('[name=sale_in_lots_9]').is(':checked') &&
+                !$('[name=sale_in_lots_10]').is(':checked')
+            ) {
+                alert('분양 종류를 선택하여 주세요.');
+                return;
+            } else if ($('[name=sell_price]').val().trim() == '') {
+                alert('매매가격을 입력하여 주세요.');
+                return;
+            } else if ($('[name=sell_fee]').val().trim() == '') {
+                alert('매매 수수료를 입력하여 주세요.');
+                return;
+            } else if($('[name=all_area]').val().trim() == '') {
+                alert('전체면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=exclusive_area]').val().trim() == '') {
+                alert('전용면적을 입력하여 주세요.');
+                return;
+            } else if($('[name=common_area]').val().trim() == '') {
+                alert('공통면적을 입력하여 주세요.');
+                return;
+            } else if(!$('[name=east]').is(':checked') &&
+                !$('[name=west]').is(':checked') &&
+                !$('[name=south]').is(':checked') &&
+                !$('[name=north]').is(':checked')
+            ) {
+                alert('방향을 선택하여 주세요.');
+                return;
+            } else if($('[name=zip_code]').val().trim() == '') {
+                alert('우편번호를 입력하여 주세요.');
+                return;
+            } else if($('[name=address1]').val().trim() == '') {
+                alert('주소를 입력하여 주세요.');
+                return;
+            } else if($('[name=broker_tel]').val().trim() == '') {
+                alert('중개 담당자 전화번호를 입력하여 주세요.');
+                return;
+            }
+        }
     }
 </script>

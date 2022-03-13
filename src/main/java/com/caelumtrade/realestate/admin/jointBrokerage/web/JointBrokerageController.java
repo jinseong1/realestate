@@ -13,10 +13,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.caelumtrade.realestate.util.Base.ADMIN;
 
@@ -112,6 +113,21 @@ public class JointBrokerageController extends Base {
         } else {
             result.put("code", "E");
         }
+
+        return result;
+    }
+
+    /**
+     *  공동중개 저장
+     * @return
+     */
+    @RequestMapping("/jointBrokerage_save")
+    @ResponseBody
+    @Transactional
+    public Map jointBrokerage_save(@RequestParam Map input_data, MultipartHttpServletRequest multipartRequest, HttpServletRequest req) throws Exception {
+        Map result = new HashMap();
+
+        input_data.put("id", CommonUtil.getSessionId(req));
 
         return result;
     }
