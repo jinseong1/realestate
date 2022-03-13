@@ -667,9 +667,9 @@
                             <tr>
                                 <td class="infotd">주용도*</td>
                                 <td colspan="3">
-                                    <div class="input_wrap input_file">
+                                    <div class="input_wrap w120">
                                         <div class="file">
-                                            <input type="text" id="purpose" name="purpose" value="" readonly>
+                                            <input type="text" id="purpose" name="purpose" value="">
                                         </div>
                                     </div>
                                 </td>
@@ -684,7 +684,7 @@
                                     </div>
                                 </td>
                                 <td class="infotd type_charter type_rental" style="display: none">입주 가능일</td>
-                                <td>
+                                <td class="type_charter type_rental" style="display: none">
                                     <div class="td_inner">
                                         <div class="input_wrap w120 start mr10">
                                             <input type="text" class="picker" name="move_in_start_date" readonly>
@@ -971,10 +971,10 @@
 
         if($('[name=title]').val().trim() == ''){
             alert('제목을 입력하여 주세요.');
-            return;
+            return false;
         } else if(!$('[name=type_charter]').is(':checked') && !$('[name=type_rental]').is(':checked') && !$('[name=type_sell]').is(':checked') && !$('[name=type_parcel_out]').is(':checked')) {
             alert('구분을 선택하여 주세요.');
-            return;
+            return false;
         }
 
         if($('[name=type_charter]').is(':checked')) {
@@ -984,22 +984,22 @@
                 !$('[name=for_room]').is(':checked') &&
                 !$('[name=office]').is(':checked')) {
                 alert('방종류를 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=charter_price]').val().trim() == '') {
                 alert('전세가격을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=all_area]').val().trim() == '') {
                 alert('전체면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=exclusive_area]').val().trim() == '') {
                 alert('전용면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=common_area]').val().trim() == '') {
                 alert('공통면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=maintenance_cost]').val().trim() == '') {
                 alert('관리비를 입력하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=maintenance_cost_type_1]').is(':checked') &&
                 !$('[name=maintenance_cost_type_2]').is(':checked') &&
                 !$('[name=maintenance_cost_type_3]').is(':checked') &&
@@ -1010,7 +1010,7 @@
                 !$('[name=maintenance_cost_type_8]').is(':checked')
             ) {
                 alert('관리지 항목을 선택하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=maintenance_cost_other_type_1]').is(':checked') &&
                 !$('[name=maintenance_cost_other_type_2]').is(':checked') &&
                 !$('[name=maintenance_cost_other_type_3]').is(':checked') &&
@@ -1021,23 +1021,23 @@
                 !$('[name=maintenance_cost_other_type_8]').is(':checked')
             ) {
                 alert('관리지 별도 항목을 선택하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=east]').is(':checked') &&
                 !$('[name=west]').is(':checked') &&
                 !$('[name=south]').is(':checked') &&
                 !$('[name=north]').is(':checked')
             ) {
                 alert('방향을 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=zip_code]').val().trim() == '') {
                 alert('우편번호를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=address1]').val().trim() == '') {
                 alert('주소를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=broker_tel]').val().trim() == '') {
                 alert('중개 담당자 전화번호를 입력하여 주세요.');
-                return;
+                return false;
             }
 
         }
@@ -1050,25 +1050,25 @@
                 !$('[name=for_room]').is(':checked') &&
                 !$('[name=office]').is(':checked')) {
                 alert('방종류를 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=rent_deposit]').val().trim() == '') {
                 alert('월세 보증금을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=rent_price]').val().trim() == '') {
                 alert('월세를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=all_area]').val().trim() == '') {
                 alert('전체면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=exclusive_area]').val().trim() == '') {
                 alert('전용면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=common_area]').val().trim() == '') {
                 alert('공통면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=maintenance_cost]').val().trim() == '') {
                 alert('관리비를 입력하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=maintenance_cost_type_1]').is(':checked') &&
                 !$('[name=maintenance_cost_type_2]').is(':checked') &&
                 !$('[name=maintenance_cost_type_3]').is(':checked') &&
@@ -1079,7 +1079,7 @@
                 !$('[name=maintenance_cost_type_8]').is(':checked')
             ) {
                 alert('관리지 항목을 선택하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=maintenance_cost_other_type_1]').is(':checked') &&
                 !$('[name=maintenance_cost_other_type_2]').is(':checked') &&
                 !$('[name=maintenance_cost_other_type_3]').is(':checked') &&
@@ -1090,23 +1090,23 @@
                 !$('[name=maintenance_cost_other_type_8]').is(':checked')
             ) {
                 alert('관리지 별도 항목을 선택하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=east]').is(':checked') &&
                 !$('[name=west]').is(':checked') &&
                 !$('[name=south]').is(':checked') &&
                 !$('[name=north]').is(':checked')
             ) {
                 alert('방향을 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=zip_code]').val().trim() == '') {
                 alert('우편번호를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=address1]').val().trim() == '') {
                 alert('주소를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=broker_tel]').val().trim() == '') {
                 alert('중개 담당자 전화번호를 입력하여 주세요.');
-                return;
+                return false;
             }
 
         }
@@ -1124,38 +1124,38 @@
                 !$('[name=sell_10]').is(':checked')
             ) {
                 alert('매매 종류를 선택하여 주세요.');
-                return;
+                return false;
             } else if ($('[name=sell_price]').val().trim() == '') {
                 alert('매매가격을 입력하여 주세요.');
-                return;
+                return false;
             } else if ($('[name=sell_fee]').val().trim() == '') {
                 alert('매매 수수료를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=all_area]').val().trim() == '') {
                 alert('전체면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=exclusive_area]').val().trim() == '') {
                 alert('전용면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=common_area]').val().trim() == '') {
                 alert('공통면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=east]').is(':checked') &&
                 !$('[name=west]').is(':checked') &&
                 !$('[name=south]').is(':checked') &&
                 !$('[name=north]').is(':checked')
             ) {
                 alert('방향을 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=zip_code]').val().trim() == '') {
                 alert('우편번호를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=address1]').val().trim() == '') {
                 alert('주소를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=broker_tel]').val().trim() == '') {
                 alert('중개 담당자 전화번호를 입력하여 주세요.');
-                return;
+                return false;
             }
 
         }
@@ -1174,38 +1174,38 @@
                 !$('[name=sale_in_lots_10]').is(':checked')
             ) {
                 alert('분양 종류를 선택하여 주세요.');
-                return;
+                return false;
             } else if ($('[name=sell_price]').val().trim() == '') {
                 alert('매매가격을 입력하여 주세요.');
-                return;
+                return false;
             } else if ($('[name=sell_fee]').val().trim() == '') {
                 alert('매매 수수료를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=all_area]').val().trim() == '') {
                 alert('전체면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=exclusive_area]').val().trim() == '') {
                 alert('전용면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=common_area]').val().trim() == '') {
                 alert('공통면적을 입력하여 주세요.');
-                return;
+                return false;
             } else if(!$('[name=east]').is(':checked') &&
                 !$('[name=west]').is(':checked') &&
                 !$('[name=south]').is(':checked') &&
                 !$('[name=north]').is(':checked')
             ) {
                 alert('방향을 선택하여 주세요.');
-                return;
+                return false;
             } else if($('[name=zip_code]').val().trim() == '') {
                 alert('우편번호를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=address1]').val().trim() == '') {
                 alert('주소를 입력하여 주세요.');
-                return;
+                return false;
             } else if($('[name=broker_tel]').val().trim() == '') {
                 alert('중개 담당자 전화번호를 입력하여 주세요.');
-                return;
+                return false;
             }
         }
     }
