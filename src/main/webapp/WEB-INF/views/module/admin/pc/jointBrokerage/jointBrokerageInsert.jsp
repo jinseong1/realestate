@@ -393,7 +393,7 @@
                                 <td colspan="3">
                                     <div class="tb_inner">
                                         <div class="input_wrap w150">
-                                            <label for="charter_price">
+                                            <label for="charter_deposit">
                                                 <input type="text" id="charter_deposit" name="charter_deposit" value="" oninput="this.value=this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                                 <span class="ml5 w40">만원</span>
                                             </label>
