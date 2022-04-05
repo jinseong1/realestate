@@ -124,10 +124,76 @@ public class JointBrokerageController extends Base {
     @RequestMapping("/jointBrokerage_save")
     @ResponseBody
     @Transactional
-    public Map jointBrokerage_save(@RequestParam Map input_data, MultipartHttpServletRequest multipartRequest, HttpServletRequest req) throws Exception {
+    public Map jointBrokerage_save(@RequestParam Map map, MultipartHttpServletRequest multipartRequest, HttpServletRequest req) throws Exception {
         Map result = new HashMap();
 
-        input_data.put("id", CommonUtil.getSessionId(req));
+        map.put("id", CommonUtil.getSessionId(req));
+
+        MultipartFile preview_video = multipartRequest.getFile("preview_video");
+        if(preview_video != null && preview_video.getSize() != 0){
+            // aws 업로드 후 경로 받기
+        }
+
+        for(int i = 1 ; i > 11 ; i++) {
+
+            if(map.get("preview_txt_img_"+i) != null && !map.get("preview_txt_img_"+i).equals("")) {
+                MultipartFile img = multipartRequest.getFile("preview_img_"+i);
+                if(img != null && img.getSize() != 0){
+                    // aws 업로드 후 경로 받기
+                } else {
+                    map.put("img_name_"+i, map.get("preview_txt_img_"+i));
+                    map.put("img_path_"+i, map.get("preview_path_img_"+i));
+                }
+            }
+
+        }
+
+        // 헤드 저장 혹은 수정
+        if(map.get("idx") != null && !map.get("idx").equals("")){ // 수정
+            if(dao.jointBrokerage_update(map) > 0){
+                // 전세
+                if(map.get("type_charter") != null && map.get("type_charter").equals("Y")) {
+
+                }
+                // 월세
+                if(map.get("type_rental") != null && map.get("type_rental").equals("Y")) {
+
+                }
+                // 매매
+                if(map.get("type_sell") != null && map.get("type_sell").equals("Y")) {
+
+                }
+                // 분양
+                if(map.get("type_parce_out") != null && map.get("type_parcel_out").equals("Y")) {
+
+                }
+                result.put("code", "S");
+            } else {
+                result.put("code", "E");
+            }
+        } else { // 저장
+            if(dao.jointBrokerage_insert(map) > 0){
+                // 전세
+                if(map.get("type_charter") != null && map.get("type_charter").equals("Y")) {
+
+                }
+                // 월세
+                if(map.get("type_rental") != null && map.get("type_rental").equals("Y")) {
+
+                }
+                // 매매
+                if(map.get("type_sell") != null && map.get("type_sell").equals("Y")) {
+
+                }
+                // 분양
+                if(map.get("type_parce_out") != null && map.get("type_parcel_out").equals("Y")) {
+
+                }
+                result.put("code", "S");
+            } else {
+                result.put("code", "E");
+            }
+        }
 
         return result;
     }

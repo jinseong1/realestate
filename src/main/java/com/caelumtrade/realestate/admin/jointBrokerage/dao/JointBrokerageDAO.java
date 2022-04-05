@@ -10,6 +10,7 @@ public interface JointBrokerageDAO {
     int get_total_jointBrokerage_count(Map map);
 
     List<Map> get_jointBrokerage_list(Map map);
-
+    int jointBrokerage_insert(Map mpa);
+    int jointBrokerage_update(Map mpa);
     int jointBrokerage_delete(Map map);
 }

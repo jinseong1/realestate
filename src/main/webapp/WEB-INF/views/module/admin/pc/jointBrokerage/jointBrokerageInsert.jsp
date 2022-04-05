@@ -60,6 +60,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(1, this, 'video')" name="preview_video" id="preview_video">
+                                            <input type="hidden" id="preview_path_video" name="preview_path_video" value="">
                                             <input type="text" readonly id="preview_txt_video" name="preview_txt_video" value="">
                                             <label for="preview_video" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1, 'video')">삭제</button>
@@ -74,6 +75,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(1, this, 'img')" name="preview_img_1" id="preview_img_1">
+                                            <input type="hidden" id="preview_path_img_1" name="preview_path_img_1" value="">
                                             <input type="text" readonly id="preview_txt_img_1" name="preview_txt_img_1" value="">
                                             <label for="preview_img_1" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(1, 'img')">삭제</button>
@@ -89,6 +91,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(2, this, 'img')" name="preview_img_2" id="preview_img_2">
+                                            <input type="hidden" id="preview_path_img_2" name="preview_path_img_2" value="">
                                             <input type="text" readonly id="preview_txt_img_2" name="preview_txt_img_2" value="">
                                             <label for="preview_img_2" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(2, 'img')">삭제</button>
@@ -104,6 +107,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(3, this, 'img')" name="preview_img_3" id="preview_img_3">
+                                            <input type="hidden" id="preview_path_img_3" name="preview_path_img_3" value="">
                                             <input type="text" readonly id="preview_txt_img_3" name="preview_txt_img_3" value="">
                                             <label for="preview_img_3" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(3, 'img')">삭제</button>
@@ -119,6 +123,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(4, this, 'img')" name="preview_img_4" id="preview_img_4">
+                                            <input type="hidden" id="preview_path_img_4" name="preview_path_img_4" value="">
                                             <input type="text" readonly id="preview_txt_img_4" name="preview_txt_img_4" value="">
                                             <label for="preview_img_4" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(4, 'img')">삭제</button>
@@ -134,6 +139,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(5, this, 'img')" name="preview_img_5" id="preview_img_5">
+                                            <input type="hidden" id="preview_path_img_5" name="preview_path_img_5" value="">
                                             <input type="text" readonly id="preview_txt_img_5" name="preview_txt_img_5" value="">
                                             <label for="preview_img_5" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(5, 'img')">삭제</button>
@@ -149,6 +155,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(6, this, 'img')" name="preview_img_6" id="preview_img_6">
+                                            <input type="hidden" id="preview_path_img_6" name="preview_path_img_6" value="">
                                             <input type="text" readonly id="preview_txt_img_6" name="preview_txt_img_6" value="">
                                             <label for="preview_img_6" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(6, 'img')">삭제</button>
@@ -164,6 +171,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(7, this, 'img')" name="preview_img_7" id="preview_img_7">
+                                            <input type="hidden" id="preview_path_img_7" name="preview_path_img_7" value="">
                                             <input type="text" readonly id="preview_txt_img_7" name="preview_txt_img_7" value="">
                                             <label for="preview_img_7" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(7, 'img')">삭제</button>
@@ -179,6 +187,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(8, this, 'img')" name="preview_img_8" id="preview_img_8">
+                                            <input type="hidden" id="preview_path_img_8" name="preview_path_img_8" value="">
                                             <input type="text" readonly id="preview_txt_img_8" name="preview_txt_img_8" value="">
                                             <label for="preview_img_8" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(8, 'img')">삭제</button>
@@ -194,6 +203,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(9, this, 'img')" name="preview_img_9" id="preview_img_9">
+                                            <input type="hidden" id="preview_path_img_9" name="preview_path_img_9" value="">
                                             <input type="text" readonly id="preview_txt_img_9" name="preview_txt_img_9" value="">
                                             <label for="preview_img_9" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(9, 'img')">삭제</button>
@@ -209,6 +219,7 @@
                                     <div class="input_wrap input_file fl_l">
                                         <div class="file">
                                             <input type="file" onchange="javascript:file_change(10, this, 'img')" name="preview_img_10" id="preview_img_10">
+                                            <input type="hidden" id="preview_path_img_10" name="preview_path_img_10" value="">
                                             <input type="text" readonly id="preview_txt_img_10" name="preview_txt_img_10" value="">
                                             <label for="preview_img_10" class="button_90">찾아보기</label>
                                             <button type="button" class="delete_btn mr10" onclick="javascript:file_delete(10, 'img')">삭제</button>
@@ -900,13 +911,21 @@
 
     }
 
-    function file_delete(idx) {
-        $("#preview_img_"+idx).val('');
-        $("#preview_txt_img_"+idx).val('');
+    function file_delete(idx, type) {
+        if(type == 'img') {
+            $("#preview_img_"+idx).val('');
+            $("#preview_txt_img_"+idx).val('');
+            $("#preview_path_img_"+idx).val('');
+        } else {
+            $("#preview_video_"+idx).val('');
+            $("#preview_txt_video_"+idx).val('');
+            $("#preview_path_video_"+idx).val('');
+        }
     }
     function file_line_delete(idx){
         $("#preview_img_"+idx).val('');
         $("#preview_txt_img_"+idx).val('');
+        $("#preview_path_img_"+idx).val('');
         $('#file'+idx+'_view').hide();
     }
 
