@@ -6,6 +6,10 @@
 
 <script>
 
+    $('#sing_up').click(function(){
+       location.href = "/admin/user/sing_up_move";
+    });
+
     $("#btnLogin").click(function(e){
         e.preventDefault();
 

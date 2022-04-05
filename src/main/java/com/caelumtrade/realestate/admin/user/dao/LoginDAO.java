@@ -17,4 +17,6 @@ public interface LoginDAO {
     int update_last_login(Map map);
     String getRoleMenu(Map map);
     String loginConfirm(Map map);
+    int singUpCheck(Map map);
+    int singUp(Map map);
 };

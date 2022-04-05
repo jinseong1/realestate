@@ -2,6 +2,7 @@ package com.caelumtrade.realestate.admin.user.web;
 
 import com.caelumtrade.realestate.admin.user.dao.LoginDAO;
 import com.caelumtrade.realestate.admin.user.vo.MenuVO;
+import com.caelumtrade.realestate.util.BCryptCipherUtil;
 import com.caelumtrade.realestate.util.Base;
 import com.caelumtrade.realestate.util.CommonUtil;
 import org.mybatis.spring.annotation.MapperScan;
@@ -58,6 +59,41 @@ public class LoginController extends Base {
         model.addAttribute("active", active_type);
 
         return CommonUtil.device_move(device)+"/user/login"+CommonUtil.device_gnb(device, "SIMPLE");
+    }
+
+    @RequestMapping("/user/sing_up_move")
+    public String sing_up_move(Model model, Device device) throws Exception{
+        return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
+    }
+
+    @RequestMapping("/user/singUpAction")
+    @Transactional
+    public String singUpAction(@RequestParam Map map, Model model, Device device) throws Exception{
+
+        if(map.get("id") == null || map.get("id").equals("")) {
+            model.addAttribute("code", "");
+            model.addAttribute("msg", "");
+            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
+        } else if(loginDAO.singUpCheck(map) > 0) {
+            model.addAttribute("param", map);
+            model.addAttribute("code", "F");
+            model.addAttribute("msg", "중복된 아이디가 있습니다.");
+            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
+        }
+
+        map.put("password", BCryptCipherUtil.encode(map.get("password1").toString()));
+
+        if(loginDAO.singUp(map) > 0){
+            model.addAttribute("code", "S");
+            model.addAttribute("msg", "가입 성공하였습니다.");
+            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
+        } else {
+            model.addAttribute("param", map);
+            model.addAttribute("code", "F");
+            model.addAttribute("msg", "에러가 발생하였습니다. 관리자에게 문의 바랍니다.");
+            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
+        }
+
     }
 
     /**

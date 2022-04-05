@@ -3,5 +3,5 @@
 <%@ include file="/WEB-INF/views/common/admin/pc/include.jsp"%>
 
 <tiles:insertAttribute name="meta" flush="true" />
-<title>부동산 관리</title>
+<title>TRUE CODE</title>
 <tiles:insertAttribute name="css" flush="true" />

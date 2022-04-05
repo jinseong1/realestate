@@ -66,4 +66,41 @@
 		LIMIT     1
 	</select>
 
+	<select id="singUpCheck" parameterType="java.util.Map" resultType="Integer">
+		/* singUpCheck */
+		SELECT COUNT(*) FROM MEMBER WHERE ID = #{id}
+	</select>
+
+	<insert id="singUp" parameterType="java.util.Map">
+		/* singUp */
+		INSERT INTO MEMBER
+		(
+			 ID,
+			 PW,
+			 NAME,
+			 SEX,
+			 TEL,
+			 AGE,
+			 EMAIL,
+			 ADDRESS1,
+			 ADDRESS2,
+			 COMPANY_IDX,
+			 LEVEL
+		)
+		VALUES
+		(
+			#{id},
+			#{password},
+			#{name},
+			#{sex},
+			#{tel},
+			#{age},
+			NULL,
+			NULL,
+			NULL,
+			-1,
+			10
+		)
+	</insert>
+
 </mapper>
