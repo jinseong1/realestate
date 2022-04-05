@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.homepage.dao.HomepageDAO">
+
+    <select id="get_total_homepage_count" parameterType="java.util.Map" resultType="Integer">
+        /* get_total_homepage_count */
+        SELECT    COUNT(*)
+        FROM      HOMEPAGE_H
+        WHERE     MEMBER_IDX = #{member_idx}
+    </select>
+
+    <select id="get_homepage_list" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_homepage_list */
+        SELECT    a.*
+        FROM      (
+                      SELECT    @rownum:=@rownum+1 AS no,
+		                        b.IDX, b.HOMEPAGE_NAME, IFNULL(b.URL, ' ') AS URL,
+		                        date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') AS REGDATE
+                      FROM      HOMEPAGE_H b, (SELECT @ROWNUM := 0) R
+                      WHERE     1 = 1
+                      AND       MEMBER_IDX = #{member_idx}
+                      ORDER BY  IDX DESC
+                  ) a
+        WHERE     no BETWEEN #{start} AND #{end}
+    </select>
+
+</mapper>
