@@ -9,7 +9,7 @@
     <div class="login">
         <div class="login_wrap" style="height: 650px;">
             <div class="title">
-                <h1 style="text-align: center">회원가입</h1>
+                <a href="/admin/user/login">←</a><h1 style="text-align: center">회원가입</h1>
             </div>
             <form id="form" class="m-t" role="form" action="/admin/user/singUpAction" method="post">
                 <div class="input_wrap">
