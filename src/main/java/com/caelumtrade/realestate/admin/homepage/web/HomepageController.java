@@ -80,6 +80,8 @@ public class HomepageController extends Base {
     @RequestMapping("/homepage/homepage_detail_move")
     public String homepage_detail_move(@RequestParam Map map, Model model, Device device) throws Exception {
 
+        model.addAttribute("IDX", map.get("idx"));
+
         return CommonUtil.device_move(device)+"/homepage/homepageDetail"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
