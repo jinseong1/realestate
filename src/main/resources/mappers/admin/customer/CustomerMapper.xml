@@ -205,9 +205,9 @@
 		 #{date},
 		 #{time_h},
 		 #{time_h},
-		 (SELECT DATE_ADD(NOW(), INTERVAL 9 HOUR)),
+		 NOW(),
 		 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1),
-		 (SELECT DATE_ADD(NOW(), INTERVAL 9 HOUR)),
+		 NOW(),
 		 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx} LIMIT 1)
 		)
 	</insert>

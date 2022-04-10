@@ -11,5 +11,8 @@ public interface HomepageDAO {
     int get_total_homepage_count(Map map);
     List<Map> get_homepage_list(Map map);
 
+    Map get_homepage_h(Map map);
+
+    int homepage_save(Map map);
 }
 

@@ -43,6 +43,8 @@ public class AuthProvider implements AuthenticationProvider {
         MemberVO memberVO = new MemberVO();
         memberVO.setId(id);
 
+        System.out.println("encoding PW : " + BCryptCipherUtil.encode(password));
+
         MemberVO user = null;
         try {
             user = loginDAO.selectUser(memberVO);

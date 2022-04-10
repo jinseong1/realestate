@@ -8,6 +8,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class Base {
 
+    private static String upload_path;
+
+    @Value("${file.upload.path}")
+    public void setUploadPath(String path) throws Exception {
+        upload_path = new String(path.getBytes("ISO-8859-1"), "UTF-8");
+    }
+
     // 타일즈 경로
     public final static String ADMIN_PC_SIMPLE_SUFFIX = ".aPcSimple";
     public final static String ADMIN_MOB_SIMPLE_SUFFIX = ".aMobSimple";
@@ -26,4 +33,8 @@ public class Base {
      */
     // 회원관리
     public final static String MEMBER = "/admin/member";
+
+    // 배너
+    public String UPLOAD_HOMEPAGE        = upload_path+"homepage\\";
+    public String UPLOAD_HOMEPAGE_URL    = "/upload/homepage/";
 }

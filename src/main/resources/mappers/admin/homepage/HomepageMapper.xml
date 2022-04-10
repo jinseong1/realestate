@@ -24,4 +24,90 @@
         WHERE     no BETWEEN #{start} AND #{end}
     </select>
 
+    <select id="get_homepage_h" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_homepage_h */
+        SELECT    IDX, HOMEPAGE_NAME, CONNECT_TEL, MAIN_IMG_NAME, MAIN_IMG_PATH,
+                  TITLE1, USE_YN1, TITLE2, USE_YN2, TITLE3, USE_YN3, TITLE4, USE_YN4, TITLE5, USE_YN5
+        FROM      HOMEPAGE_H
+        WHERE     MEMBER_IDX = #{member_idx}
+    </select>
+
+    <update id="homepage_save" parameterType="java.util.Map">
+        <selectKey keyProperty="CNT" resultType="Integer" order="BEFORE">
+            SELECT COUNT(*) AS CNT FROM HOMEPAGE_H WHERE IDX = #{idx}
+        </selectKey>
+        <choose>
+            <when test="CNT == 0">
+                INSERT INTO HOMEPAGE_H
+                (
+                 HOMEPAGE_NAME,
+                 CONNECT_TEL,
+                 MAIN_IMG_NAME,
+                 MAIN_IMG_PATH,
+                 TITLE1,
+                 USE_YN1,
+                 TITLE2,
+                 USE_YN2,
+                 TITLE3,
+                 USE_YN3,
+                 TITLE4,
+                 USE_YN4,
+                 TITLE5,
+                 USE_YN5,
+                 MATCH_KEY,
+                 MEMBER_IDX,
+                 REGDATE,
+                 REGID,
+                 MODDATE,
+                 MODID,
+                 URL
+                )
+                VALUES
+                (
+                #{homepage_name},
+                #{connect_tel},
+                #{main_img_name},
+                #{main_img_path},
+                #{title_1},
+                #{use_yn_1},
+                #{title_2},
+                #{use_yn_2},
+                #{title_3},
+                #{use_yn_3},
+                #{title_4},
+                #{use_yn_4},
+                #{title_5},
+                #{use_yn_5},
+                #{match_key},
+                #{member_idx},
+                NOW(),
+                (SELECT ID FROM MEMBER WHERE IDX = #{idx}),
+                NOW(),
+                (SELECT ID FROM MEMBER WHERE IDX = #{idx}),
+                #{URL}
+                )
+            </when>
+            <otherwise>
+                UPDATE HOMEPAGE_H
+                SET    HOMEPAGE_NAME = #{homepage_name},
+                       CONNECT_TEL   = #{connect_tel},
+                       MAIN_IMG_NAME = #{main_img_name},
+                       MAIN_IMG_PATH = #{main_img_path},
+                       TITLE1        = #{title_1},
+                       USE_YN1       = #{use_yn_1},
+                       TITLE2        = #{title_2},
+                       USE_YN2       = #{use_yn_2},
+                       TITLE3        = #{title_3},
+                       USE_YN3       = #{use_yn_3},
+                       TITLE4        = #{title_4},
+                       USE_YN4       = #{use_yn_4},
+                       TITLE5        = #{title_5},
+                       USE_YN5       = #{use_yn_5},
+                       MODDATE       = NOW(),
+                       MODID         = #{member_idx}
+                WHERE  IDX = #{idx}
+            </otherwise>
+        </choose>
+    </update>
+
 </mapper>
