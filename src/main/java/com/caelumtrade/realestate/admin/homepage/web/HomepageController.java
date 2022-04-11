@@ -122,5 +122,50 @@ public class HomepageController extends Base {
         return result;
     }
 
+
+    @RequestMapping("/homepage/get_homepage_detail")
+    @ResponseBody
+    @Transactional
+    public Map get_homepage_detail(@RequestParam Map map, HttpServletRequest request) throws Exception {
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        map.put("data", dao.get_homepage_detail(map));
+
+        return map;
+    }
+
+    /**
+     * 홈페이지 정보 저장
+     * @param map
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/homepage/homepage_detail_save")
+    @ResponseBody
+    @Transactional
+    public Map homepage_detail_save(@RequestParam Map map, MultipartHttpServletRequest multipartRequest, HttpServletRequest request) throws Exception {
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        Map result = new HashMap();
+
+        String[] fileNames = {"img_1", "img_2", "img_3", "img_4", "img_5", "img_6", "img_7", "img_8", "img_9", "img_10"};
+        String[] saveName  = {"img_name1","img_name2","img_name3","img_name4","img_name5","img_name6","img_name7","img_name8","img_name9","img_name10"};
+        String[] savePath  = {"img_path1","img_path2","img_path3","img_path4","img_path5","img_path6","img_path7","img_path8","img_path9","img_path10"};
+
+        CommonUtil.auto_file_upload(multipartRequest, "imgList", map, fileNames, saveName, savePath, UPLOAD_HOMEPAGE, UPLOAD_HOMEPAGE_URL);
+
+        if(dao.homepage_detail_save(map) != 0) {
+            result.put("code", "S");
+            result.put("msg", "저장 성공하였습니다.");
+        } else {
+            result.put("code", "F");
+            result.put("msg", "저장 실패하였습니다. 관리자에게 문의 바랍니다.");
+        }
+
+        return result;
+    }
+
 }
 

@@ -191,13 +191,15 @@
     <article class="admin_popup">
         <div class="admin_popup_inner">
             <div class="tit">
-                <h4>대뷴류1 상세</h4>
+                <h4 id="popup_name">대뷴류1 상세</h4>
                 <button type="button" class="close"></button>
             </div>
             <div class="content">
                 <div class="search_wrap basic_table_wrap">
                     <div class="form_wrap">
                         <form name="detailForm" id="detailForm" onsubmit="return false;" method="post">
+                            <input type="hidden" id="h_idx" name="h_idx" value="${data.IDX}">
+                            <input type="hidden" id="order_num" name="order_num" value="">
                             <table style="height: 500px; display: inline-block; overflow: auto">
                                 <colgroup>
                                     <col style="width: 10%">
@@ -208,11 +210,11 @@
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '1')" name="img_1" id="img_1">
                                                 <input type="hidden" id="img_path_1" name="img_path_1" value="">
                                                 <input type="text" readonly id="img_name_1" name="img_name_1" value="">
                                                 <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '1')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
@@ -222,173 +224,277 @@
                                     <td class="infotd">설명1*</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부1</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn1_y">
+                                            <input type="radio" name="use_yn1" id="use_yn1_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn1_n">
+                                            <input type="radio" name="use_yn1" id="use_yn1_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지2</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '2')" name="img_2" id="img_2">
+                                                <input type="hidden" id="img_path_2" name="img_path_2" value="">
+                                                <input type="text" readonly id="img_name_2" name="img_name_2" value="">
+                                                <label for="img_2" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '2')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명2</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_2" name="memo_2"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부2</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn2_y">
+                                            <input type="radio" name="use_yn2" id="use_yn2_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn2_n">
+                                            <input type="radio" name="use_yn2" id="use_yn2_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지3</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '3')" name="img_3" id="img_3">
+                                                <input type="hidden" id="img_path_3" name="img_path_3" value="">
+                                                <input type="text" readonly id="img_name_3" name="img_name_3" value="">
+                                                <label for="img_3" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '3')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명3</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_3" name="memo_3"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부3</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn3_y">
+                                            <input type="radio" name="use_yn3" id="use_yn3_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn3_n">
+                                            <input type="radio" name="use_yn3" id="use_yn3_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지4</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '4')" name="img_4" id="img_4">
+                                                <input type="hidden" id="img_path_4" name="img_path_4" value="">
+                                                <input type="text" readonly id="img_name_4" name="img_name_4" value="">
+                                                <label for="img_4" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '4')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명4</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_4" name="memo_4"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부4</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn4_y">
+                                            <input type="radio" name="use_yn4" id="use_yn4_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn4_n">
+                                            <input type="radio" name="use_yn4" id="use_yn4_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지5</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '5')" name="img_5" id="img_5">
+                                                <input type="hidden" id="img_path_5" name="img_path_5" value="">
+                                                <input type="text" readonly id="img_name_5" name="img_name_5" value="">
+                                                <label for="img_5" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '5')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명5</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_5" name="memo_5"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부5</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn5_y">
+                                            <input type="radio" name="use_yn5" id="use_yn5_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn5_n">
+                                            <input type="radio" name="use_yn5" id="use_yn5_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지6</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '6')" name="img_6" id="img_6">
+                                                <input type="hidden" id="img_path_6" name="img_path_6" value="">
+                                                <input type="text" readonly id="img_name_6" name="img_name_6" value="">
+                                                <label for="img_6" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '6')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명6</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_6" name="memo_6"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부6</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn6_y">
+                                            <input type="radio" name="use_yn6" id="use_yn6_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn6_n">
+                                            <input type="radio" name="use_yn6" id="use_yn6_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지7</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '7')" name="img_7" id="img_7">
+                                                <input type="hidden" id="img_path_7" name="img_path_7" value="">
+                                                <input type="text" readonly id="img_name_7" name="img_name_7" value="">
+                                                <label for="img_7" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '7')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명7</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_7" name="memo_7"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부7</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn7_y">
+                                            <input type="radio" name="use_yn7" id="use_yn7_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn7_n">
+                                            <input type="radio" name="use_yn7" id="use_yn7_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지1*</td>
+                                    <td class="infotd">이미지8</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
-                                                <input type="file" onchange="javascript:file_change(this, 'D')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
-                                                <label for="img_1" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '1')">삭제</button>
+                                                <input type="file" onchange="javascript:file_change(this, 'D', '8')" name="img_8" id="img_8">
+                                                <input type="hidden" id="img_path_8" name="img_path_8" value="">
+                                                <input type="text" readonly id="img_name_8" name="img_name_8" value="">
+                                                <label for="img_8" class="button_90">찾아보기</label>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '8')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명1*</td>
+                                    <td class="infotd">설명8</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_8" name="memo_8"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부8</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn8_y">
+                                            <input type="radio" name="use_yn8" id="use_yn8_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn8_n">
+                                            <input type="radio" name="use_yn8" id="use_yn8_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지9*</td>
+                                    <td class="infotd">이미지9</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
@@ -396,22 +502,35 @@
                                                 <input type="hidden" id="img_path_9" name="img_path_9" value="">
                                                 <input type="text" readonly id="img_name_9" name="img_name_9" value="">
                                                 <label for="img_9" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '9')">삭제</button>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '9')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명9*</td>
+                                    <td class="infotd">설명9</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: auto;" class="form-control diff-textarea" rows="3" id="memo_9" name="memo_9"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_9" name="memo_9"></textarea>
                                         </div>
                                     </td>
                                 </tr>
+                                <td class="infotd">사용여부9</td>
+                                <td>
+                                    <div class="input_wrap radio">
+                                        <label for="use_yn9_y">
+                                            <input type="radio" name="use_yn9" id="use_yn9_y" value="Y" checked>
+                                            <span>사용</span>
+                                        </label>
+                                        <label for="use_yn9_n">
+                                            <input type="radio" name="use_yn9" id="use_yn9_n" value="N">
+                                            <span>미사용</span>
+                                        </label>
+                                    </div>
+                                </td>
                                 <tr>
-                                    <td class="infotd">이미지10*</td>
+                                    <td class="infotd">이미지10</td>
                                     <td colspan="3">
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
@@ -419,29 +538,29 @@
                                                 <input type="hidden" id="img_path_10" name="img_path_10" value="">
                                                 <input type="text" readonly id="img_name_10" name="img_name_10" value="">
                                                 <label for="img_10" class="button_90">찾아보기</label>
-                                                <button type="button" class="delete_btn mr10" onclick="javascript:file_del('img', '10')">삭제</button>
+                                                <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '10')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="infotd">설명10*</td>
+                                    <td class="infotd">설명10</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea class="form-control diff-textarea" rows="3" id="memo_10" name="memo_10"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_10" name="memo_10"></textarea>
                                         </div>
                                     </td>
                                 </tr>
-                                <td class="infotd">사용여부</td>
+                                <td class="infotd">사용여부10</td>
                                 <td>
                                     <div class="input_wrap radio">
-                                        <label for="line_10_y">
-                                            <input type="radio" name="line_10_n" id="line_10_y" value="Y" checked>
+                                        <label for="use_yn10_y">
+                                            <input type="radio" name="use_yn10" id="use_yn10_y" value="Y" checked>
                                             <span>사용</span>
                                         </label>
-                                        <label for="line_10_n">
-                                            <input type="radio" name="line_10_n" id="line_10_n" value="N">
+                                        <label for="use_yn10_n">
+                                            <input type="radio" name="use_yn10" id="use_yn10_n" value="N">
                                             <span>미사용</span>
                                         </label>
                                     </div>
@@ -479,7 +598,7 @@
 
     }
 
-    function file_change(obj, type) {
+    function file_change(obj, type, num) {
 
         const $this = $(obj);
         let file_name = $this.val().split("\\").pop();
@@ -503,6 +622,23 @@
                 $('#main_img_name').val($this.val().split("\\").pop());
 
                 break;
+            case 'D' :
+
+                if(file_type != '.jpg' && file_type != '.png'){
+                    $('#img_path_'+num).val('');
+                    $('#img_name_'+num).val('');
+                    alert('jpg, png만 업로드 가능합니다.');
+                    return false;
+                }
+                if(!filesize_check($this, 10)){
+                    $('#img_path_'+num).val('');
+                    $('#img_name_'+num).val('');
+                    alert('파일 용량은 10mb까지만 업로드 가능합니다.');
+                    return false;
+                }
+                $('#img_name_'+num).val($this.val().split("\\").pop());
+
+                break;
         }
 
     }
@@ -519,14 +655,66 @@
     }
 
     function detail_popup(num){
-        $('#popup_idx').val(num);
+
+        $('#order_num').val(num);
+        $('#popup_name').text('대뷴류'+num+' 상세');
+
+        // 데이터 조회 및 세팅 처리
+        get_detail();
+
         popupShow($('.admin_popup'));
+
+    }
+
+    function get_detail(){
+        $.ajax({
+            url:'/admin/homepage/get_homepage_detail', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: new FormData($("#detailForm")[0]), //보낼 데이터
+            async:false,
+            success: function(data) {
+                if(data.data != null) {
+
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+            }
+        });
     }
 
     function detail_save(){
+
         if(!confirm(save_msg)) {
             return;
         }
+
+        /* 저장처리 */
+        $.ajax({
+            url:'/admin/homepage/homepage_detail_save', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: new FormData($("#detailForm")[0]), //보낼 데이터
+            async:false,
+            success: function(data) {
+                alert(data.msg);
+                if(data.code == 'S'){
+
+                } else {
+
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+            }
+        });
 
     }
 
@@ -560,8 +748,9 @@
             data: new FormData($("#regForm")[0]), //보낼 데이터
             async:false,
             success: function(data) {
+                alert(data.msg);
                 if(data.code == 'S'){
-                    alert(save_finish);
+
                 } else {
 
                 }

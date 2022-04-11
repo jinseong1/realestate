@@ -33,6 +33,7 @@
     </select>
 
     <update id="homepage_save" parameterType="java.util.Map">
+        /* homepage_save */
         <selectKey keyProperty="CNT" resultType="Integer" order="BEFORE">
             SELECT COUNT(*) AS CNT FROM HOMEPAGE_H WHERE IDX = #{idx}
         </selectKey>
@@ -81,9 +82,9 @@
                 #{match_key},
                 #{member_idx},
                 NOW(),
-                (SELECT ID FROM MEMBER WHERE IDX = #{idx}),
+                (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
                 NOW(),
-                (SELECT ID FROM MEMBER WHERE IDX = #{idx}),
+                (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
                 #{URL}
                 )
             </when>
@@ -104,8 +105,176 @@
                        TITLE5        = #{title_5},
                        USE_YN5       = #{use_yn_5},
                        MODDATE       = NOW(),
-                       MODID         = #{member_idx}
+                       MODID         = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx})
                 WHERE  IDX = #{idx}
+            </otherwise>
+        </choose>
+    </update>
+
+    <select id="get_homepage_detail" parameterType="java.util.Map" resultType="java.util.Map">
+        /* get_homepage_detail */
+        SELECT    IMG_NAME1, IMG_PATH1, MEMO1, USE_YN1,
+                  IMG_NAME2, IMG_PATH2, MEMO2, USE_YN2,
+                  IMG_NAME3, IMG_PATH3, MEMO3, USE_YN3,
+                  IMG_NAME4, IMG_PATH4, MEMO4, USE_YN4,
+                  IMG_NAME5, IMG_PATH5, MEMO5, USE_YN5,
+                  IMG_NAME6, IMG_PATH6, MEMO6, USE_YN6,
+                  IMG_NAME7, IMG_PATH7, MEMO7, USE_YN7,
+                  IMG_NAME8, IMG_PATH8, MEMO8, USE_YN8,
+                  IMG_NAME9, IMG_PATH9, MEMO9, USE_YN9,
+                  IMG_NAME10, IMG_PATH10, MEMO10, USE_YN10
+        FROM      HOMEPAGE_D
+        WHERE     H_IDX = #{h_idx}
+        AND       ORDER_NUM = #{order_num}
+    </select>
+
+    <update id="homepage_detail_save" parameterType="java.util.Map">
+        /* homepage_detail_save */
+        <selectKey keyProperty="CNT" resultType="Integer" order="BEFORE">
+            SELECT COUNT(*) AS CNT FROM HOMEPAGE_D WHERE H_IDX = #{h_idx} AND ORDER_NUM = #{order_num}
+        </selectKey>
+        <choose>
+            <when test="CNT == 0">
+                INSERT INTO HOMEPAGE_D
+                (
+                 H_IDX,
+                 ORDER_NUM,
+                 IMG_NAME1,
+                 IMG_PATH1,
+                 MEMO1,
+                 USE_YN1,
+                 IMG_NAME2,
+                 IMG_PATH2,
+                 MEMO2,
+                 USE_YN2,
+                 IMG_NAME3,
+                 IMG_PATH3,
+                 MEMO3,
+                 USE_YN3,
+                 IMG_NAME4,
+                 IMG_PATH4,
+                 MEMO4,
+                 USE_YN4,
+                 IMG_NAME5,
+                 IMG_PATH5,
+                 MEMO5,
+                 USE_YN5,
+                 IMG_NAME6,
+                 IMG_PATH6,
+                 MEMO6,
+                 USE_YN6,
+                 IMG_NAME7,
+                 IMG_PATH7,
+                 MEMO7,
+                 USE_YN7,
+                 IMG_NAME8,
+                 IMG_PATH8,
+                 MEMO8,
+                 USE_YN8,
+                 IMG_NAME9,
+                 IMG_PATH9,
+                 MEMO9,
+                 USE_YN9,
+                 IMG_NAME10,
+                 IMG_PATH10,
+                 MEMO10,
+                 USE_YN10,
+                 REGDATE,
+                 REGID
+                )
+                VALUES
+                (
+                 #{h_idx},
+                 #{order_num},
+                 #{img_name1},
+                 #{img_path1},
+                 #{memo1},
+                 #{use_yn1},
+                 #{img_name2},
+                 #{img_path2},
+                 #{memo2},
+                 #{use_yn2},
+                 #{img_name3},
+                 #{img_path3},
+                 #{memo3},
+                 #{use_yn3},
+                 #{img_name4},
+                 #{img_path4},
+                 #{memo4},
+                 #{use_yn4},
+                 #{img_name5},
+                 #{img_path5},
+                 #{memo5},
+                 #{use_yn5},
+                 #{img_name6},
+                 #{img_path6},
+                 #{memo6},
+                 #{use_yn6},
+                 #{img_name7},
+                 #{img_path7},
+                 #{memo7},
+                 #{use_yn7},
+                 #{img_name8},
+                 #{img_path8},
+                 #{memo8},
+                 #{use_yn8},
+                 #{img_name9},
+                 #{img_path9},
+                 #{memo9},
+                 #{use_yn9},
+                 #{img_name10},
+                 #{img_path10},
+                 #{memo10},
+                 #{use_yn10},
+                 NOW(),
+                 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx})
+                )
+            </when>
+            <otherwise>
+                UPDATE HOMEPAGE_D
+                SET    IMG_NAME1  = #{img_name1},
+                       IMG_PATH1  = #{img_path1},
+                       MEMO1      = #{memo1},
+                       USE_YN1    = #{use_yn1},
+                       IMG_NAME2  = #{img_name2},
+                       IMG_PATH2  = #{img_path2},
+                       MEMO2      = #{memo2},
+                       USE_YN2    = #{use_yn2},
+                       IMG_NAME3  = #{img_name3},
+                       IMG_PATH3  = #{img_path3},
+                       MEMO3      = #{memo3},
+                       USE_YN3    = #{use_yn3},
+                       IMG_NAME4  = #{img_name4},
+                       IMG_PATH4  = #{img_path4},
+                       MEMO4      = #{memo4},
+                       USE_YN4    = #{use_yn4},
+                       IMG_NAME5  = #{img_name5},
+                       IMG_PATH5  = #{img_path5},
+                       MEMO5      = #{memo5},
+                       USE_YN5    = #{use_yn5},
+                       IMG_NAME6  = #{img_name6},
+                       IMG_PATH6  = #{img_path6},
+                       MEMO6      = #{memo6},
+                       USE_YN6    = #{use_yn6},
+                       IMG_NAME7  = #{img_name7},
+                       IMG_PATH7  = #{img_path7},
+                       MEMO7      = #{memo7},
+                       USE_YN7    = #{use_yn7},
+                       IMG_NAME8  = #{img_name8},
+                       IMG_PATH8  = #{img_path8},
+                       MEMO8      = #{memo8},
+                       USE_YN8    = #{use_yn8},
+                       IMG_NAME9  = #{img_name9},
+                       IMG_PATH9  = #{img_path9},
+                       MEMO9      = #{memo9},
+                       USE_YN9    = #{use_yn9},
+                       IMG_NAME10 = #{img_name10},
+                       IMG_PATH10 = #{img_path10},
+                       MEMO10     = #{memo10},
+                       USE_YN10   = #{use_yn10},
+                       REGID      = (SELECT ID FROM MEMBER WHERE IDX = #{member_idx})
+                WHERE  H_IDX = #{h_idx}
+                AND    ORDER_NUM = #{order_num}
             </otherwise>
         </choose>
     </update>

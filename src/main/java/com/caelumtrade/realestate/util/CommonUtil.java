@@ -142,4 +142,24 @@ public class CommonUtil extends Base{
         return save_path + filename;
     }
 
+    public static void auto_file_upload(MultipartHttpServletRequest files,
+                                        String type,
+                                        Map map,
+                                        String[] fileNames,
+                                        String[] saveName,
+                                        String[] savePath,
+                                        String saveRealPath,
+                                        String saveRealUrl) throws IOException {
+
+        for(int i = 0 ; fileNames.length > i ; i++) {
+            if(type.equals("imgList")) {
+                MultipartFile img = files.getFile(fileNames[i]);
+                if(!img.isEmpty()) {
+                    map.put(saveName[i], img.getOriginalFilename());
+                    map.put(savePath[i], file_upload(img, saveRealPath, saveRealUrl));
+                }
+            }
+        }
+    }
+
 }
