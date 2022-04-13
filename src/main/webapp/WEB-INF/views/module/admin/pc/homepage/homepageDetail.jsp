@@ -224,7 +224,7 @@
                                     <td class="infotd">설명1*</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_1" name="memo_1"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo1" name="memo1"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -232,7 +232,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn1_y">
-                                            <input type="radio" name="use_yn1" id="use_yn1_y" value="Y" checked>
+                                            <input type="radio" name="use_yn1" id="use_yn1_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn1_n">
@@ -260,7 +260,7 @@
                                     <td class="infotd">설명2</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_2" name="memo_2"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo2" name="memo2"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -268,7 +268,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn2_y">
-                                            <input type="radio" name="use_yn2" id="use_yn2_y" value="Y" checked>
+                                            <input type="radio" name="use_yn2" id="use_yn2_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn2_n">
@@ -296,7 +296,7 @@
                                     <td class="infotd">설명3</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_3" name="memo_3"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo3" name="memo3"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -304,7 +304,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn3_y">
-                                            <input type="radio" name="use_yn3" id="use_yn3_y" value="Y" checked>
+                                            <input type="radio" name="use_yn3" id="use_yn3_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn3_n">
@@ -332,7 +332,7 @@
                                     <td class="infotd">설명4</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_4" name="memo_4"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo4" name="memo4"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -340,7 +340,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn4_y">
-                                            <input type="radio" name="use_yn4" id="use_yn4_y" value="Y" checked>
+                                            <input type="radio" name="use_yn4" id="use_yn4_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn4_n">
@@ -368,7 +368,7 @@
                                     <td class="infotd">설명5</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_5" name="memo_5"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo5" name="memo5"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -376,7 +376,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn5_y">
-                                            <input type="radio" name="use_yn5" id="use_yn5_y" value="Y" checked>
+                                            <input type="radio" name="use_yn5" id="use_yn5_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn5_n">
@@ -404,7 +404,7 @@
                                     <td class="infotd">설명6</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_6" name="memo_6"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo6" name="memo6"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -412,7 +412,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn6_y">
-                                            <input type="radio" name="use_yn6" id="use_yn6_y" value="Y" checked>
+                                            <input type="radio" name="use_yn6" id="use_yn6_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn6_n">
@@ -440,7 +440,7 @@
                                     <td class="infotd">설명7</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_7" name="memo_7"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo7" name="memo7"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -448,7 +448,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn7_y">
-                                            <input type="radio" name="use_yn7" id="use_yn7_y" value="Y" checked>
+                                            <input type="radio" name="use_yn7" id="use_yn7_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn7_n">
@@ -476,7 +476,7 @@
                                     <td class="infotd">설명8</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_8" name="memo_8"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo8" name="memo8"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -484,7 +484,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn8_y">
-                                            <input type="radio" name="use_yn8" id="use_yn8_y" value="Y" checked>
+                                            <input type="radio" name="use_yn8" id="use_yn8_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn8_n">
@@ -512,7 +512,7 @@
                                     <td class="infotd">설명9</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_9" name="memo_9"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo9" name="memo9"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -520,7 +520,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn9_y">
-                                            <input type="radio" name="use_yn9" id="use_yn9_y" value="Y" checked>
+                                            <input type="radio" name="use_yn9" id="use_yn9_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn9_n">
@@ -548,7 +548,7 @@
                                     <td class="infotd">설명10</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo_10" name="memo_10"></textarea>
+                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo10" name="memo10"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -556,7 +556,7 @@
                                 <td>
                                     <div class="input_wrap radio">
                                         <label for="use_yn10_y">
-                                            <input type="radio" name="use_yn10" id="use_yn10_y" value="Y" checked>
+                                            <input type="radio" name="use_yn10" id="use_yn10_y" value="Y">
                                             <span>사용</span>
                                         </label>
                                         <label for="use_yn10_n">
@@ -660,10 +660,17 @@
         $('#popup_name').text('대뷴류'+num+' 상세');
 
         // 데이터 조회 및 세팅 처리
+        detail_init();
         get_detail();
 
         popupShow($('.admin_popup'));
 
+    }
+
+    function detail_init() {
+        $('#detailForm').find('textarea').val('');
+        $('#detailForm').find('input:text').val('');
+        $('#detailForm input:radio[value="N"]').prop('checked', true);
     }
 
     function get_detail(){
@@ -678,6 +685,9 @@
             async:false,
             success: function(data) {
                 if(data.data != null) {
+                    const detail_data = data.data;
+
+
 
                 }
             },
