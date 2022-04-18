@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/views/common/admin/pc/include.jsp"%>
+<style>
+    .memo-textarea {
+        width: 100%;
+        resize: none;
+    }
+</style>
 <main id="main">
     <div class="main_inner">
 
@@ -211,8 +217,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '1')" name="img_1" id="img_1">
-                                                <input type="hidden" id="img_path_1" name="img_path_1" value="">
-                                                <input type="text" readonly id="img_name_1" name="img_name_1" value="">
+                                                <input type="hidden" id="img_path1" name="img_path1" value="">
+                                                <input type="text" readonly id="img_name1" name="img_name1" value="">
                                                 <label for="img_1" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '1')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -224,7 +230,7 @@
                                     <td class="infotd">설명1*</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo1" name="memo1"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo1" name="memo1"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -247,8 +253,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '2')" name="img_2" id="img_2">
-                                                <input type="hidden" id="img_path_2" name="img_path_2" value="">
-                                                <input type="text" readonly id="img_name_2" name="img_name_2" value="">
+                                                <input type="hidden" id="img_path2" name="img_path2" value="">
+                                                <input type="text" readonly id="img_name2" name="img_name2" value="">
                                                 <label for="img_2" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '2')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -260,7 +266,7 @@
                                     <td class="infotd">설명2</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo2" name="memo2"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo2" name="memo2"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -283,8 +289,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '3')" name="img_3" id="img_3">
-                                                <input type="hidden" id="img_path_3" name="img_path_3" value="">
-                                                <input type="text" readonly id="img_name_3" name="img_name_3" value="">
+                                                <input type="hidden" id="img_path3" name="img_path3" value="">
+                                                <input type="text" readonly id="img_name3" name="img_name3" value="">
                                                 <label for="img_3" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '3')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -296,7 +302,7 @@
                                     <td class="infotd">설명3</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo3" name="memo3"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo3" name="memo3"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -319,8 +325,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '4')" name="img_4" id="img_4">
-                                                <input type="hidden" id="img_path_4" name="img_path_4" value="">
-                                                <input type="text" readonly id="img_name_4" name="img_name_4" value="">
+                                                <input type="hidden" id="img_path4" name="img_path4" value="">
+                                                <input type="text" readonly id="img_name4" name="img_name4" value="">
                                                 <label for="img_4" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '4')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -332,7 +338,7 @@
                                     <td class="infotd">설명4</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo4" name="memo4"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo4" name="memo4"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -355,8 +361,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '5')" name="img_5" id="img_5">
-                                                <input type="hidden" id="img_path_5" name="img_path_5" value="">
-                                                <input type="text" readonly id="img_name_5" name="img_name_5" value="">
+                                                <input type="hidden" id="img_path5" name="img_path5" value="">
+                                                <input type="text" readonly id="img_name5" name="img_name5" value="">
                                                 <label for="img_5" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '5')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -368,7 +374,7 @@
                                     <td class="infotd">설명5</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo5" name="memo5"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo5" name="memo5"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -391,8 +397,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '6')" name="img_6" id="img_6">
-                                                <input type="hidden" id="img_path_6" name="img_path_6" value="">
-                                                <input type="text" readonly id="img_name_6" name="img_name_6" value="">
+                                                <input type="hidden" id="img_path6" name="img_path6" value="">
+                                                <input type="text" readonly id="img_name6" name="img_name6" value="">
                                                 <label for="img_6" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '6')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -404,7 +410,7 @@
                                     <td class="infotd">설명6</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo6" name="memo6"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo6" name="memo6"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -427,8 +433,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '7')" name="img_7" id="img_7">
-                                                <input type="hidden" id="img_path_7" name="img_path_7" value="">
-                                                <input type="text" readonly id="img_name_7" name="img_name_7" value="">
+                                                <input type="hidden" id="img_path7" name="img_path7" value="">
+                                                <input type="text" readonly id="img_name7" name="img_name7" value="">
                                                 <label for="img_7" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '7')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -440,7 +446,7 @@
                                     <td class="infotd">설명7</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo7" name="memo7"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo7" name="memo7"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -463,8 +469,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '8')" name="img_8" id="img_8">
-                                                <input type="hidden" id="img_path_8" name="img_path_8" value="">
-                                                <input type="text" readonly id="img_name_8" name="img_name_8" value="">
+                                                <input type="hidden" id="img_path8" name="img_path8" value="">
+                                                <input type="text" readonly id="img_name8" name="img_name8" value="">
                                                 <label for="img_8" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '8')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -476,7 +482,7 @@
                                     <td class="infotd">설명8</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo8" name="memo8"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo8" name="memo8"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -499,8 +505,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '9')" name="img_9" id="img_9">
-                                                <input type="hidden" id="img_path_9" name="img_path_9" value="">
-                                                <input type="text" readonly id="img_name_9" name="img_name_9" value="">
+                                                <input type="hidden" id="img_path9" name="img_path9" value="">
+                                                <input type="text" readonly id="img_name9" name="img_name9" value="">
                                                 <label for="img_9" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '9')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -512,7 +518,7 @@
                                     <td class="infotd">설명9</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo9" name="memo9"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo9" name="memo9"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -535,8 +541,8 @@
                                         <div class="input_wrap input_file fl_l">
                                             <div class="file">
                                                 <input type="file" onchange="javascript:file_change(this, 'D', '10')" name="img_10" id="img_10">
-                                                <input type="hidden" id="img_path_10" name="img_path_10" value="">
-                                                <input type="text" readonly id="img_name_10" name="img_name_10" value="">
+                                                <input type="hidden" id="img_path10" name="img_path10" value="">
+                                                <input type="text" readonly id="img_name10" name="img_name10" value="">
                                                 <label for="img_10" class="button_90">찾아보기</label>
                                                 <button type="button" class="delete_btn mr10" style="background-color: white; color: #0a1320;" onclick="javascript:file_del('img', '10')">삭제</button>
                                                 <span>jpg, jpeg png, heic 파일 최대 10MB까지 업로드 가능</span>
@@ -548,7 +554,7 @@
                                     <td class="infotd">설명10</td>
                                     <td colspan="3">
                                         <div class="input_wrap wAuto">
-                                            <textarea style="width: 100%;" class="form-control diff-textarea" rows="3" id="memo10" name="memo10"></textarea>
+                                            <textarea class="form-control diff-textarea memo-textarea" rows="3" id="memo10" name="memo10"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -625,14 +631,14 @@
             case 'D' :
 
                 if(file_type != '.jpg' && file_type != '.png'){
-                    $('#img_path_'+num).val('');
-                    $('#img_name_'+num).val('');
+                    $('#img_path'+num).val('');
+                    $('#img_name'+num).val('');
                     alert('jpg, png만 업로드 가능합니다.');
                     return false;
                 }
                 if(!filesize_check($this, 10)){
-                    $('#img_path_'+num).val('');
-                    $('#img_name_'+num).val('');
+                    $('#img_path'+num).val('');
+                    $('#img_name'+num).val('');
                     alert('파일 용량은 10mb까지만 업로드 가능합니다.');
                     return false;
                 }
@@ -646,8 +652,8 @@
     function file_del(name, num){
 
         if(num != null) {
-            $('#img_path_'+num).val('');
-            $('#img_name_'+num).val('');
+            $('#img_path'+num).val('');
+            $('#img_name'+num).val('');
         } else {
             $('#'+name+'_path').val('');
             $('#'+name+'_name').val('');
@@ -686,8 +692,135 @@
             success: function(data) {
                 if(data.data != null) {
                     const detail_data = data.data;
+                    if(detail_data.IMG_NAME1 != null) {
+                        $('#img_name1').val(detail_data.IMG_NAME1);
+                    }
+                    if(detail_data.IMG_PATH1 != null) {
+                        $('#img_path1').val(detail_data.IMG_PATH1);
+                    }
+                    if(detail_data.MEMO1 != null) {
+                        $('#memo1').val(detail_data.MEMO1);
+                    }
+                    if(detail_data.USE_YN1 == 'Y') {
+                        $("input:radio[name=use_yn1]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
 
+                    if(detail_data.IMG_NAME2 != null) {
+                        $('#img_name2').val(detail_data.IMG_NAME2);
+                    }
+                    if(detail_data.IMG_PATH2 != null) {
+                        $('#img_path2').val(detail_data.IMG_PATH2);
+                    }
+                    if(detail_data.MEMO2 != null) {
+                        $('#memo2').val(detail_data.MEMO2);
+                    }
+                    if(detail_data.USE_YN2 == 'Y') {
+                        $("input:radio[name=use_yn2]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
 
+                    if(detail_data.IMG_NAME3 != null) {
+                        $('#img_name3').val(detail_data.IMG_NAME3);
+                    }
+                    if(detail_data.IMG_PATH3 != null) {
+                        $('#img_path3').val(detail_data.IMG_PATH3);
+                    }
+                    if(detail_data.MEMO3 != null) {
+                        $('#memo3').val(detail_data.MEMO3);
+                    }
+                    if(detail_data.USE_YN3 == 'Y') {
+                        $("input:radio[name=use_yn3]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME4 != null) {
+                        $('#img_name4').val(detail_data.IMG_NAME4);
+                    }
+                    if(detail_data.IMG_PATH4 != null) {
+                        $('#img_path4').val(detail_data.IMG_PATH4);
+                    }
+                    if(detail_data.MEMO4 != null) {
+                        $('#memo4').val(detail_data.MEMO4);
+                    }
+                    if(detail_data.USE_YN4 == 'Y') {
+                        $("input:radio[name=use_yn4]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME5 != null) {
+                        $('#img_name5').val(detail_data.IMG_NAME5);
+                    }
+                    if(detail_data.IMG_PATH5 != null) {
+                        $('#img_path5').val(detail_data.IMG_PATH5);
+                    }
+                    if(detail_data.MEMO5 != null) {
+                        $('#memo5').val(detail_data.MEMO5);
+                    }
+                    if(detail_data.USE_YN5 == 'Y') {
+                        $("input:radio[name=use_yn5]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME6 != null) {
+                        $('#img_name6').val(detail_data.IMG_NAME6);
+                    }
+                    if(detail_data.IMG_PATH6 != null) {
+                        $('#img_path6').val(detail_data.IMG_PATH6);
+                    }
+                    if(detail_data.MEMO6 != null) {
+                        $('#memo6').val(detail_data.MEMO6);
+                    }
+                    if(detail_data.USE_YN6 == 'Y') {
+                        $("input:radio[name=use_yn6]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME7 != null) {
+                        $('#img_name7').val(detail_data.IMG_NAME7);
+                    }
+                    if(detail_data.IMG_PATH7 != null) {
+                        $('#img_path7').val(detail_data.IMG_PATH7);
+                    }
+                    if(detail_data.MEMO7 != null) {
+                        $('#memo7').val(detail_data.MEMO7);
+                    }
+                    if(detail_data.USE_YN7 == 'Y') {
+                        $("input:radio[name=use_yn7]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME8 != null) {
+                        $('#img_name8').val(detail_data.IMG_NAME8);
+                    }
+                    if(detail_data.IMG_PATH8 != null) {
+                        $('#img_path8').val(detail_data.IMG_PATH8);
+                    }
+                    if(detail_data.MEMO8 != null) {
+                        $('#memo8').val(detail_data.MEMO8);
+                    }
+                    if(detail_data.USE_YN8 == 'Y') {
+                        $("input:radio[name=use_yn8]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME9 != null) {
+                        $('#img_name9').val(detail_data.IMG_NAME9);
+                    }
+                    if(detail_data.IMG_PATH9 != null) {
+                        $('#img_path9').val(detail_data.IMG_PATH9);
+                    }
+                    if(detail_data.MEMO9 != null) {
+                        $('#memo9').val(detail_data.MEMO9);
+                    }
+                    if(detail_data.USE_YN9 == 'Y') {
+                        $("input:radio[name=use_yn9]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
+
+                    if(detail_data.IMG_NAME10 != null) {
+                        $('#img_name10').val(detail_data.IMG_NAME10);
+                    }
+                    if(detail_data.IMG_PATH10 != null) {
+                        $('#img_path10').val(detail_data.IMG_PATH10);
+                    }
+                    if(detail_data.MEMO10 != null) {
+                        $('#memo10').val(detail_data.MEMO10);
+                    }
+                    if(detail_data.USE_YN10 == 'Y') {
+                        $("input:radio[name=use_yn10]:radio[value='Y']").prop('checked', true); // 선택하기
+                    }
 
                 }
             },

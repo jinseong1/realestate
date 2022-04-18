@@ -8,6 +8,55 @@
 		FROM      REAL_ESTATE
 		WHERE     1=1
 		AND       MEMBER_IDX = #{member_idx}
+		<if test="type != null and type != ''">
+		AND       TYPE = #{type}
+		</if>
+		<if test="city != null and city != ''">
+		AND       city = #{city}
+		</if>
+		<if test="district != null and district != ''">
+		AND       PLACE_TYPE = #{district}
+		</if>
+		<if test="preference_1 != null and preference_1 != ''">
+		AND       PREFERENCE LIKE '%1A%'
+		</if>
+		<if test="preference_2 != null and preference_2 != ''">
+		AND       PREFERENCE LIKE '%2A%'
+		</if>
+		<if test="preference_3 != null and preference_3 != ''">
+		AND       PREFERENCE LIKE '%3A%'
+		</if>
+		<if test="preference_4 != null and preference_4 != ''">
+		AND       PREFERENCE LIKE '%4A%'
+		</if>
+		<if test="preference_5 != null and preference_5 != ''">
+		AND       PREFERENCE LIKE '%5A%'
+		</if>
+		<if test="preference_6 != null and preference_6 != ''">
+		AND       PREFERENCE LIKE '%6A%'
+		</if>
+		<if test="preference_7 != null and preference_7 != ''">
+		AND       PREFERENCE LIKE '%7A%'
+		</if>
+		<if test="preference_8 != null and preference_8 != ''">
+		AND       PREFERENCE LIKE '%8A%'
+		</if>
+		<if test="preference_9 != null and preference_9 != ''">
+		AND       PREFERENCE LIKE '%9A%'
+		</if>
+		<if test="category_text != null and category_text != ''">
+			<choose>
+				<when test='"NAME".equals(category)'>
+					AND NAME LIKE CONCAT('%', #{category_text}, '%')
+				</when>
+				<when test='"TEL".equals(category)'>
+					AND REPLACE(TEL, '-', '') LIKE CONCAT('%', #{category_text}, '%')
+				</when>
+				<otherwise>
+					AND (NAME LIKE CONCAT('%', #{category_text}, '%') OR REPLACE(TEL, '-', '')  LIKE CONCAT('%', #{category_text}, '%'))
+				</otherwise>
+			</choose>
+		</if>
 	</select>
 
 	<select id="get_real_list" parameterType="java.util.Map" resultType="java.util.Map">
@@ -21,7 +70,7 @@
 				   FROM      REAL_ESTATE b
 								 LEFT OUTER JOIN ADMINISTRATIVE_DISTRICT ADB ON b.PLACE_TYPE = ADB.idx
 								 LEFT OUTER JOIN ADMINISTRATIVE_DISTRICT ADP ON b.PREFERENCE = ADP.idx
-								 LEFT OUTER JOIN COMMON_CODE_D CC            ON b.TYPE = CC.CODE AND CC.CODE_H = 'TYPE',
+								 LEFT OUTER JOIN CODE_D CC            ON b.TYPE = CC.CODE AND CC.CODE_H = 'TYPE',
 				             (SELECT @ROWNUM := 0) R
 				   WHERE     1 = 1
 				   AND       b.MEMBER_IDX = #{member_idx}
