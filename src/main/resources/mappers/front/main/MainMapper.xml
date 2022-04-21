@@ -46,7 +46,7 @@
 				   LEFT JOIN HOMEPAGE_D D3 ON H.IDX = D3.H_IDX AND D3.ORDER_NUM = 3
 				   LEFT JOIN HOMEPAGE_D D4 ON H.IDX = D4.H_IDX AND D4.ORDER_NUM = 4
 				   LEFT JOIN HOMEPAGE_D D5 ON H.IDX = D5.H_IDX AND D5.ORDER_NUM = 5
-		WHERE  H.URL = 'http://sample.truecode.co.kr'
+		WHERE  H.URL = #{url}
 	</select>
 
 </mapper>

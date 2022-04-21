@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -133,6 +134,11 @@
         .navbar-brand {
             display: none;
         }
+        .auto-nav-ul {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
     }
     @media (max-width: 1200px) {
         .auto-margin {
@@ -169,6 +175,11 @@
         }
         .navbar-brand {
             display: none;
+        }
+        .auto-nav-ul {
+            display: flex;
+            width: 100%;
+            justify-content: center;
         }
     }
     @media (max-width: 990px) {
@@ -218,6 +229,11 @@
         .navbar-brand {
             display: none;
         }
+        .auto-nav-ul {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
     }
     @media (max-width: 770px) {
         .navbar-brand {
@@ -226,6 +242,11 @@
             font-weight: 600;
             color: white;
         }
+        .auto-nav-ul {
+            display: block;
+            width: 100%;
+            justify-content: center;
+        }
     }
     .navbar-inverse .navbar-brand {
         color: #FFFFFF;
@@ -233,7 +254,7 @@
 
 </style>
 <body>
-
+<div id="wrapper">
 <nav class="navbar navbar-inverse main-color">
     <div class="container main-color">
         <div class="navbar-header main-color">
@@ -246,12 +267,12 @@
             <a class="navbar-brand" href="javascript:void(0);">${data.HOMEPAGE_NAME}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse main-color">
-            <ul class="nav navbar-nav" style="display: inline-block; width: 100%; justify-content: center">
-                <c:if test="${data.USE_YN1 == 'Y'}"><li><a href="#" class="auto-nav">${data.TITLE1}</a></li></c:if>
-                <c:if test="${data.USE_YN2 == 'Y'}"><li><a href="#" class="auto-nav">${data.TITLE2}</a></li></c:if>
-                <c:if test="${data.USE_YN3 == 'Y'}"><li><a href="#" class="auto-nav">${data.TITLE3}</a></li></c:if>
-                <c:if test="${data.USE_YN4 == 'Y'}"><li><a href="#" class="auto-nav">${data.TITLE4}</a></li></c:if>
-                <c:if test="${data.USE_YN5 == 'Y'}"><li><a href="#" class="auto-nav">${data.TITLE5}</a></li></c:if>
+            <ul class="nav navbar-nav auto-nav-ul">
+                <c:if test="${data.USE_YN1 == 'Y'}"><li><a href="#top1" class="auto-nav">${data.TITLE1}</a></li></c:if>
+                <c:if test="${data.USE_YN2 == 'Y'}"><li><a href="#top2" class="auto-nav">${data.TITLE2}</a></li></c:if>
+                <c:if test="${data.USE_YN3 == 'Y'}"><li><a href="#top3" class="auto-nav">${data.TITLE3}</a></li></c:if>
+                <c:if test="${data.USE_YN4 == 'Y'}"><li><a href="#top4" class="auto-nav">${data.TITLE4}</a></li></c:if>
+                <c:if test="${data.USE_YN5 == 'Y'}"><li><a href="#top5" class="auto-nav">${data.TITLE5}</a></li></c:if>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -308,7 +329,7 @@
 <!-- 디테일 내역 -->
 <div class="auto-margin">
     <c:if test="${data.USE_YN1 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color">${data.TITLE1}</h1>
+        <h1 class="align-middle text-center main-font-color" id="top1">${data.TITLE1}</h1>
         <c:if test="${data.D1_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D1_IMG_PATH1}">
@@ -371,7 +392,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN2 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color">${data.TITLE2}</h1>
+        <h1 class="align-middle text-center main-font-color" id="top2">${data.TITLE2}</h1>
         <c:if test="${data.D2_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D2_IMG_PATH1}">
@@ -434,7 +455,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN3 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color">${data.TITLE3}</h1>
+        <h1 class="align-middle text-center main-font-color" id="top3">${data.TITLE3}</h1>
         <c:if test="${data.D3_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D3_IMG_PATH1}">
@@ -497,7 +518,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN4 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color">${data.TITLE4}</h1>
+        <h1 class="align-middle text-center main-font-color" id="top4">${data.TITLE4}</h1>
         <c:if test="${data.D4_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D4_IMG_PATH1}">
@@ -560,7 +581,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN5 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color">${data.TITLE5}</h1>
+        <h1 class="align-middle text-center main-font-color" id="top5">${data.TITLE5}</h1>
         <c:if test="${data.D5_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D5_IMG_PATH1}">
@@ -629,10 +650,20 @@
     <img alt="Call Now Button" src="/resources/front/img/cell.png" width="40">
     <span class="tel" style="color:#eeee22">상담문의 ${data.VIEW_TEL}</span>
 </a>
-
-<footer class="pc_footer">
-    푸터입니다.\
-</footer>
+</div>
+<footer></footer>
+<style>
+    #wrapper{
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 40px;
+    }
+    footer{
+        height: 40px;
+        position : relative;
+        transform : translateY(-100%);
+    }
+</style>
 </body>
 <script>
 
