@@ -642,7 +642,7 @@
                     alert('파일 용량은 10mb까지만 업로드 가능합니다.');
                     return false;
                 }
-                $('#img_name_'+num).val($this.val().split("\\").pop());
+                $('#img_name'+num).val($this.val().split("\\").pop());
 
                 break;
         }

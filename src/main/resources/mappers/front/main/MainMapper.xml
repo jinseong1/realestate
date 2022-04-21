@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.caelumtrade.realestate.front.home.dao.MainDAO">
 
-	<select id="main" parameterType="java.util.Map" resultType="java.util.Map">
-		/* main */
+	<select id="get_main" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_main */
 		SELECT H.HOMEPAGE_NAME, H.CONNECT_TEL AS VIEW_TEL, REPLACE(H.CONNECT_TEL, '-', '') AS CONNECT_TEL, H.MAIN_IMG_PATH,
 		       H.TITLE1, H.USE_YN1,
 		       D1.IMG_PATH1 AS D1_IMG_PATH1, D1.IMG_PATH2 AS D1_IMG_PATH2, D1.IMG_PATH3 AS D1_IMG_PATH3, D1.IMG_PATH4 AS D1_IMG_PATH4, D1.IMG_PATH5 AS D1_IMG_PATH5,
@@ -46,7 +46,7 @@
 				   LEFT JOIN HOMEPAGE_D D3 ON H.IDX = D3.H_IDX AND D3.ORDER_NUM = 3
 				   LEFT JOIN HOMEPAGE_D D4 ON H.IDX = D4.H_IDX AND D4.ORDER_NUM = 4
 				   LEFT JOIN HOMEPAGE_D D5 ON H.IDX = D5.H_IDX AND D5.ORDER_NUM = 5
-		WHERE  H.URL = 'https://sample.truecodeko.co,kr'
+		WHERE  H.URL = 'http://sample.truecode.co.kr'
 	</select>
 
 </mapper>

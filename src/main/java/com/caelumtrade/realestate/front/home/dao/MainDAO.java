@@ -8,7 +8,7 @@ import java.util.Map;
 @Repository
 public interface MainDAO {
 
-    Map main(Map map);
+    Map get_main(Map map);
 
 }
 
