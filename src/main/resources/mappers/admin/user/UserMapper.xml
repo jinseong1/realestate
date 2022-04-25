@@ -4,7 +4,7 @@
 
 	<select id="getUser" parameterType="java.util.Map" resultType="java.util.Map">
 		/* getUser */
-		SELECT    IDX, ID, NAME, SEX, TEL, AGE, EMAIL, ADDRESS1, ADDRESS2, COMPANY_IDX
+		SELECT    IDX, ID, NAME, TEL, EMAIL, ADDRESS1, ADDRESS2, COMPANY_IDX
 		FROM      MEMBER
 		WHERE     IDX = #{admin_idx}
 	</select>
