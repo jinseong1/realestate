@@ -6,7 +6,9 @@
         /* get_total_homepage_count */
         SELECT    COUNT(*)
         FROM      HOMEPAGE_H
+        <if test="member_level != 100">
         WHERE     MEMBER_IDX = #{member_idx}
+        </if>
     </select>
 
     <select id="get_homepage_list" parameterType="java.util.Map" resultType="java.util.Map">
@@ -18,7 +20,9 @@
 		                        date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') AS REGDATE
                       FROM      HOMEPAGE_H b, (SELECT @ROWNUM := 0) R
                       WHERE     1 = 1
+                      <if test="member_level != 100">
                       AND       MEMBER_IDX = #{member_idx}
+                      </if>
                       ORDER BY  IDX DESC
                   ) a
         WHERE     no BETWEEN #{start} AND #{end}
@@ -29,7 +33,10 @@
         SELECT    IDX, HOMEPAGE_NAME, CONNECT_TEL, MAIN_IMG_NAME, MAIN_IMG_PATH,
                   TITLE1, USE_YN1, TITLE2, USE_YN2, TITLE3, USE_YN3, TITLE4, USE_YN4, TITLE5, USE_YN5
         FROM      HOMEPAGE_H
-        WHERE     MEMBER_IDX = #{member_idx}
+        WHERE     IDX = #{idx}
+        <if test="member_level != 100">
+        AND       MEMBER_IDX = #{member_idx}
+        </if>
     </select>
 
     <update id="homepage_save" parameterType="java.util.Map">

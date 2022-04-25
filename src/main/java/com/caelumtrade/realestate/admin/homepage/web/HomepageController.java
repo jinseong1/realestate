@@ -58,6 +58,7 @@ public class HomepageController extends Base {
         Map result = new HashMap();
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+        map.put("member_level", request.getSession().getAttribute("admin_level"));
 
         int total_count = dao.get_total_homepage_count(map);
 
@@ -84,6 +85,7 @@ public class HomepageController extends Base {
     public String homepage_detail_move(@RequestParam Map map, Model model, Device device, HttpServletRequest request) throws Exception {
 
         map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+        map.put("member_level", request.getSession().getAttribute("admin_level"));
 
         model.addAttribute("data", dao.get_homepage_h(map));
 

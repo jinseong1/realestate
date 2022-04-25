@@ -662,11 +662,12 @@
 
     function detail_popup(num){
 
+        detail_init();
+
         $('#order_num').val(num);
         $('#popup_name').text('대뷴류'+num+' 상세');
 
         // 데이터 조회 및 세팅 처리
-        detail_init();
         get_detail();
 
         popupShow($('.admin_popup'));
@@ -675,7 +676,18 @@
 
     function detail_init() {
         $('#detailForm').find('textarea').val('');
+        $('#detailForm').find('input:file').val('');
         $('#detailForm').find('input:text').val('');
+        $('#img_path1').val('');
+        $('#img_path2').val('');
+        $('#img_path3').val('');
+        $('#img_path4').val('');
+        $('#img_path5').val('');
+        $('#img_path6').val('');
+        $('#img_path7').val('');
+        $('#img_path8').val('');
+        $('#img_path9').val('');
+        $('#img_path10').val('');
         $('#detailForm input:radio[value="N"]').prop('checked', true);
     }
 
@@ -849,7 +861,7 @@
             success: function(data) {
                 alert(data.msg);
                 if(data.code == 'S'){
-
+                    popupHide($('.admin_popup'));
                 } else {
 
                 }

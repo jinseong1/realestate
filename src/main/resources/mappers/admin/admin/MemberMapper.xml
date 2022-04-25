@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.admin.dao.MemberDAO">
+
+	<select id="get_total_member_count" parameterType="java.util.Map" resultType="Integer">
+		/* get_total_member_count */
+		SELECT    COUNT(*)
+		FROM      MEMBER
+		WHERE     1=1
+	</select>
+
+	<select id="get_member_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_member_list */
+		SELECT    a.*
+		FROM      (
+					  SELECT    @rownum:=@rownum+1 AS no,
+								b.IDX, b.NAME, b.LEVEL, b.TEL,
+								date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') as REGDATE , b.REGID,
+					            b.MODDATE, b.MODID, b.AGREE
+					  FROM      MEMBER b, (SELECT @ROWNUM := 0) R
+					  WHERE     1 = 1
+					  ORDER BY  IDX DESC
+				  ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<update id="member_agree" parameterType="java.util.Map">
+		UPDATE MEMBER
+		SET    AGREE = 'Y'
+		WHERE  IDX = #{idx}
+	</update>
+
+</mapper>

@@ -5,6 +5,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <meta name="description" content="오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
+    <meta name="robots" content="index,nofollow">
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${data.HOMEPAGE_NAME}" />
+    <meta property="og:description" content="분양홍보관 ${data.VIEW_TEL}" />
+    <meta property="og:url" content="${data.URL}" />
+    <meta property="og:site_name" content="TRUE CODE 트루코드" />
+    <meta property="og:image" content="${data.URL}${data.MAIN_IMG_PATH}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="700" />
+    <meta property="og:image:type" content="image/jpeg" />
+
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 

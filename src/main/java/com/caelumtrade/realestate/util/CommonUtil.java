@@ -137,7 +137,7 @@ public class CommonUtil extends Base{
         if(!dir.isDirectory()) dir.mkdirs();
 
         // 업로드 처리.
-        if(file != null && file.getSize() != 0) file.transferTo(new File(path + filename));
+        if(file != null && file.getSize() != 0) file.transferTo(new File(path + File.separatorChar + filename));
 
         return save_path + filename;
     }

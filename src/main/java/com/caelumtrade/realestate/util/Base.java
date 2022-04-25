@@ -35,6 +35,6 @@ public class Base {
     public final static String MEMBER = "/admin/member";
 
     // 배너
-    public String UPLOAD_HOMEPAGE        = upload_path+"homepage\\";
+    public String UPLOAD_HOMEPAGE        = upload_path+"homepage";
     public String UPLOAD_HOMEPAGE_URL    = "/upload/homepage/";
 }

@@ -29,13 +29,27 @@
                     </div>
                 </div>
                 <div class="form-links mt-2">
-                    <div>
-                        <a href="page-register.html">가입요청</a>
-                    </div>
-                    <div><a href="page-forgot-password.html" class="text-muted">비밀번호 찾기</a></div>
+                    <c:choose>
+                        <c:when test="${active == '운영'}">
+                            <div>
+                                <a href="javascript:alert('불편을 드려 죄송합니다. 모바일은 개발 중입니다. PC로 이용 부탁드립니다.');">가입요청</a>
+                            </div>
+                            <div>
+                                <a href="javascript:alert('불편을 드려 죄송합니다. 모바일은 개발 중입니다. PC로 이용 부탁드립니다.');" class="text-muted">비밀번호 찾기</a>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div>
+                                <a href="page-register.html">가입요청</a>
+                            </div>
+                            <div>
+                                <a href="page-forgot-password.html" class="text-muted">비밀번호 찾기</a>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class="form-button-group">
-                    <button type="button" id="btnLogin" class="btn btn-primary btn-block btn-lg">로그인</button>
+                    <button type="button" onclick="alert('불편을 드려 죄송합니다. 모바일은 개발 중입니다. PC로 이용 부탁드립니다.');" id="btnLogin" class="btn btn-primary btn-block btn-lg">로그인</button>
                 </div>
             </form>
         </div>
@@ -45,6 +59,11 @@
 <script type="text/javascript" src="/resources/admin/pc/js/lib/jquery.validate.min.js"></script>
 <script type="text/javascript" src="/resources/admin/pc/js/common.js?v=${updateTimeCss}"></script>
 <script type="text/javascript">
+    <c:choose>
+        <c:when test="${active == '운영'}">
+
+        </c:when>
+        <c:otherwise>
     $(window).load(function() {
         if('null' != '<%=session.getAttribute("msg")%>'){
             alert('<%=session.getAttribute("msg")%>');
@@ -112,4 +131,7 @@
         var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
         return value? value[2] : null;
     };
+        </c:otherwise>
+    </c:choose>
+
 </script>

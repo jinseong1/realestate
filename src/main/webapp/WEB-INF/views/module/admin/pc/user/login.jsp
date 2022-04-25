@@ -24,7 +24,7 @@
                     <span>아이디 저장</span>
                 </div>
                 <div id="sing_up" style="margin-top: -30px; font-size: 10px; float: right;">
-                    <a href="javascript:void(0);">회원가입</a>
+                    <a href="javascript:void(0);">회원가입신청</a>
                 </div>
                 <div class="login_btn">
                     <a href="javascript:void(0);" id="btnLogin">로그인</a>
