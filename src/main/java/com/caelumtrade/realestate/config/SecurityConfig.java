@@ -30,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers(
                 "/resources/**",
                 "/upload/**",
-                "/favicon.ico"
+                "/favicon.ico",
+                "/robots.txt"
                ); // #3
     }
 

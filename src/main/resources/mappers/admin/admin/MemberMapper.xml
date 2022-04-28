@@ -14,7 +14,7 @@
 		SELECT    a.*
 		FROM      (
 					  SELECT    @rownum:=@rownum+1 AS no,
-								b.IDX, b.NAME, b.LEVEL, b.TEL,
+								b.IDX, b.ID, b.NAME, b.LEVEL, b.TEL,
 								date_format(b.REGDATE, '%Y-%m-%d %H:%i:%s') as REGDATE , b.REGID,
 					            b.MODDATE, b.MODID, b.AGREE
 					  FROM      MEMBER b, (SELECT @ROWNUM := 0) R

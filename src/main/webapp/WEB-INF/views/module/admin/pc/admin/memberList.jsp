@@ -69,8 +69,9 @@
                         <table>
                             <colgroup>
                                 <col width="5%;">
-                                <col width="15%;">
+                                <col width="5%;">
                                 <col width="20%;">
+                                <col width="15%;">
                                 <col width="20%;">
                                 <col width="10%;">
                                 <col width="20%;">
@@ -85,6 +86,7 @@
                                     </div>
                                 </th>
                                 <th class="arrange">NO</th>
+                                <th class="arrange">아이디</th>
                                 <th class="arrange">성명</th>
                                 <th class="arrange">핸드폰</th>
                                 <th class="arrange">레벨</th>
@@ -176,6 +178,9 @@
                     html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].no;
+                    html += '    </td>';
+                    html += '    <td>';
+                    html += '        '+data.list[i].ID;
                     html += '    </td>';
                     html += '    <td>';
                     html += '    <a href="javascript:void(0);" onclick="update('+data.list[i].IDX+');">';

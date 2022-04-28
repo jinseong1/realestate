@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <meta name="description" content="오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
-    <meta name="robots" content="index,nofollow">
+    <meta name="robots" content="all">
+    <meta name="naver-site-verification" content="${data.NAVER_META}" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${data.HOMEPAGE_NAME}" />
@@ -18,6 +19,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="700" />
     <meta property="og:image:type" content="image/jpeg" />
+
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -266,6 +268,16 @@
         color: #FFFFFF;
     }
 
+    #wrapper{
+        height: auto;
+        min-height: 100%;
+        padding-bottom: 40px;
+    }
+    footer{
+        height: 40px;
+        position : relative;
+        transform : translateY(-100%);
+    }
 </style>
 <body>
 <div id="wrapper">
@@ -666,18 +678,6 @@
 </a>
 </div>
 <footer></footer>
-<style>
-    #wrapper{
-        height: auto;
-        min-height: 100%;
-        padding-bottom: 40px;
-    }
-    footer{
-        height: 40px;
-        position : relative;
-        transform : translateY(-100%);
-    }
-</style>
 </body>
 <script>
 
