@@ -24,9 +24,28 @@
 		WHERE     no BETWEEN #{start} AND #{end}
 	</select>
 
+	<select id="get_member" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_member */
+		SELECT    IDX, ID, NAME, TEL, LEVEL
+		FROM      MEMBER
+		WHERE     IDX = #{idx}
+	</select>
+
 	<update id="member_agree" parameterType="java.util.Map">
 		UPDATE MEMBER
 		SET    AGREE = 'Y'
+		WHERE  IDX = #{idx}
+	</update>
+
+	<update id="member_save" parameterType="java.util.Map">
+		/* member_save */
+		UPDATE MEMBER
+		SET    NAME = #{name},
+		       TEL  = #{tel},
+		       <if test="pwd != null and pwd != ''">
+		       PW = #{pw},
+			   </if>
+		       LEVEL = #{level}
 		WHERE  IDX = #{idx}
 	</update>
 

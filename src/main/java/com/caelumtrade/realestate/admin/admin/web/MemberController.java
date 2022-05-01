@@ -1,6 +1,7 @@
 package com.caelumtrade.realestate.admin.admin.web;
 
 import com.caelumtrade.realestate.admin.admin.dao.MemberDAO;
+import com.caelumtrade.realestate.util.BCryptCipherUtil;
 import com.caelumtrade.realestate.util.Base;
 import com.caelumtrade.realestate.util.CommonUtil;
 import com.caelumtrade.realestate.util.PagingUtil;
@@ -37,7 +38,12 @@ public class MemberController extends Base {
      * @throws Exception
      */
     @RequestMapping("/admin/memberList")
-    public String customerListMove(Device device) throws Exception {
+    public String customerListMove(Device device, HttpServletRequest request) throws Exception {
+
+        if(!request.getSession().getAttribute("admin_level").equals(100)) {
+            return "/admin/user/login";
+        }
+
         return CommonUtil.device_move(device)+"/admin/memberList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
@@ -74,8 +80,6 @@ public class MemberController extends Base {
         return result;
     }
 
-
-    //
     /**
      * 고객 리스트 호출 처리.
      * @param map
@@ -101,5 +105,54 @@ public class MemberController extends Base {
 
         return result;
     }
+
+    /**
+     * 고객관리 리스트 이동 처리.
+     * @param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/member_update_move")
+    public String member_update_move(Device device, @RequestParam Map map, Model model,  HttpServletRequest request) throws Exception {
+
+        if(!request.getSession().getAttribute("admin_level").equals(100)) {
+            return "/admin/user/login";
+        }
+
+        model.addAttribute("data", dao.get_member(map));
+
+        return CommonUtil.device_move(device)+"/admin/memberUpdate"+CommonUtil.device_gnb(device, "SUFFIX");
+    }
+
+    /**
+     * 멤버 수정
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/member_save")
+    @ResponseBody
+    @Transactional
+    public Map member_save(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        if(!request.getSession().getAttribute("admin_level").equals(100)) {
+            result.put("code", "E");
+        }
+
+        if(map.get("pw") != null && !map.get("pw").toString().equals("")) {
+            map.put("pw", BCryptCipherUtil.encode(map.get("pw").toString()));
+        }
+
+        if(dao.member_save(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
 }
 

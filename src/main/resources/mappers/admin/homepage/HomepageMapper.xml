@@ -30,7 +30,7 @@
 
     <select id="get_homepage_h" parameterType="java.util.Map" resultType="java.util.Map">
         /* get_homepage_h */
-        SELECT    IDX, HOMEPAGE_NAME, CONNECT_TEL, MAIN_IMG_NAME, MAIN_IMG_PATH,
+        SELECT    IDX, HOMEPAGE_NAME, CONNECT_TEL, MAIN_IMG_NAME, MAIN_IMG_PATH, TEMPLATE_TYPE,
                   TITLE1, USE_YN1, TITLE2, USE_YN2, TITLE3, USE_YN3, TITLE4, USE_YN4, TITLE5, USE_YN5
         FROM      HOMEPAGE_H
         WHERE     IDX = #{idx}
@@ -48,6 +48,7 @@
             <when test="CNT == 0">
                 INSERT INTO HOMEPAGE_H
                 (
+                 TEMPLATE_TYPE,
                  HOMEPAGE_NAME,
                  CONNECT_TEL,
                  MAIN_IMG_NAME,
@@ -72,6 +73,7 @@
                 )
                 VALUES
                 (
+                #{template_type},
                 #{homepage_name},
                 #{connect_tel},
                 #{main_img_name},
@@ -97,7 +99,8 @@
             </when>
             <otherwise>
                 UPDATE HOMEPAGE_H
-                SET    HOMEPAGE_NAME = #{homepage_name},
+                SET    TEMPLATE_TYPE = #{template_type},
+                       HOMEPAGE_NAME = #{homepage_name},
                        CONNECT_TEL   = #{connect_tel},
                        MAIN_IMG_NAME = #{main_img_name},
                        MAIN_IMG_PATH = #{main_img_path},

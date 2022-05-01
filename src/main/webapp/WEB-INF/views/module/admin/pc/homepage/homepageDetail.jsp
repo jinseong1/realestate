@@ -29,6 +29,29 @@
                                 <col style="width: 40%">
                             </colgroup>
                             <tr>
+                                <td class="infotd">템플릿 구분*</td>
+                                <td colspan="3">
+                                    <div class="input_wrap radio">
+                                        <label for="template_type_a">
+                                            <input type="radio" name="template_type" id="template_type_a" value="A" checked>
+                                            <span>A</span>
+                                        </label>
+                                        <label for="template_type_b">
+                                            <input type="radio" name="template_type" id="template_type_b" value="B">
+                                            <span>B</span>
+                                        </label>
+                                        <label for="template_type_b">
+                                            <input type="radio" name="template_type" id="template_type_c" value="C">
+                                            <span>C</span>
+                                        </label>
+                                        <label for="template_type_b">
+                                            <input type="radio" name="template_type" id="template_type_d" value="D">
+                                            <span>D</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class="infotd">홈페이지명*</td>
                                 <td colspan="3">
                                     <div class="input_wrap w283">
@@ -596,6 +619,7 @@
 
     function page_load() {
 
+        $("input:radio[name=template_type]:radio[value='${data.TEMPLATE_TYPE}']").prop('checked', true); // 선택하기
         $("input:radio[name=use_yn_1]:radio[value='${data.USE_YN1}']").prop('checked', true); // 선택하기
         $("input:radio[name=use_yn_2]:radio[value='${data.USE_YN2}']").prop('checked', true); // 선택하기
         $("input:radio[name=use_yn_3]:radio[value='${data.USE_YN3}']").prop('checked', true); // 선택하기

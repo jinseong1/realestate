@@ -131,8 +131,10 @@
                             <tr>
                                 <td class="infotd">자금대</td>
                                 <td colspan="3">
-                                    <div class="input_wrap w283" style="display: flex">
-                                        <input type="text" id="m_start" name="m_start" value="${data.M_START}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><span>만 ~ </span><input type="text" id="m_end" name="m_end" value="${data.M_END}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><span>만</span>
+                                    <div class="input_wrap w400" style="display: flex">
+                                        <input type="text" class="mr10" id="m_start" name="m_start" value="${data.M_START}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                                         ~
+                                        <input type="text" class="ml10" id="m_end" name="m_end" value="${data.M_END}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
                                     </div>
                                 </td>
                             </tr>

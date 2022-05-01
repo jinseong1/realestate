@@ -6,15 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <meta name="description" content="오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
+    <meta name="description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
+    <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
+    <link rel="canonical" href="${data.URL}">
+
     <meta name="robots" content="all">
+    <meta name="google-site-verification" content="${data.GOOGLE_META}" />
     <meta name="naver-site-verification" content="${data.NAVER_META}" />
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${data.HOMEPAGE_NAME}" />
     <meta property="og:description" content="분양홍보관 ${data.VIEW_TEL}" />
     <meta property="og:url" content="${data.URL}" />
-    <meta property="og:site_name" content="TRUE CODE 트루코드" />
+    <meta property="og:site_name" content="${data.HOMEPAGE_NAME}" />
     <meta property="og:image" content="${data.URL}${data.MAIN_IMG_PATH}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="700" />

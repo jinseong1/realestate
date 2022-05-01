@@ -9,6 +9,8 @@ import java.util.Map;
 public interface MemberDAO {
     int get_total_member_count(Map map);
     List<Map> get_member_list(Map map);
+    Map get_member(Map map);
+    int member_save(Map map);
     int member_agree(Map map);
 }
 

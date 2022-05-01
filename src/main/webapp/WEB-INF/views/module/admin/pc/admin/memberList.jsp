@@ -191,7 +191,13 @@
                     html += '        '+data.list[i].TEL;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].LEVEL;
+                    if(data.list[i].LEVEL == '10') {
+                        html += '[10]무료회원';
+                    } else if (data.list[i].LEVEL == '20') {
+                        html += '[20]유료회원';
+                    } else if (data.list[i].LEVEL == '100') {
+                        html += '[100]슈퍼관리자';
+                    }
                     html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE;
