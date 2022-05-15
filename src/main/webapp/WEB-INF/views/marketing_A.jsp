@@ -8,6 +8,9 @@
 
     <meta name="description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
     <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
+    <meta name="author" content="트루코드">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="canonical" href="${data.URL}">
 
     <meta name="robots" content="all">
@@ -30,6 +33,14 @@
     <meta property="og:image:height" content="700" />
     <meta property="og:image:type" content="image/jpeg" />
 
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:site" content="${data.HOMEPAGE_NAME}">
+    <meta name="twitter:url" content="${data.URL}">
+    <meta name="twitter:title" content="${data.HOMEPAGE_NAME}">
+    <meta name="twitter:description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}">
+    <meta name="twitter:image" content="${data.URL}${data.MAIN_IMG_PATH}">
+    <meta name="twitter:image:width" content="500">
+    <meta name="twitter:image:height" content="500">
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
