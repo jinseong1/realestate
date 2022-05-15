@@ -86,7 +86,7 @@
         <div class="row d_flex">
             <div class="col-xl-6 col-lg-6 col-md-6 ">
                 <div class="text-bg">
-                    <h1>스마트 부동산 프로그램</h1>
+                    <h1>부동산 프로그램</h1>
                     <span>Free Multipurpose <br>
 Responsive Landing<br> Page For </span>
                     <strong>Classified Ads</strong>
@@ -95,7 +95,7 @@ Responsive Landing<br> Page For </span>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 padding_lert2">
                 <div class="text-img">
-                    <figure><img src="/resources/front/main/images/pc.png" alt="javascript:void(0)"/></figure>
+                    <figure><img src="/resources/front/main/images/pc_temp.png" alt="javascript:void(0)"/></figure>
                 </div>
             </div>
         </div>
@@ -354,4 +354,11 @@ Responsive Landing<br> Page For </span>
 <script src="/resources/front/main/js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
+<script>
+    $(function(){
+       if(location.href == 'http://www.truecode.co.kr/') {
+           location.href = 'https://www.truecode.co.kr/';
+       }
+    });
+</script>
 </html>

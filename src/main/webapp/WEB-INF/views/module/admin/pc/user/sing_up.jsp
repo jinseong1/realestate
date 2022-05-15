@@ -19,6 +19,14 @@
                     <input type="password" id="password2" name="password2" class="form-control" autocomplete=off placeholder="비밀번호를 다시 입력하여 주세요." value="${param.password2}">
                     <input type="text" id="tel" name="tel" class="form-control" autocomplete=off placeholder="전화번호를 입력하여 주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" value="${param.tel}">
                 </div>
+                <div style="margin-top: -20px; text-align: left;">
+                    <input id="chk1" name="chk1" type="checkbox" value="Y">
+                    <span>개인정보처리방침 <a href="/admin/user/chk1" target="_blank">[보기]</a></span>
+                </div>
+                <div style="text-align: left;" class="mb10">
+                    <input id="chk2" name="chk2" type="checkbox" value="Y">
+                    <span>이용약관 <a href="/admin/user/chk2" target="_blank">[보기]</a></span>
+                </div>
                 <div class="login_btn">
                     <a href="javascript:void(0);" id="btnSingUp">가입신청하기</a>
                 </div>

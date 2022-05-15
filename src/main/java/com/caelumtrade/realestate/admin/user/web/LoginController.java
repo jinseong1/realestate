@@ -30,7 +30,7 @@ import static com.caelumtrade.realestate.util.Base.ADMIN;
 public class LoginController extends Base {
 
     @Value("${spring.profiles.active}")
-    String active;
+    private String active;
 
     @Autowired
     private LoginDAO loginDAO;
@@ -187,6 +187,13 @@ public class LoginController extends Base {
         return bf.toString();
     }
 
-
+    @RequestMapping("/user/chk1")
+    public String chk1(Model model, Device device) throws Exception{
+        return CommonUtil.device_move(device)+"/user/chk1"+CommonUtil.device_gnb(device, "SIMPLE");
+    }
+    @RequestMapping("/user/chk2")
+    public String chk2(Model model, Device device) throws Exception{
+        return CommonUtil.device_move(device)+"/user/chk2"+CommonUtil.device_gnb(device, "SIMPLE");
+    }
 
 }

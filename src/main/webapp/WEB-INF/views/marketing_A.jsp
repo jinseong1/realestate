@@ -13,6 +13,12 @@
     <meta name="robots" content="all">
     <meta name="google-site-verification" content="${data.GOOGLE_META}" />
     <meta name="naver-site-verification" content="${data.NAVER_META}" />
+
+    <meta name="NaverBot" content="All"/>
+    <meta name="NaverBot" content="index, follow"/>
+    <meta name="Yeti" content="All"/>
+    <meta name="Yeti" content="index, follow"/>
+
     <meta property="og:locale" content="ko_KR" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${data.HOMEPAGE_NAME}" />

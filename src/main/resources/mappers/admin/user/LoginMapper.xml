@@ -81,7 +81,9 @@
 			 NAME,
 			 TEL,
 			 COMPANY_IDX,
-			 LEVEL
+			 LEVEL,
+		 	 CHK1,
+			 CHK2
 		)
 		VALUES
 		(
@@ -90,7 +92,9 @@
 			#{name},
 			#{tel},
 			-1,
-			10
+			10,
+		    #{chk1},
+			#{chk2}
 		)
 	</insert>
 

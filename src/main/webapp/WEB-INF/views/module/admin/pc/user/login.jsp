@@ -45,3 +45,10 @@
         }
     });
 </script>
+<script>
+    $(function(){
+        if(location.href == 'http://www.truecode.co.kr/admin/user/login/') {
+            location.href = 'https://www.truecode.co.kr/admin/user/login/';
+        }
+    });
+</script>
