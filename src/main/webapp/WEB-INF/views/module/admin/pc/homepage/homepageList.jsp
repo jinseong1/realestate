@@ -129,9 +129,9 @@
                     html += '        '+data.list[i].HOMEPAGE_NAME;
                     html += '    </a>';
                     html += '    </td>';
-                    html += '    <td>';
+                    html += '    <td><a href="'+data.list[i].URL+'" target="_blank">';
                     html += '        '+data.list[i].URL;
-                    html += '    </td>';
+                    html += '    </a></td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE;
                     html += '    </td>';

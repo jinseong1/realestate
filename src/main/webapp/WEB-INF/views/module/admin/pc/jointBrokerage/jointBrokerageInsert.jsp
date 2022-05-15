@@ -679,9 +679,7 @@
                                 <td class="infotd">주용도*</td>
                                 <td colspan="3">
                                     <div class="input_wrap w120">
-                                        <div class="file">
-                                            <input type="text" id="purpose" name="purpose" value="">
-                                        </div>
+                                        <input type="text" id="purpose" name="purpose" value="">
                                     </div>
                                 </td>
                             </tr>
