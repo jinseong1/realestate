@@ -32,18 +32,18 @@
         INSERT INTO INQURITY
         (
              NAME,
-             TITLE,
-             CONTENT,
-             REGDATE,
-             MATCH_KEY
+             TEL,
+             EMAIL,
+             MEMO,
+             REGDATE
         )
         VALUES
         (
-            #{NAME},
-            #{TITLE},
-            #{CONTENT},
-            NOW(),
-            #{MATCH_KEY}
+            #{name},
+            #{tel},
+            #{email},
+            #{memo},
+            NOW()
         )
     </insert>
 

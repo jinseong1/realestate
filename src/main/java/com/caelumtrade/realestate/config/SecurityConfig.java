@@ -31,7 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/resources/**",
                 "/upload/**",
                 "/favicon.ico",
-                "/robots.txt"
+                "/robots.txt",
+                "/common/**"
                ); // #3
     }
 

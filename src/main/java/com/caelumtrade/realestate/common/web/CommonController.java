@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,17 +45,17 @@ public class CommonController {
     @RequestMapping("/inquiry_save")
     @ResponseBody
     @Transactional
-    public boolean inquiry_save(@RequestParam Map param) throws Exception {
+    public Map inquiry_save(@RequestParam Map param) throws Exception {
 
-        boolean flag = false;
+        Map result = new HashMap();
 
-        if(dao.get_js_key_match(param) != 0) {
-            if(dao.inquiry_save(param) != 0) {
-                flag = true;
-            }
+        if(dao.inquiry_save(param) != 0) {
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
         }
 
-        return flag;
+        return result;
     }
 
 }

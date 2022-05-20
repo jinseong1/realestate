@@ -10,14 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- mobile metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
     <title>TRUE CODE</title>
 
     <meta name="description" content="트루코드 오피스텔 상가 아파트 분양 홈페이지 제작 010-3097-9501"/>
     <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
     <meta name="author" content="트루코드">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="canonical" href="https://www.truecode.co.kr">
 
@@ -123,7 +121,7 @@
                     <h1>부동산 프로그램</h1>
                     <span>손쉽게 만드는 홈페이지<br>
 PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
-                    <a href="javascript:void(0)">더 알아보기</a>
+                    <a href="/admin/user/login">더 알아보기</a>
                 </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6 padding_lert2">
@@ -223,7 +221,7 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
                 </div>
             </div>
             <div class="col-md-6">
-                <form id="contact" class="main_form">
+                <form id="inquiry" class="main_form" onsubmit="return false;" method="post">
                     <div class="row">
                         <div class="col-md-12 ">
                             <input class="contactus" placeholder="성명" type="type" name="name" style="color: white;">
@@ -235,10 +233,10 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
                             <input class="contactus" placeholder="Email" type="type" name="email" style="color: white;">
                         </div>
                         <div class="col-md-12">
-                            <textarea class="textarea" placeholder="문의내용" type="type" Message="meo" style="color: white;"></textarea>
+                            <textarea class="textarea" placeholder="문의내용" type="type" Message="memo" style="color: white;"></textarea>
                         </div>
                         <div class="col-sm-12">
-                            <button class="send_btn">Send</button>
+                            <button class="send_btn" type="submit" onclick="send();">Send</button>
                         </div>
                     </div>
                 </form>
@@ -254,94 +252,12 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Testimonial</h2>
-                    <p>when looking at its layout. The point of using Lorem  ere, content here', making it</p>
-                </div>
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-10 offset-md-1">
-                <div id="myCarousel" class="carousel slide testimonial_Carousel " data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="container">
-                                <div class="carousel-caption ">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-12 margin_boot">
-                                            <div class="test_box1">
-                                                <figure><img src="/resources/front/main/images/tests.png" alt="javascript:void(0)"/></figure>
-                                                <h4> be distracted </h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-12">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/main/images/te1.png" alt="javascript:void(0)"/></i>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it </p>
-                                                <i class="flot_right"><img src="/resources/front/main/images/te2.png" alt="javascript:void(0)"/></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-12 margin_boot">
-                                            <div class="test_box1">
-                                                <figure><img src="/resources/front/main/images/tests.png" alt="javascript:void(0)"/></figure>
-                                                <h4> be distracted </h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-12">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/main/images/te1.png" alt="javascript:void(0)"/></i>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it </p>
-                                                <i class="flot_right"><img src="/resources/front/main/images/te2.png" alt="javascript:void(0)"/></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-12 margin_boot">
-                                            <div class="test_box1">
-                                                <figure><img src="/resources/front/main/images/tests.png" alt="javascript:void(0)"/></figure>
-                                                <h4> be distracted </h4>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-8 col-lg-8 col-md-12">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/main/images/te1.png" alt="javascript:void(0)"/></i>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it </p>
-                                                <i class="flot_right"><img src="/resources/front/main/images/te2.png" alt="javascript:void(0)"/></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+
             </div>
         </div>
     </div>
@@ -354,13 +270,7 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <div class="cont">
-                        <h3>Free Multipurpose <br>
-                            Responsive Landing Page 2019
-                        </h3>
-                        <p>Modern lighting fast & easily Customizable</p>
-                        <a class="read_more" href="javascript:void(0)">Get A Quote</a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -368,7 +278,7 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html Templates</a></p>
+                        <p>사업자명:트루코드|대표자명:박진성|사업자번호:573-32-01264</p>
                     </div>
                 </div>
             </div>
@@ -392,6 +302,46 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
        if(location.href == 'http://www.truecode.co.kr/') {
            location.href = 'https://www.truecode.co.kr/';
        }
+        $('[name=tel]').keyup(function(){
+            const $this = $(this);
+            let tel = $this.val();
+            tel = tel.replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-");
+            $this.val(tel);
+        });
     });
+
+    function send() {
+
+        if($('input[name=name]').val().trim() == ''){
+            alert('이름을 입력하여 주세요.');
+            return;
+        }
+        if($('input[name=tel]').val().trim() == ''){
+            alert('전화번호를 입력하여 주세요.');
+            return;
+        }
+
+        if(!confirm('문의하시겠습니까?')){
+            return;
+        }
+
+        $.ajax({
+            url:'/common/inquiry_save', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            data:$('#inquiry').serialize(), //보낼 데이터
+            async : false,
+            success: function(data) {
+                if(data.code == 'S'){
+                    alert('문의 등록이 완료되었습니다. 감사합니다.');
+                } else {
+                    alert('에러가 발생하였습니다. 관리자에게 문의 바랍니다.');
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+            }
+        });
+
+    }
 </script>
 </html>

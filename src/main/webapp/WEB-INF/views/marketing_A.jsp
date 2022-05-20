@@ -9,7 +9,6 @@
     <meta name="description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
     <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
     <meta name="author" content="트루코드">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="canonical" href="${data.URL}">
 

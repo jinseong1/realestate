@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="form_wrap">
-                    <form name="regForm" id="regForm" onsubmit="return false;" method="post">
+                    <form name="regForm" id="regForm" `onsubmit="return false;" method="post">`
                         <input type="hidden" id="idx" name="idx" value="${data.IDX}">
                         <table>
                             <colgroup>
