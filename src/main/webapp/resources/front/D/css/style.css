@@ -381,7 +381,6 @@ ul.btn li:last-child {
 /** banner section **/
 
 .banner_main {
-     background: url(../images/banner.jpg);
      background-repeat: no-repeat;
      min-height: 900px;
      background-size: 100% 100%;
@@ -390,26 +389,6 @@ ul.btn li:last-child {
      align-content: center;
      align-items: center;
      position: relative;
-}
-.banner_main::before {
-     position: absolute;
-     content: "";
-     width:50px; 
-     height:40px;
-     background: url(../images/cross.png);
-     background-repeat: no-repeat;
-     bottom: -38px;
-     right: 38px;
-}
-.banner_main::after {
-     position: absolute;
-     content: "";
-     width:50px; 
-     height:40px;
-     background: url(../images/cross.png);
-     background-repeat: no-repeat;
-     bottom: -38px;
-     left: 38px;
 }
 .text-bg {
      text-align: left;
@@ -569,7 +548,6 @@ ul.btn li:last-child {
      background: #fff;
      text-align: center;
      padding: 50px 20px 20px 20px;
-     border: #48ca95 solid 1px;
      border-radius: 15px;
 }
 

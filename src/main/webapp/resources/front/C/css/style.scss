@@ -86,7 +86,6 @@ body {
       right: -40px;
       transform: translateY(-50%);
       z-index: 1;
-      background-image: url(../images/heading-img.png);
       background-repeat: no-repeat;
     }
   }
@@ -94,9 +93,7 @@ body {
 
 /*header section*/
 .hero_area {
-  height: 136vh;
   position: relative;
-  background-image: url(../images/hero-bg.png);
   background-size: cover;
 }
 
@@ -105,7 +102,6 @@ body {
     height: auto;
     background-image: none;
     background-color: #e1f3fd;
-
     &::after {
       display: none;
     }

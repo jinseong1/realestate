@@ -63,15 +63,12 @@ body {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 1;
-  background-image: url(../images/heading-img.png);
   background-repeat: no-repeat;
 }
 
 /*header section*/
 .hero_area {
-  height: 136vh;
   position: relative;
-  background-image: url(../images/hero-bg.png);
   background-size: cover;
 }
 

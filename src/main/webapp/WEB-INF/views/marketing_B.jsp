@@ -47,6 +47,34 @@
     <link href="/resources/front/B/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/resources/front/B/vendor/animate/animate.css" rel="stylesheet" type="text/css"/>
     <link href="/resources/front/B/css/style.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .font-black {
+            color: black !important;
+            font-weight: bold !important;
+        }
+        .auto-img {
+            width: 100%;
+        }
+        .mob_footer {
+            position: fixed;
+            text-decoration: none;
+            z-index: 2147483647;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            height: 60px;
+            text-align: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 120%;
+            overflow: hidden;
+            background: teal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 1px 0px rgb(0 0 0 / 18%);
+        }
+    </style>
 </head>
 <body>
 <!-- Navbar -->
@@ -54,9 +82,7 @@
     <div class="row justify-content-md-center ">
         <div class="col-md-10 col-sm-12">
             <nav class="navbar navbar-default">
-                <a class="navbar-brand" href="/">
-                    <img src="/resources/front/B/img/logo-black.png" height="22" alt="Logo">
-                </a>
+                <a class="navbar-brand font-black" href="javascript:void(0);">${data.HOMEPAGE_NAME}</a>
                 <div class="button_container" id="toggle">
                     <span class="black top"></span>
                     <span class="black middle"></span>
@@ -65,10 +91,11 @@
                 <div class="overlay" id="overlay">
                     <nav class="overlay-menu">
                         <ul>
-                            <li> <a href="/">About</a></li>
-                            <li> <a href="/">Story</a></li>
-                            <li> <a href="/">Services</a></li>
-                            <li> <a href="/">Contacts</a></li>
+                            <c:if test="${data.USE_YN1 == 'Y'}"><li><a href="#top1" onclick="$('#toggle').click();">${data.TITLE1}</a></li></c:if>
+                            <c:if test="${data.USE_YN2 == 'Y'}"><li><a href="#top2" onclick="$('#toggle').click();">${data.TITLE2}</a></li></c:if>
+                            <c:if test="${data.USE_YN3 == 'Y'}"><li><a href="#top3" onclick="$('#toggle').click();">${data.TITLE3}</a></li></c:if>
+                            <c:if test="${data.USE_YN4 == 'Y'}"><li><a href="#top4" onclick="$('#toggle').click();">${data.TITLE4}</a></li></c:if>
+                            <c:if test="${data.USE_YN5 == 'Y'}"><li><a href="#top5" onclick="$('#toggle').click();">${data.TITLE5}</a></li></c:if>
                         </ul>
                     </nav>
                 </div>
@@ -77,160 +104,655 @@
     </div>
 </div>
 <!-- End Navbar -->
-<!-- Portfolio-Text -->
-<div class="container-fluid pb-5 portfolio-text">
-    <div class="row">
-        <div class="col-md-7 offset-md-1 col-sm-12">
-            <h2>Donec rutrum congue leo eget malesuada lacinia eget consectetur.
-            </h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-7 offset-md-1 col-sm-12">
-            <p class="pb-5 pt-5">
-                Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus magna convallis at tellus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
-            </p>
-        </div>
-    </div>
+<div class="container-fluid" style="padding-bottom: 100px;">
+
 </div>
-<!-- End Portfolio-Text -->
 <!-- Gallery -->
 <div class="scrollblock">
     <div class="container-fluid pt-10">
         <div class="row justify-content-md-center ">
             <div class="col-md-10 col-sm-12">
-                <div class="card-columns">
-                    <div class="card card-hover h-100" >
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-1.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p> Curabitur non nulla</p>
-                                    </div>
-                                </div>
-                            </a>
+                <img class="auto-img" src="${data.MAIN_IMG_PATH}">
+                <c:if test="${data.USE_YN1 == 'Y'}">
+                    <h2 class="align-middle text-center" id="top1">${data.TITLE1}</h2>
+                    <c:if test="${data.D1_USE_YN1 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH1}">
                         </div>
-                    </div>
-                    <div class="card card-hover h-100" >
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-2.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Vivamus magna convallis</p>
-                                    </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO1}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-3.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Lacinia eget consectetur</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN2 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH2}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO2}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-4.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Convallis a pellentesque</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN3 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH3}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO3}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-5.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Egestas non nisi</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN4 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH4}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO4}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-6.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Vivamus magna convallis</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN5 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH5}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO5}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-7.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Eget malesuada lacinia</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN6 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH6}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO6}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-8.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Donec rutrum congue</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN7 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH7}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO7}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card card-hover h-100">
-                        <div class="card-body">
-                            <a href="/">
-                                <img class="card-img-top" src="/resources/front/B/img/photo-9.jpg" alt="Card image cap">
-                                <div class="reveal h-100 p-2 d-flex ">
-                                    <div class="w-100 align-self-center">
-                                        <p>Magna eget rutrum</p>
-                                    </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN8 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH8}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO8}</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN9 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH9}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEMO9}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D1_USE_YN10 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH10}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D1_MEM10}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:if>
+                <c:if test="${data.USE_YN2 == 'Y'}">
+                    <h2 class="align-middle text-center" id="top2">${data.TITLE2}</h2>
+                    <c:if test="${data.D2_USE_YN1 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH1}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO1}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN2 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH2}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO2}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN3 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH3}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO3}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN4 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH4}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO4}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN5 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH5}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO5}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN6 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH6}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO6}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN7 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH7}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO7}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN8 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH8}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO8}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN9 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH9}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEMO9}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D2_USE_YN10 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH10}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D2_MEM10}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:if>
+                <c:if test="${data.USE_YN3 == 'Y'}">
+                    <h2 class="align-middle text-center" id="top3">${data.TITLE3}</h2>
+                    <c:if test="${data.D3_USE_YN1 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH1}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO1}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN2 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH2}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO2}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN3 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH3}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO3}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN4 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH4}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO4}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN5 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH5}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO5}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN6 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH6}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO6}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN7 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH7}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO7}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN8 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH8}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO8}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN9 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH9}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEMO9}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D3_USE_YN10 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH10}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D3_MEM10}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:if>
+                <c:if test="${data.USE_YN4 == 'Y'}">
+                    <h2 class="align-middle text-center"  id="top4">${data.TITLE4}</h2>
+                    <c:if test="${data.D4_USE_YN1 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH1}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO1}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN2 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH2}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO2}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN3 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH3}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO3}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN4 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH4}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO4}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN5 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH5}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO5}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN6 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH6}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO6}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN7 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH7}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO7}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN8 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH8}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO8}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN9 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH9}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEMO9}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D4_USE_YN10 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH10}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D4_MEM10}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:if>
+                <c:if test="${data.USE_YN5 == 'Y'}">
+                    <h2 class="align-middle text-center" id="top5">${data.TITLE5}</h2>
+                    <c:if test="${data.D5_USE_YN1 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH1}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO1}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN2 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH2}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO2}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN3 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH3}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO3}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN4 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH4}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO4}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN5 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH5}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO5}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN6 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH6}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO6}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN7 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH7}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO7}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN8 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH8}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO8}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN9 == 'Y'}">
+                        <div>
+                            <img class="auto-img text-memo" src="${data.D5_IMG_PATH9}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEMO9}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                    <c:if test="${data.D5_USE_YN10 == 'Y'}">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH10}">
+                        </div>
+                        <div class="portfolio-text" style="padding-top: 20px; padding-bottom: 20px;">
+                            <div class="row">
+                                <div class="col-md-7 offset-md-1 col-sm-12">
+                                    <p>${data.D5_MEM10}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:if>
+                </c:if>
             </div>
         </div>
     </div>
 </div>
 <!-- End Gallery -->
+<!-- 모바일 전화하기 영역 -->
+<a href="tel:${data.CONNECT_TEL}" class="mob_footer">
+    <img alt="Call Now Button" src="/resources/front/img/cell.png" width="40">
+    <span class="tel" style="color:#eeee22">상담문의 ${data.VIEW_TEL}</span>
+</a>
 <!-- Footer -->
 <div class="container-fluid footer ">
     <div class="row">
         <div class="col-xl-2 col-md-8 offset-md-1 col-sm-12 ">
             <p>
-                <a href="/">About</a><br>
-                <a href="/">Story</a><br>
-                <a href="/">Services</a><br>
-                <a href="/">Contacts</a><br>
+                <c:if test="${data.USE_YN1 == 'Y'}"><a href="#top1">${data.TITLE1}</a><br></c:if>
+                <c:if test="${data.USE_YN2 == 'Y'}"><a href="#top2">${data.TITLE2}</a><br></c:if>
+                <c:if test="${data.USE_YN3 == 'Y'}"><a href="#top3">${data.TITLE3}</a><br></c:if>
+                <c:if test="${data.USE_YN4 == 'Y'}"><a href="#top4">${data.TITLE4}</a><br></c:if>
+                <c:if test="${data.USE_YN5 == 'Y'}"><a href="#top5">${data.TITLE5}</a><br></c:if>
             </p>
         </div>
         <div class="col-xl-2 col-md-8 offset-md-1 col-sm-12 ">
             <p>
-                <a href="/">Privacy</a><br>
-                <a href="/">Termini di utilizzo </a><br>
-                <a href="/">Note legali </a><br>
-                <a href="/">Credits</a><br>
+                <a href="tel:${data.CONNECT_TEL}">상담문의 ${data.VIEW_TEL}</a><br>
             </p>
         </div>
         <div class="col-xl-2 col-md-8 offset-md-1 col-sm-12">
@@ -245,8 +767,22 @@
 <script src="/resources/front/B/vendor/wow/wow.js"></script>
 <script src="/resources/front/B/js/script.js"></script>
 <script>
-    // new WOW().init();
+
+    let flag = false;
+    const color1 = '#ffffff';
+    const color2 = '#ffd400';
+
+    setInterval(function() {
+        if(flag) {
+            $('.tel').css('color', color1);
+        } else {
+            $('.tel').css('color', color2);
+        }
+        flag = !flag;
+    }, 1000);
+
 </script>
+
 <!-- End Javascript -->
 </body>
 </html>

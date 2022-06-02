@@ -61,6 +61,30 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <style>
+        .mob_footer {
+            position: fixed;
+            text-decoration: none;
+            z-index: 2147483647;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            height: 60px;
+            text-align: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 120%;
+            overflow: hidden;
+            background: #48ca95;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 0 1px 0px rgb(0 0 0 / 18%);
+        }
+        footer{
+            padding-bottom: 60px;
+        }
+    </style>
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -79,7 +103,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.html">샘플페이지</a>
+                                <a href="javascript:void(0);">${data.HOMEPAGE_NAME}</a>
                             </div>
                         </div>
                     </div>
@@ -91,24 +115,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="computer.html">Computer</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="laptop.html">Laptop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="product.html">Products</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact Us</a>
-                                </li>
+                                <c:if test="${data.USE_YN1 == 'Y'}"><li class="nav-item"><a class="nav-link"href="#top1">${data.TITLE1}</a></li></c:if>
+                                <c:if test="${data.USE_YN2 == 'Y'}"><li class="nav-item"><a class="nav-link"href="#top2">${data.TITLE2}</a></li></c:if>
+                                <c:if test="${data.USE_YN3 == 'Y'}"><li class="nav-item"><a class="nav-link"href="#top3">${data.TITLE3}</a></li></c:if>
+                                <c:if test="${data.USE_YN4 == 'Y'}"><li class="nav-item"><a class="nav-link"href="#top4">${data.TITLE4}</a></li></c:if>
+                                <c:if test="${data.USE_YN5 == 'Y'}"><li class="nav-item"><a class="nav-link"href="#top5">${data.TITLE5}</a></li></c:if>
                             </ul>
                         </div>
                     </nav>
@@ -120,115 +131,21 @@
 <!-- end header inner -->
 <!-- end header -->
 <!-- banner -->
+<style>
+    .banner_main {
+        background-image: url(${data.MAIN_IMG_PATH});
+    }
+</style>
 <section class="banner_main">
     <div id="banner1" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#banner1" data-slide-to="0" class="active"></li>
-            <li data-target="#banner1" data-slide-to="1"></li>
-            <li data-target="#banner1" data-slide-to="2"></li>
-            <li data-target="#banner1" data-slide-to="3"></li>
-            <li data-target="#banner1" data-slide-to="4"></li>
-        </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="text-bg">
-                                    <span>Computer And Laptop</span>
-                                    <h1>Accessories</h1>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
-                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
                                 <div class="text_img">
-                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-bg">
-                                    <span>Computer And Laptop</span>
-                                    <h1>Accessories</h1>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
-                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text_img">
-                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-bg">
-                                    <span>Computer And Laptop</span>
-                                    <h1>Accessories</h1>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
-                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text_img">
-                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-bg">
-                                    <span>Computer And Laptop</span>
-                                    <h1>Accessories</h1>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
-                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text_img">
-                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text-bg">
-                                    <span>Computer And Laptop</span>
-                                    <h1>Accessories</h1>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
-                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text_img">
-                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                    <figure></figure>
                                 </div>
                             </div>
                         </div>
@@ -236,299 +153,675 @@
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
-            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </a>
-        <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </a>
     </div>
 </section>
 <!-- end banner -->
-<!-- three_box -->
-<div class="three_box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="box_text">
-                    <i><img src="/resources/front/D/images/thr.png" alt="#"/></i>
-                    <h3>Computer</h3>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box_text">
-                    <i><img src="/resources/front/D/images/thr1.png" alt="#"/></i>
-                    <h3>Laptop</h3>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box_text">
-                    <i><img src="/resources/front/D/images/thr2.png" alt="#"/></i>
-                    <h3>Tablet</h3>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- three_box -->
 <!-- products -->
 <div  class="products">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Our Products</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="our_products">
-                    <div class="row">
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product1.png" alt="#"/></figure>
-                                <h3>Computer</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product2.png" alt="#"/></figure>
-                                <h3>Laptop</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product3.png" alt="#"/></figure>
-                                <h3>Tablet</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product4.png" alt="#"/></figure>
-                                <h3>Speakers</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product5.png" alt="#"/></figure>
-                                <h3>internet</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4 margin_bottom1">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product6.png" alt="#"/></figure>
-                                <h3>Hardisk</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product7.png" alt="#"/></figure>
-                                <h3>Rams</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product8.png" alt="#"/></figure>
-                                <h3>Bettery</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="product_box">
-                                <figure><img src="/resources/front/D/images/product9.png" alt="#"/></figure>
-                                <h3>Drive</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a class="read_more" href="#">See More</a>
-                        </div>
+        <c:if test="${data.USE_YN1 == 'Y'}">
+            <div class="row" id="top1">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>${data.TITLE1}</h2>
                     </div>
                 </div>
             </div>
-        </div>
+            <c:if test="${data.D1_USE_YN1 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH1}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO1}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN2 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH2}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO2}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN3 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH3}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO3}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN4 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH4}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO4}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN5 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH5}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO5}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN6 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH6}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN7 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH7}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO7}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN8 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH8}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO8}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN9 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH9}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEMO9}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D1_USE_YN10 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D1_IMG_PATH10}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D1_MEM10}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+        </c:if>
+        <c:if test="${data.USE_YN2 == 'Y'}">
+            <div class="row" id="top2">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>${data.TITLE2}</h2>
+                    </div>
+                </div>
+            </div>
+            <c:if test="${data.D2_USE_YN1 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH1}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO1}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN2 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH2}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO2}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN3 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH3}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO3}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN4 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH4}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO4}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN5 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH5}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO5}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN6 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH6}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN7 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH7}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO7}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN8 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH8}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO8}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN9 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH9}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEMO9}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D2_USE_YN10 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D2_IMG_PATH10}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D2_MEM10}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+        </c:if>
+        <c:if test="${data.USE_YN3 == 'Y'}">
+            <div class="row" id="top3">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>${data.TITLE3}</h2>
+                    </div>
+                </div>
+            </div>
+            <c:if test="${data.D3_USE_YN1 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH1}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO1}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN2 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH2}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO2}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN3 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH3}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO3}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN4 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH4}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO4}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN5 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH5}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO5}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN6 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH6}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN7 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH7}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO7}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN8 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH8}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO8}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN9 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH9}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEMO9}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D3_USE_YN10 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D3_IMG_PATH10}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D3_MEM10}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+        </c:if>
+        <c:if test="${data.USE_YN4 == 'Y'}">
+            <div class="row" id="top4">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>${data.TITLE4}</h2>
+                    </div>
+                </div>
+            </div>
+            <c:if test="${data.D4_USE_YN1 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH1}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO1}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN2 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH2}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO2}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN3 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH3}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO3}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN4 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH4}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO4}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN5 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH5}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO5}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN6 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH6}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN7 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH7}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO7}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN8 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH8}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO8}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN9 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH9}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEMO9}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D4_USE_YN10 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D4_IMG_PATH10}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D4_MEM10}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+        </c:if>
+        <c:if test="${data.USE_YN5 == 'Y'}">
+            <div class="row" id="top5">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>${data.TITLE5}</h2>
+                    </div>
+                </div>
+            </div>
+            <c:if test="${data.D5_USE_YN1 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH1}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO1}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN2 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH2}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO2}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN3 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH3}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO3}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN4 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH4}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO4}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN5 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH5}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO5}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN6 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH6}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO6}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN7 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH7}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO7}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN8 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH8}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO8}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN9 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH9}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEMO9}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+            <c:if test="${data.D5_USE_YN10 == 'Y'}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <img class="auto-img" src="${data.D5_IMG_PATH10}">
+                        </div>
+                        <div class="box_text">
+                            <h3>${data.D5_MEM10}</h3>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
+        </c:if>
     </div>
 </div>
 <!-- end products -->
-<!-- laptop  section -->
-<div class="laptop">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="titlepage">
-                    <p>Every Computer and laptop</p>
-                    <h2>Up to 40% off !</h2>
-                    <a class="read_more" href="#">Shop Now</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="laptop_box">
-                    <figure><img src="/resources/front/D/images/pc.png" alt="#"/></figure>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<!-- end laptop  section -->
-<!-- customer -->
-<div class="customer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Customer Review</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="myCarousel" class="carousel slide customer_Carousel " data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="container">
-                                <div class="carousel-caption ">
-                                    <div class="row">
-                                        <div class="col-md-9 offset-md-3">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
-                                                <h4>Sandy Miller</h4>
-                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-md-9 offset-md-3">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
-                                                <h4>Sandy Miller</h4>
-                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-md-9 offset-md-3">
-                                            <div class="test_box">
-                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
-                                                <h4>Sandy Miller</h4>
-                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end customer -->
 
-<!--  contact -->
-<div class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>Contact Now</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <form id="request" class="main_form">
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <input class="contactus" placeholder="Name" type="type" name="Name">
-                        </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="Email" type="type" name="Email">
-                        </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
-                        </div>
-                        <div class="col-md-12">
-                            <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
-                        </div>
-                        <div class="col-md-12">
-                            <button class="send_btn">Send</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end contact -->
+<!-- 모바일 전화하기 영역 -->
+<a href="tel:${data.CONNECT_TEL}" class="mob_footer">
+    <img alt="Call Now Button" src="/resources/front/img/cell.png" width="40">
+    <span class="tel" style="color:#eeee22">상담문의 ${data.VIEW_TEL}</span>
+</a>
+
 <!--  footer -->
 <footer>
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <img class="logo1" src="/resources/front/D/images/logo1.png" alt="#"/>
-                    <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <h3>About Us</h3>
-                    <ul class="about_us">
-                        <li>dolor sit amet, consectetur<br> magna aliqua. Ut enim ad <br>minim veniam, <br> quisdotempor incididunt r</li>
-                    </ul>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <h3>Contact Us</h3>
-                    <ul class="conta">
-                        <li>dolor sit amet,<br> consectetur <br>magna aliqua.<br> quisdotempor <br>incididunt ut e </li>
-                    </ul>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                    <form class="bottom_form">
-                        <h3>Newsletter</h3>
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="sub_btn">subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
+    <div class="footer" style="margin-top: 0; padding-top: 0;">
+        <div class="copyright" style="margin-top: 0;">
+            <div class="container" style="margin-top: 0;">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                        <p>사업자명:트루코드|대표자명:박진성|사업자번호:573-32-01264</p>
                     </div>
                 </div>
             </div>
@@ -544,5 +837,21 @@
 <!-- sidebar -->
 <script src="/resources/front/D/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/resources/front/D/js/custom.js"></script>
+<script>
+
+    let flag = false;
+    const color1 = '#ffffff';
+    const color2 = '#ffd400';
+
+    setInterval(function() {
+        if(flag) {
+            $('.tel').css('color', color1);
+        } else {
+            $('.tel').css('color', color2);
+        }
+        flag = !flag;
+    }, 1000);
+
+</script>
 </body>
 </html>
