@@ -10,12 +10,42 @@
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
+    <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
+    <meta name="author" content="트루코드">
 
-    <title>Uliya</title>
+    <link rel="canonical" href="${data.URL}">
 
+    <meta name="robots" content="all">
+    <meta name="google-site-verification" content="${data.GOOGLE_META}" />
+    <meta name="naver-site-verification" content="${data.NAVER_META}" />
+
+    <meta name="NaverBot" content="All"/>
+    <meta name="NaverBot" content="index, follow"/>
+    <meta name="Yeti" content="All"/>
+    <meta name="Yeti" content="index, follow"/>
+
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${data.HOMEPAGE_NAME}" />
+    <meta property="og:description" content="분양홍보관 ${data.VIEW_TEL}" />
+    <meta property="og:url" content="${data.URL}" />
+    <meta property="og:site_name" content="${data.HOMEPAGE_NAME}" />
+    <meta property="og:image" content="${data.URL}${data.MAIN_IMG_PATH}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="700" />
+    <meta property="og:image:type" content="image/jpeg" />
+
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:site" content="${data.HOMEPAGE_NAME}">
+    <meta name="twitter:url" content="${data.URL}">
+    <meta name="twitter:title" content="${data.HOMEPAGE_NAME}">
+    <meta name="twitter:description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}">
+    <meta name="twitter:image" content="${data.URL}${data.MAIN_IMG_PATH}">
+    <meta name="twitter:image:width" content="500">
+    <meta name="twitter:image:height" content="500">
+
+    <title>${data.HOMEPAGE_NAME}</title>
 
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="/resources/front/C/css/bootstrap.css" />
