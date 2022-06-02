@@ -297,6 +297,8 @@
         height: 40px;
         position : relative;
         transform : translateY(-100%);
+        text-align: center;
+        background-color: whitesmoke;
     }
 </style>
 <body>
@@ -697,7 +699,7 @@
     <span class="tel" style="color:#eeee22">상담문의 ${data.VIEW_TEL}</span>
 </a>
 </div>
-<footer></footer>
+<footer><p>사업자명:트루코드|대표자명:박진성|사업자번호:573-32-01264</p></footer>
 </body>
 <script>
 

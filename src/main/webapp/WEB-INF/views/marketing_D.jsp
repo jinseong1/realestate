@@ -1,702 +1,517 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- basic -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-
-    <meta name="description" content="${data.HOMEPAGE_NAME} 오피스텔 상가 아파트 분양 ${data.VIEW_TEL}"/>
-    <meta name="keywords" content="부동산, 프로그램, 홍보, 분양, 아파트, 오피스텔, 상가, 토지, 트루코드, TRUECODE, 아파텔, 오피스, 사무실"/>
-    <link rel="canonical" href="${data.URL}">
-
-    <meta name="robots" content="all">
-    <meta name="google-site-verification" content="${data.GOOGLE_META}" />
-    <meta name="naver-site-verification" content="${data.NAVER_META}" />
-    <meta property="og:locale" content="ko_KR" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="${data.HOMEPAGE_NAME}" />
-    <meta property="og:description" content="분양홍보관 ${data.VIEW_TEL}" />
-    <meta property="og:url" content="${data.URL}" />
-    <meta property="og:site_name" content="${data.HOMEPAGE_NAME}" />
-    <meta property="og:image" content="${data.URL}${data.MAIN_IMG_PATH}" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="700" />
-    <meta property="og:image:type" content="image/jpeg" />
-
-
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <title>${data.HOMEPAGE_NAME}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>cla</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/resources/front/D/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/resources/front/D/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/resources/front/D/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="/resources/front/D/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/resources/front/D/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
-<style>
-    .navbar-inverse .navbar-nav>li>a {
-        color: #FFFFFF;
-    }
-
-    @media (min-width: 768px) {
-        .navbar {
-            border-radius: 0px;
-        }
-    }
-    .navbar {
-        margin-bottom: 0px;
-        order-radius: 0px;
-        border-color: #311f4f;
-    }
-    .navbar-inverse {
-        background-image: none;
-        background-color: #311f4f;
-    }
-    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
-        background-color: #311f4f;
-    }
-    .navbar-inverse .navbar-toggle {
-        background-color: #311f4f;
-    }
-    a {
-        text-decoration: none;
-    }
-    .main-color {
-        background-color: #311f4f;
-    }
-    .main-font-color {
-        color: #311f4f;
-    }
-    .main-top {
-        width: 100%;
-        height: 180px;
-    }
-    .main-top h1 {
-        font-weight: 900;
-    }
-    .main-top-side {
-        height: 100%;
-        color: #FFFFFF;
-    }
-    .margin15 {
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-    .margin10 {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    .float-left60 {
-        float: left;
-        width: 60%;
-    }
-    .float-right40 {
-        float: right;
-        width: 40%;
-    }
-    .float-left55 {
-        float: left;
-        width: 55%;
-    }
-    .float-right45 {
-        float: right;
-        width: 45%;
-    }
-    .tel {
-        font-family: bold;
-    }
-    .middle-text {
-        margin-top: 60px;
-    }
-    .float-left {
-        float: left;
-    }
-    .float-right {
-        float: right;
-    }
-
-    @media (max-width: 9990px) {
-        .auto-margin {
-            margin-left: 15%;
-            margin-right: 15%;
-        }
-        .auto-img {
-            width: 100%;
-            height: 100%;
-        }
-        .auto-margin h1 {
-            font-size: 53px;
-            font-weight: 900;
-        }
-        .text-memo {
-            font-size: 40px;
-            font-weight: 600;
-        }
-        .mob_footer {
-            display: none;
-        }
-        .pc_footer {
-            display: block;
-            width: 100%;
-            height: 99999px; /* footer의 높이 */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .auto-nav {
-            font-size: 25px;
-            font-weight: 600;
-            color: white;
-        }
-        .navbar-brand {
-            display: none;
-        }
-        .auto-nav-ul {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-        }
-    }
-    @media (max-width: 1200px) {
-        .auto-margin {
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-        .auto-img {
-            width: 100%;
-            height: 100%;
-        }
-        .auto-margin h1 {
-            font-size: 53px;
-            font-weight: 900;
-        }
-        .text-memo {
-            font-size: 40px;
-            font-weight: 600;
-        }
-        .mob_footer {
-            display: none;
-        }
-        .pc_footer {
-            display: block;
-            width: 100%;
-            height: 99999px; /* footer의 높이 */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .auto-nav {
-            font-size: 25px;
-            font-weight: 600;
-            color: white;
-        }
-        .navbar-brand {
-            display: none;
-        }
-        .auto-nav-ul {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-        }
-    }
-    @media (max-width: 990px) {
-        .auto-margin {
-            margin-left: 0%;
-            margin-right: 0%;
-        }
-        .auto-img {
-            width: 100%;
-            height: 100%;
-        }
-        .auto-margin h1 {
-            font-size: 27px;
-            font-weight: 900;
-        }
-        .text-memo {
-            font-size: 20px;
-            font-weight: 600;
-        }
-        .mob_footer {
-            position: fixed;
-            text-decoration: none;
-            z-index: 2147483647;
-            width: 100%;
-            left: 0;
-            bottom: 0;
-            height: 60px;
-            text-align: center;
-            color: #fff;
-            font-weight: 600;
-            font-size: 120%;
-            overflow: hidden;
-            background: #311f4f;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 0 1px 0px rgb(0 0 0 / 18%);
-        }
-        .pc_footer {
-            display: none;
-        }
-        .auto-nav {
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-        }
-        .navbar-brand {
-            display: none;
-        }
-        .auto-nav-ul {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-        }
-    }
-    @media (max-width: 770px) {
-        .navbar-brand {
-            display: block;
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-        }
-        .auto-nav-ul {
-            display: block;
-            width: 100%;
-            justify-content: center;
-        }
-    }
-    .navbar-inverse .navbar-brand {
-        color: #FFFFFF;
-    }
-
-    #wrapper{
-        height: auto;
-        min-height: 100%;
-        padding-bottom: 40px;
-    }
-    footer{
-        height: 40px;
-        position : relative;
-        transform : translateY(-100%);
-    }
-</style>
-<body>
-<div id="wrapper">
-<nav class="navbar navbar-inverse main-color">
-    <div class="container main-color">
-        <div class="navbar-header main-color">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="javascript:void(0);">${data.HOMEPAGE_NAME}</a>
+<!-- body -->
+<body class="main-layout">
+<!-- loader  -->
+<div class="loader_bg">
+    <div class="loader"><img src="/resources/front/D/images/loading.gif" alt="#" /></div>
+</div>
+<!-- end loader -->
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                    <div class="full">
+                        <div class="center-desk">
+                            <div class="logo">
+                                <a href="index.html">샘플페이지</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="about.html">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="computer.html">Computer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="laptop.html">Laptop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="product.html">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div id="navbar" class="navbar-collapse collapse main-color">
-            <ul class="nav navbar-nav auto-nav-ul">
-                <c:if test="${data.USE_YN1 == 'Y'}"><li><a href="#top1" class="auto-nav">${data.TITLE1}</a></li></c:if>
-                <c:if test="${data.USE_YN2 == 'Y'}"><li><a href="#top2" class="auto-nav">${data.TITLE2}</a></li></c:if>
-                <c:if test="${data.USE_YN3 == 'Y'}"><li><a href="#top3" class="auto-nav">${data.TITLE3}</a></li></c:if>
-                <c:if test="${data.USE_YN4 == 'Y'}"><li><a href="#top4" class="auto-nav">${data.TITLE4}</a></li></c:if>
-                <c:if test="${data.USE_YN5 == 'Y'}"><li><a href="#top5" class="auto-nav">${data.TITLE5}</a></li></c:if>
-            </ul>
-        </div><!--/.nav-collapse -->
     </div>
-</nav>
-
-<div class="main-color main-top hidden-xs hidden-sm hidden-md">
-    <a href="tel:${data.CONNECT_TEL}">
-        <div class="main-top-side margin15">
-            <div class="float-left55">
-                <h1 class="middle-text" style="font-size: 3.5em;">${data.HOMEPAGE_NAME}</h1>
-            </div>
-            <div class="float-right45">
-                <div class="float-left middle-text" style="font-size: 1.5em; min-width: 50px; width: 10%;">
-                    <p style="margin-bottom: 0;">대표</p>
-                    <p>문의</p>
+</header>
+<!-- end header inner -->
+<!-- end header -->
+<!-- banner -->
+<section class="banner_main">
+    <div id="banner1" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#banner1" data-slide-to="0" class="active"></li>
+            <li data-target="#banner1" data-slide-to="1"></li>
+            <li data-target="#banner1" data-slide-to="2"></li>
+            <li data-target="#banner1" data-slide-to="3"></li>
+            <li data-target="#banner1" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-bg">
+                                    <span>Computer And Laptop</span>
+                                    <h1>Accessories</h1>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text_img">
+                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="tel middle-text float-right" style="font-size: 3.5em; width: 85%;">${data.VIEW_TEL}</h1>
-                </span>
             </div>
-        </div>
-    </a>
-</div>
-<div class="main-color main-top hidden-xs hidden-sm hidden-lg">
-    <a href="tel:${data.CONNECT_TEL}">
-        <div class="main-top-side margin10">
-            <div class="float-left60">
-                <h1 class="middle-text" style="font-size: 2.5em;">${data.HOMEPAGE_NAME}</h1>
-            </div>
-            <div class="float-right40">
-                <div class="float-left middle-text" style="font-size: 1.2em; width: 10%; min-width: 36px;">
-                    <p>대표</p>
-                    <p>문의</p>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-bg">
+                                    <span>Computer And Laptop</span>
+                                    <h1>Accessories</h1>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text_img">
+                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="tel middle-text" style="font-size: 2.5em; width: 100%;">${data.VIEW_TEL}</h1>
-                </span>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-bg">
+                                    <span>Computer And Laptop</span>
+                                    <h1>Accessories</h1>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text_img">
+                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-bg">
+                                    <span>Computer And Laptop</span>
+                                    <h1>Accessories</h1>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text_img">
+                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-bg">
+                                    <span>Computer And Laptop</span>
+                                    <h1>Accessories</h1>
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                    <a href="#">Buy Now </a> <a href="contact.html">Contact </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text_img">
+                                    <figure><img src="/resources/front/D/images/pct.png" alt="#"/></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </a>
-</div>
-<div class="main-color main-top hidden-md hidden-lg" style="height: 150px;">
-    <a href="tel:${data.CONNECT_TEL}" style="text-decoration: none;">
-        <div class="main-top-side">
-            <p style="text-align: center; font-size: 50px;">${data.HOMEPAGE_NAME}</p>
-            <p class="tel" style="text-align: center; font-size: 50px;">${data.VIEW_TEL}</p>
+        <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </a>
+        <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+    </div>
+</section>
+<!-- end banner -->
+<!-- three_box -->
+<div class="three_box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box_text">
+                    <i><img src="/resources/front/D/images/thr.png" alt="#"/></i>
+                    <h3>Computer</h3>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_text">
+                    <i><img src="/resources/front/D/images/thr1.png" alt="#"/></i>
+                    <h3>Laptop</h3>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box_text">
+                    <i><img src="/resources/front/D/images/thr2.png" alt="#"/></i>
+                    <h3>Tablet</h3>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                </div>
+            </div>
         </div>
-    </a>
+    </div>
 </div>
+<!-- three_box -->
+<!-- products -->
+<div  class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Our Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="our_products">
+                    <div class="row">
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product1.png" alt="#"/></figure>
+                                <h3>Computer</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product2.png" alt="#"/></figure>
+                                <h3>Laptop</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product3.png" alt="#"/></figure>
+                                <h3>Tablet</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product4.png" alt="#"/></figure>
+                                <h3>Speakers</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product5.png" alt="#"/></figure>
+                                <h3>internet</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4 margin_bottom1">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product6.png" alt="#"/></figure>
+                                <h3>Hardisk</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product7.png" alt="#"/></figure>
+                                <h3>Rams</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product8.png" alt="#"/></figure>
+                                <h3>Bettery</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product_box">
+                                <figure><img src="/resources/front/D/images/product9.png" alt="#"/></figure>
+                                <h3>Drive</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <a class="read_more" href="#">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end products -->
+<!-- laptop  section -->
+<div class="laptop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="titlepage">
+                    <p>Every Computer and laptop</p>
+                    <h2>Up to 40% off !</h2>
+                    <a class="read_more" href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="laptop_box">
+                    <figure><img src="/resources/front/D/images/pc.png" alt="#"/></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- end laptop  section -->
+<!-- customer -->
+<div class="customer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Customer Review</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="myCarousel" class="carousel slide customer_Carousel " data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container">
+                                <div class="carousel-caption ">
+                                    <div class="row">
+                                        <div class="col-md-9 offset-md-3">
+                                            <div class="test_box">
+                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
+                                                <h4>Sandy Miller</h4>
+                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <div class="row">
+                                        <div class="col-md-9 offset-md-3">
+                                            <div class="test_box">
+                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
+                                                <h4>Sandy Miller</h4>
+                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <div class="row">
+                                        <div class="col-md-9 offset-md-3">
+                                            <div class="test_box">
+                                                <i><img src="/resources/front/D/images/cos.png" alt="#"/></i>
+                                                <h4>Sandy Miller</h4>
+                                                <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end customer -->
 
-<!-- 메인 이미지 -->
-<div class="auto-margin" style="background-color: #00bf3a">
-    <img class="auto-img" src="${data.MAIN_IMG_PATH}">
+<!--  contact -->
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Contact Now</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <form id="request" class="main_form">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <input class="contactus" placeholder="Name" type="type" name="Name">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" placeholder="Email" type="type" name="Email">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="send_btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!-- 디테일 내역 -->
-<div class="auto-margin">
-    <c:if test="${data.USE_YN1 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top1">${data.TITLE1}</h1>
-        <c:if test="${data.D1_USE_YN1 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH1}">
+<!-- end contact -->
+<!--  footer -->
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <img class="logo1" src="/resources/front/D/images/logo1.png" alt="#"/>
+                    <ul class="social_icon">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <h3>About Us</h3>
+                    <ul class="about_us">
+                        <li>dolor sit amet, consectetur<br> magna aliqua. Ut enim ad <br>minim veniam, <br> quisdotempor incididunt r</li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <h3>Contact Us</h3>
+                    <ul class="conta">
+                        <li>dolor sit amet,<br> consectetur <br>magna aliqua.<br> quisdotempor <br>incididunt ut e </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <form class="bottom_form">
+                        <h3>Newsletter</h3>
+                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                        <button class="sub_btn">subscribe</button>
+                    </form>
+                </div>
             </div>
-            <p class="text-center text-memo">${data.D1_MEMO1}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN2 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH2}">
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                    </div>
+                </div>
             </div>
-            <p class="text-center text-memo">${data.D1_MEMO2}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN3 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH3}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO3}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN4 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH4}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO4}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN5 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH5}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO5}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN6 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH6}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO6}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN7 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH7}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO7}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN8 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH8}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO8}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN9 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH9}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO9}</p>
-        </c:if>
-        <c:if test="${data.D1_USE_YN10 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D1_IMG_PATH10}">
-            </div>
-            <p class="text-center text-memo">${data.D1_MEMO10}</p>
-        </c:if>
-    </c:if>
-    <c:if test="${data.USE_YN2 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top2">${data.TITLE2}</h1>
-        <c:if test="${data.D2_USE_YN1 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH1}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO1}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN2 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH2}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO2}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN3 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH3}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO3}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN4 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH4}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO4}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN5 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH5}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO5}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN6 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH6}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO6}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN7 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH7}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO7}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN8 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH8}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO8}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN9 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH9}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO9}</p>
-        </c:if>
-        <c:if test="${data.D2_USE_YN10 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D2_IMG_PATH10}">
-            </div>
-            <p class="text-center text-memo">${data.D2_MEMO10}</p>
-        </c:if>
-    </c:if>
-    <c:if test="${data.USE_YN3 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top3">${data.TITLE3}</h1>
-        <c:if test="${data.D3_USE_YN1 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH1}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO1}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN2 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH2}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO2}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN3 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH3}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO3}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN4 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH4}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO4}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN5 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH5}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO5}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN6 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH6}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO6}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN7 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH7}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO7}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN8 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH8}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO8}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN9 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH9}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO9}</p>
-        </c:if>
-        <c:if test="${data.D3_USE_YN10 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D3_IMG_PATH10}">
-            </div>
-            <p class="text-center text-memo">${data.D3_MEMO10}</p>
-        </c:if>
-    </c:if>
-    <c:if test="${data.USE_YN4 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top4">${data.TITLE4}</h1>
-        <c:if test="${data.D4_USE_YN1 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH1}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO1}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN2 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH2}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO2}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN3 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH3}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO3}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN4 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH4}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO4}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN5 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH5}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO5}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN6 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH6}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO6}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN7 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH7}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO7}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN8 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH8}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO8}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN9 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH9}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO9}</p>
-        </c:if>
-        <c:if test="${data.D4_USE_YN10 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D4_IMG_PATH10}">
-            </div>
-            <p class="text-center text-memo">${data.D4_MEMO10}</p>
-        </c:if>
-    </c:if>
-    <c:if test="${data.USE_YN5 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top5">${data.TITLE5}</h1>
-        <c:if test="${data.D5_USE_YN1 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH1}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO1}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN2 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH2}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO2}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN3 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH3}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO3}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN4 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH4}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO4}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN5 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH5}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO5}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN6 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH6}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO6}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN7 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH7}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO7}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN8 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH8}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO8}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN9 == 'Y'}">
-            <div>
-                <img class="auto-img text-memo" src="${data.D5_IMG_PATH9}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO9}</p>
-        </c:if>
-        <c:if test="${data.D5_USE_YN10 == 'Y'}">
-            <div>
-                <img class="auto-img" src="${data.D5_IMG_PATH10}">
-            </div>
-            <p class="text-center text-memo">${data.D5_MEMO10}</p>
-        </c:if>
-    </c:if>
-</div>
-
-<!-- 모바일 전화하기 영역 -->
-<a href="tel:${data.CONNECT_TEL}" class="mob_footer">
-    <img alt="Call Now Button" src="/resources/front/img/cell.png" width="40">
-    <span class="tel" style="color:#eeee22">상담문의 ${data.VIEW_TEL}</span>
-</a>
-</div>
-<footer></footer>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+<!-- Javascript files-->
+<script src="/resources/front/D/js/jquery.min.js"></script>
+<script src="/resources/front/D/js/popper.min.js"></script>
+<script src="/resources/front/D/js/bootstrap.bundle.min.js"></script>
+<script src="/resources/front/D/js/jquery-3.0.0.min.js"></script>
+<!-- sidebar -->
+<script src="/resources/front/D/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/resources/front/D/js/custom.js"></script>
 </body>
-<script>
-
-    let flag = false;
-    const color1 = '#ffffff';
-    const color2 = '#ffd400';
-
-    setInterval(function() {
-        if(flag) {
-            $('.tel').css('color', color1);
-        } else {
-            $('.tel').css('color', color2);
-        }
-        flag = !flag;
-    }, 1000);
-
-</script>
 </html>

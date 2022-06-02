@@ -628,6 +628,10 @@
 
     }
 
+    function list(){
+        location.href = "/admin/homepage/homepageList?page=1";
+    }
+
     function file_change(obj, type, num) {
 
         const $this = $(obj);

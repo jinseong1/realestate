@@ -19,18 +19,34 @@ public class HomeController {
     @Autowired
     private MainDAO dao;
 
+    @Value("${spring.profiles.active}")
+    private String active;
+
     @RequestMapping("/")
     public String main(HttpServletRequest request, Model model){
 
         Map map = new HashMap();
-        map.put("url", request.getRequestURL().substring(0, request.getRequestURL().length() - 1));
+
+        String url = request.getRequestURL().substring(0, request.getRequestURL().length() - 1);
+        String return_url;
+
+        if(active.equals("local")) {
+            url = "http://samplea.truecode.co.kr";
+        }
+
+        map.put("url", url);
+
         Map data = dao.get_main(map);
+
         if(data != null) {
             model.addAttribute("data", data);
-            return "marketing_"+data.get("TEMPLATE_TYPE");
+            return_url = "marketing_"+data.get("TEMPLATE_TYPE");
         } else {
-            return "/main";
+            return_url = "/main";
         }
+
+
+        return return_url;
     }
 
 }
