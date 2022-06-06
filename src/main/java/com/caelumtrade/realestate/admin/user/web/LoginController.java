@@ -110,6 +110,8 @@ public class LoginController extends Base {
         Map input_data = new HashMap();
         input_data.put("id", CommonUtil.getSessionId(req));
 
+        input_data.put("level", req.getSession().getAttribute("admin_level"));
+
         String url = loginDAO.loginConfirm(input_data); // 권한별 메뉴 가져오기
 
         if(url == null){ // 메뉴 권한이 없는 경우 로그인 페이지로 이동 처리한다.

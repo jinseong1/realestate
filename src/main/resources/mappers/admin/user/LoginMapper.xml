@@ -25,7 +25,12 @@
 	<!-- 로그인 후 가능한 메뉴 -->
 	<select id="loginConfirm" parameterType="java.util.Map" resultType="java.lang.String">
 		/* loginConfirm */
-		SELECT MENU_URL FROM MENU ORDER BY MENU_SNO LIMIT 1
+		SELECT    A.MENU_URL
+		FROM      MENU A
+		              JOIN MENU_LEVEL L ON A.ACTIVE_ID = L.ACTIVE_ID
+		WHERE     L.MENU_LEVEL = #{level}
+		ORDER BY A.MENU_SNO
+		LIMIT 1
 	</select>
 
 	<!-- 메뉴 최상단 호출 -->

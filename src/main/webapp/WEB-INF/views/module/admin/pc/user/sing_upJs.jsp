@@ -34,10 +34,10 @@
         } else if ($('#tel').val().trim() == '') {
             alert('전화번호를 입력하여 주세요.');
             return;
-        } else if ($('[name=chk1]:checked').val() == 'Y') {
+        } else if ($('[name=chk1]:checked').val() != 'Y') {
             alert('개인정보처리방침을 동의하여 주세요.');
             return;
-        } else if ($('[name=chk2]:checked').val() == 'Y') {
+        } else if ($('[name=chk2]:checked').val() != 'Y') {
             alert('이용약관을 동의하여 주세요.');
             return;
         }
