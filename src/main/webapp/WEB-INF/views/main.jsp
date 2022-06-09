@@ -82,7 +82,7 @@
                     <div class="full">
                         <div class="center-desk">
                             <div class="logo">
-                                <a href="index.html"><img src="/resources/front/main/images/logo.png" alt="javascript:void(0)" /></a>
+                                <a href="javascript:void(0);" style="font-size: 30px;">TRUE CODE</a>
                             </div>
                         </div>
                     </div>
@@ -343,5 +343,13 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
         });
 
     }
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-231273692-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-231273692-1');
 </script>
 </html>
