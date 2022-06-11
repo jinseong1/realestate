@@ -151,9 +151,6 @@
             font-size: 40px;
             font-weight: 600;
         }
-        .mob_footer {
-            display: none;
-        }
         .pc_footer {
             display: block;
             width: 100%;
@@ -192,9 +189,6 @@
         .text-memo {
             font-size: 40px;
             font-weight: 600;
-        }
-        .mob_footer {
-            display: none;
         }
         .pc_footer {
             display: block;
@@ -235,25 +229,6 @@
             font-size: 20px;
             font-weight: 600;
         }
-        .mob_footer {
-            position: fixed;
-            text-decoration: none;
-            z-index: 2147483647;
-            width: 100%;
-            left: 0;
-            bottom: 0;
-            height: 60px;
-            text-align: center;
-            color: #fff;
-            font-weight: 600;
-            font-size: 120%;
-            overflow: hidden;
-            background: #311f4f;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-shadow: 0 1px 0px rgb(0 0 0 / 18%);
-        }
         .pc_footer {
             display: none;
         }
@@ -292,6 +267,25 @@
         height: auto;
         min-height: 100%;
         padding-bottom: 40px;
+    }
+    .mob_footer {
+        position: fixed;
+        text-decoration: none;
+        z-index: 2147483647;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 60px;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        font-size: 120%;
+        overflow: hidden;
+        background: #311f4f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 0 1px 0px rgb(0 0 0 / 18%);
     }
     footer{
         height: 40px;

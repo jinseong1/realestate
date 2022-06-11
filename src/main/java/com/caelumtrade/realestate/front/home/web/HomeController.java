@@ -31,7 +31,7 @@ public class HomeController {
         String return_url;
 
         if(active.equals("local")) {
-            url = "https://www.truecode.co.kr";
+            url = "http://samplea.truecode.co.kr";
         }
 
         map.put("url", url);

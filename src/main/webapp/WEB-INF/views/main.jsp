@@ -179,14 +179,14 @@ PC버전, 모바일버전, 태블릿 버전, 파워링크까지</span>
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 margin_bott">
                 <div class="classified_box">
-                    <figure><img src="/resources/front/main/images/work_img1.jpg" alt="javascript:void(0)"/></figure>
+                    <figure><img src="/resources/front/main/images/work_img2.jpg" alt="javascript:void(0)"/></figure>
                     <h3> 신규 도메인 연결 지원 </h3>
                     <p>한글 도메인, 영어 도메인 등 원하시는 주소로 도메인을 연결해드립니다.</p>
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-4 margin_bott">
                 <div class="classified_box">
-                    <figure><img src="/resources/front/main/images/work_img2.jpg" alt="javascript:void(0)"/></figure>
+                    <figure><img src="/resources/front/main/images/work_img1.jpg" alt="javascript:void(0)"/></figure>
                     <h3>저렴하고 경제적으로 업계 최저가</h3>
                     <p>업계 최저가로 부담을 확 줄여드립니다.</p>
                 </div>
