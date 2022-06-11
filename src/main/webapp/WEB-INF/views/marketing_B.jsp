@@ -14,8 +14,12 @@
     <link rel="canonical" href="${data.URL}">
 
     <meta name="robots" content="all">
-    <meta name="google-site-verification" content="${data.GOOGLE_META}" />
-    <meta name="naver-site-verification" content="${data.NAVER_META}" />
+    <c:if test="${data.GOOGLE_META != null}">
+        <meta name="google-site-verification" content="${data.GOOGLE_META}" />
+    </c:if>
+    <c:if test="${data.NAVER_META != null}">
+        <meta name="naver-site-verification" content="${data.NAVER_META}" />
+    </c:if>
 
     <meta name="NaverBot" content="All"/>
     <meta name="NaverBot" content="index, follow"/>

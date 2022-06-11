@@ -22,6 +22,13 @@ public class HomeController {
     @Value("${spring.profiles.active}")
     private String active;
 
+    private String MANI = "https://www.truecode.co.kr";
+    private String MARKETING_A = "http://samplea.truecode.co.kr";
+    private String MARKETING_B = "http://sampleb.truecode.co.kr";
+    private String MARKETING_C = "http://samplec.truecode.co.kr";
+    private String MARKETING_D = "http://sampled.truecode.co.kr";
+
+
     @RequestMapping("/")
     public String main(HttpServletRequest request, Model model){
 
@@ -31,7 +38,7 @@ public class HomeController {
         String return_url;
 
         if(active.equals("local")) {
-            url = "http://samplea.truecode.co.kr";
+            url = MARKETING_A;
         }
 
         map.put("url", url);
