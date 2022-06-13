@@ -375,7 +375,7 @@
 <!-- 디테일 내역 -->
 <div class="auto-margin">
     <c:if test="${data.USE_YN1 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top1">${data.TITLE1}</h1>
+        <h1 class="align-middle text-center main-font-color" style="margin-top: 50px;" id="top1">${data.TITLE1}</h1>
         <c:if test="${data.D1_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D1_IMG_PATH1}">
@@ -438,7 +438,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN2 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top2">${data.TITLE2}</h1>
+        <h1 class="align-middle text-center main-font-color" style="margin-top: 50px;" id="top2">${data.TITLE2}</h1>
         <c:if test="${data.D2_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D2_IMG_PATH1}">
@@ -501,7 +501,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN3 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top3">${data.TITLE3}</h1>
+        <h1 class="align-middle text-center main-font-color" style="margin-top: 50px;" id="top3">${data.TITLE3}</h1>
         <c:if test="${data.D3_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D3_IMG_PATH1}">
@@ -564,7 +564,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN4 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top4">${data.TITLE4}</h1>
+        <h1 class="align-middle text-center main-font-color" style="margin-top: 50px;" id="top4">${data.TITLE4}</h1>
         <c:if test="${data.D4_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D4_IMG_PATH1}">
@@ -627,7 +627,7 @@
         </c:if>
     </c:if>
     <c:if test="${data.USE_YN5 == 'Y'}">
-        <h1 class="align-middle text-center main-font-color" id="top5">${data.TITLE5}</h1>
+        <h1 class="align-middle text-center main-font-color" style="margin-top: 50px;" id="top5">${data.TITLE5}</h1>
         <c:if test="${data.D5_USE_YN1 == 'Y'}">
             <div>
                 <img class="auto-img" src="${data.D5_IMG_PATH1}">
