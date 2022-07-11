@@ -41,7 +41,7 @@
                                    </div>
                                </td>
                                 <td class="infotd">문의 기간</td>
-                                <td>
+                                <td class="period">
                                     <div class="td_inner">
                                         <div class="input_wrap w120 start mr10">
                                             <input type="text" class="picker" name="start_date" readonly>
@@ -83,7 +83,8 @@
                                 <col width="5%;">
                                 <col width="10%;">
                                 <col width="10%;">
-                                <col width="20%;">
+                                <col width="30%;">
+                                <col width="5%;">
                                 <col width="10%;">
                             </colgroup>
                             <thead>
@@ -98,6 +99,7 @@
                                 <th class="arrange">성명</th>
                                 <th class="arrange">핸드폰</th>
                                 <th class="arrange">문의내용</th>
+                                <th class="arrange">처리여부</th>
                                 <th class="arrange">등록일</th>
                             </tr>
                             </thead>
@@ -137,7 +139,7 @@
         var ajax_data =  $('#searchForm').serialize();
 
         $.ajax({
-            url:'/admin/inquiry/get_inquiry_list', //request 보낼 서버의 경로
+            url:'/admin/admin/get_inquiry_list', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             async:false,
@@ -147,7 +149,7 @@
 
                 if(data.list.length == 0){
                     html += '<tr>';
-                    html += '    <td colspan="9">문의가 없습니다.</td>';
+                    html += '    <td colspan="10">문의가 없습니다.</td>';
                     html += '<tr>';
                 }
 
@@ -163,16 +165,25 @@
                     html += '        '+data.list[i].no;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].NAME;
+                    html += '        '+nullChk(data.list[i].NAME, '-');
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].TEL;
+                    html += '        '+nullChk(data.list[i].TEL, '-');
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].CONTENT;
+                    html += '        '+nullChk(data.list[i].MEMO, '-');
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].REGDATE;
+                    if(nullChk(data.list[i].REGISTER_YN, 'N') == 'N') {
+                        html += '        <div class="button_90">';
+                        html += '            <button type="button" style="width: 100%;" class="button_gray" onclick="javascript:agree('+data.list[i].IDX+')">처리</button>';
+                        html += '        </div>'
+                    } else {
+                        html += '처리완료';
+                    }
+                    html += '    </td>';
+                    html += '    <td>';
+                    html += '        '+nullChk(data.list[i].REGDATE, '-');
                     html += '    </td>';
                     html += '</tr>';
                 }
@@ -188,6 +199,33 @@
                 $('#loader').hide();
             }
         });
+    }
+
+    function agree(idx) {
+
+        if(confirm('정말 처리완료 하시겠습니까?'))
+
+        var ajax_data =  $('#searchForm').serialize() + '&idx='+idx;
+
+        $.ajax({
+            url:'/admin/admin/inquiry_agree', //request 보낼 서버의 경로
+            type:'post', // 메소드(get, post, put 등)
+            data:ajax_data, //보낼 데이터
+            async:false,
+            success: function(data) {
+                if(data.code == 'S'){
+                    alert('처리완료 돠었습니다.');
+                    getList($("#page").val());
+                } else {
+                    alert('에러가 발생하였습니다. 괸라자에게 문의 바랍니다.');
+                }
+            },
+            error: function(err) {
+                alert('에러가 발생하였습니다. 관리자에게 문의 바립니다.');
+                console.log(err);
+            }
+        });
+
     }
 
     /**
@@ -214,7 +252,7 @@
         ajax_data.idx = temp.substring(0 ,temp.length-1);
 
         $.ajax({
-            url:'/admin/customer/inquiry_delete', //request 보낼 서버의 경로
+            url:'/admin/admin/inquiry_delete', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             success: function(data) {

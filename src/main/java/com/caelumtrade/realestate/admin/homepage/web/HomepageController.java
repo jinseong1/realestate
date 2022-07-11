@@ -40,7 +40,8 @@ public class HomepageController extends Base {
      * @throws Exception
      */
     @RequestMapping("/homepage/homepageList")
-    public String homepageListMove(Device device) throws Exception {
+    public String homepageListMove(Device device, HttpServletRequest request, Model model) throws Exception {
+        model.addAttribute("member_level", request.getSession().getAttribute("admin_level"));
         return CommonUtil.device_move(device)+"/homepage/homepageList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
@@ -72,6 +73,58 @@ public class HomepageController extends Base {
         result.put("list",         dao.get_homepage_list(map));
         result.put("pagingString", PagingUtil.adminPaging(total_count, pageSize, blockSize, page));
         result.put("total_count",  total_count);
+
+        return result;
+    }
+
+    /**
+     * 홈페이지 등록 이동
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/homepage/homepage_insert_move")
+    public String homepage_insert_move(@RequestParam Map map, Model model, Device device, HttpServletRequest request) throws Exception {
+
+        if(!request.getSession().getAttribute("admin_level").equals("100")){
+            return CommonUtil.device_move(device)+"/homepage/homepageList"+CommonUtil.device_gnb(device, "SUFFIX");
+        }
+
+        return CommonUtil.device_move(device)+"/homepage/homepageInsert"+CommonUtil.device_gnb(device, "SUFFIX");
+    }
+
+    /**
+     * 홈페이지 정보 저장
+     * @param map
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/homepage/homepage_temp_save")
+    @ResponseBody
+    @Transactional
+    public Map homepage_temp_save(@RequestParam Map map, MultipartHttpServletRequest multipartRequest, HttpServletRequest request) throws Exception {
+
+        Map result = new HashMap();
+
+        if(!request.getSession().getAttribute("admin_level").equals("100")){
+            result.put("code", "F");
+            result.put("msg", "저장 실패하였습니다. 저장 권한이 없습니다.");
+        }
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        MultipartFile zip = multipartRequest.getFile("zip");
+        if(!zip.isEmpty()) {
+            map.put("zip_name", zip.getOriginalFilename());
+            map.put("zip_path", CommonUtil.file_upload(zip, UPLOAD_HOMEPAGE, UPLOAD_HOMEPAGE_URL));
+        }
+
+        if(dao.homepage_temp_save(map) != 0) {
+            result.put("code", "S");
+            result.put("msg", "저장 성공하였습니다.");
+        } else {
+            result.put("code", "F");
+            result.put("msg", "저장 실패하였습니다. 관리자에게 문의 바랍니다.");
+        }
 
         return result;
     }

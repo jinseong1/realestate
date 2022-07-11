@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.caelumtrade.realestate.util.Base.ADMIN;
 
@@ -40,16 +37,16 @@ public class InquiryController extends Base {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/inquiry/inquiryList")
+    @RequestMapping("/admin/inquiryList")
     public String inquiryListMove(Model model, Device device) throws Exception {
 
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, -7);
+        cal.add(Calendar.DATE, -14);
 
         model.addAttribute("start", new SimpleDateFormat("yyyy-MM-dd").format(cal.getTime()));
         model.addAttribute("end", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 
-        return CommonUtil.device_move(device)+"/inquiry/inquiryList"+CommonUtil.device_gnb(device, "SUFFIX");
+        return CommonUtil.device_move(device)+"/admin/inquiryList"+CommonUtil.device_gnb(device, "SUFFIX");
     }
 
     /**
@@ -59,7 +56,7 @@ public class InquiryController extends Base {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/inquiry/get_inquiry_list")
+    @RequestMapping("/admin/get_inquiry_list")
     @ResponseBody
     @Transactional
     public Map get_inquiry_list(@RequestParam Map map, HttpServletRequest request) throws Exception {
@@ -83,6 +80,32 @@ public class InquiryController extends Base {
         return result;
     }
 
+
+    /**
+     * 문의 처리 완료
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/inquiry_agree")
+    @ResponseBody
+    @Transactional
+    public Map inquiry_agree(@RequestParam Map map, HttpServletRequest request) throws Exception {
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        Map result = new HashMap();
+
+        if(dao.inquiry_agree(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
     /**
      * 문의 삭제
      * @param map
@@ -90,20 +113,28 @@ public class InquiryController extends Base {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/inquiry/inquiry_delete")
+    @RequestMapping("/admin/inquiry_delete")
     @ResponseBody
     @Transactional
     public Map inquiry_delete(@RequestParam Map map, HttpServletRequest request) throws Exception {
 
-        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
-
         Map result = new HashMap();
 
-        if(dao.inquiry_delete(map) > 0){
-            result.put("code", "S");
-        } else {
-            result.put("code", "E");
+        try{
+            List list = new ArrayList();
+            String[] temp = map.get("idx").toString().split("-");
+            for(int i = 0 ; temp.length > i ; i++){
+                list.add(temp[i]);
+            }
+            if(dao.inquiry_delete(list) > 0){
+                result.put("code", "S");
+            } else {
+                result.put("code", "E");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
 
         return result;
     }

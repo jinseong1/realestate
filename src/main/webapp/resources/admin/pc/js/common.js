@@ -302,3 +302,13 @@ function filesize_check(fileObj, listSize){
         return true;
     }
 }
+
+function nullChk(obj, changeObj) {
+    if(obj == null && changeObj == null) {
+        return "";
+    } else if (obj == null && changeObj != null) {
+        return changeObj;
+    } else {
+        return obj;
+    }
+}

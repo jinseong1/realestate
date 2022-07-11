@@ -6,8 +6,13 @@
         /* get_total_inquiry_count */
         SELECT     COUNT(*)
         FROM       INQURITY I
-                       JOIN MEMBER M ON I.MATCH_KEY = M.MATCH_KEY AND M.IDX = #{member_idx}
         WHERE      1 = 1
+        <if test="start_date != null and start_date != ''">
+            AND       DATE_FORMAT(I.REGDATE, '%Y-%m-%d') >= #{start_date}
+        </if>
+        <if test="end_date != null and end_date != ''">
+            AND       DATE_FORMAT(I.REGDATE, '%Y-%m-%d')  &lt;= #{end_date}
+        </if>
     </select>
 
     <select id="get_inquiry_list" parameterType="java.util.Map" resultType="java.util.Map">
@@ -18,22 +23,32 @@
                               I.IDX,
                               I.NAME,
                               I.TEL,
-                              I.TITLE,
-                              I.CONTENT,
-                              I.REGDATE
-                   FROM       INQURITY I
-                                  JOIN MEMBER M ON I.MATCH_KEY = M.MATCH_KEY AND M.IDX = #{member_idx},
-                                  (SELECT @ROWNUM := 0) R
+                              I.MEMO,
+                              I.REGISTER_YN,
+                              date_format(I.REGDATE, '%Y-%m-%d %H:%i:%s') AS REGDATE
+                   FROM       INQURITY I,
+                              (SELECT @ROWNUM := 0) R
+                   WHERE      1=1
+                   <if test="start_date != null and start_date != ''">
+                       AND       DATE_FORMAT(I.REGDATE, '%Y-%m-%d') >= #{start_date}
+                   </if>
+                   <if test="end_date != null and end_date != ''">
+                       AND       DATE_FORMAT(I.REGDATE, '%Y-%m-%d')  &lt;= #{end_date}
+                   </if>
                    ORDER BY  IDX DESC
                   ) a
         WHERE     no BETWEEN #{start} AND #{end}
     </select>
 
+    <update id="inquiry_agree" parameterType="java.util.Map">
+        /* inquiry_agree */
+        UPDATE INQURITY SET REGISTER_YN = 'Y' WHERE IDX = #{idx}
+    </update>
+
     <delete id="inquiry_delete">
-        /* customer_delete */
+        /* inquiry_delete */
         DELETE FROM INQURITY
-        WHERE MATCH_KEY = (SELECT MATCH_KEY FROM MEMBER WHERE IDX = #{member_idx})
-        AND   idx IN
+        WHERE idx IN
         <foreach collection="list" item="item" separator="," open="(" close=")">
             #{item}
         </foreach>

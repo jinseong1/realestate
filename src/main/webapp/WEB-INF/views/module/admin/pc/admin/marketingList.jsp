@@ -11,7 +11,7 @@
 
                 <div class="common_title_wrap">
                     <div class="title_wrap">
-                        <h2>관리자 고객 리스트</h2>
+                        <h2>마케팅 고객 리스트</h2>
                     </div>
                 </div>
                 <div class="form_wrap">
@@ -31,7 +31,6 @@
                                        <div class="option_list">
                                            <select class="hidden_option" name="category">
                                                <option value="">전체</option>
-                                               <option value="NAME">이름</option>
                                                <option value="TEL">연락처</option>
                                            </select>
                                        </div>
@@ -71,11 +70,8 @@
                                 <col width="5%;">
                                 <col width="5%;">
                                 <col width="20%;">
-                                <col width="15%;">
-                                <col width="20%;">
                                 <col width="10%;">
-                                <col width="20%;">
-                                <col width="5%;">
+                                <col width="10%;">
                             </colgroup>
                             <thead>
                             <tr>
@@ -86,12 +82,9 @@
                                     </div>
                                 </th>
                                 <th class="arrange">NO</th>
-                                <th class="arrange">아이디</th>
-                                <th class="arrange">성명</th>
-                                <th class="arrange">핸드폰</th>
-                                <th class="arrange">레벨</th>
-                                <th class="arrange">등록일</th>
-                                <th class="arrange">승인</th>
+                                <th class="arrange">연락처</th>
+                                <th class="arrange">발송 건수</th>
+                                <th class="arrange">사용여부</th>
                             </tr>
                             </thead>
                             <tbody id="ajax_data">
@@ -140,10 +133,6 @@
 
     });
 
-    function update(idx){
-        location.href = "/admin/admin/member_update_move?idx="+idx+"&page="+$('#page').val();
-    }
-
     /**
      * 리스트 호출
      */
@@ -151,24 +140,24 @@
         history_change(page);
 
         $("#page").val(page);
-        var ajax_data =  $('#searchForm').serialize();
+        const ajax_data =  $('#searchForm').serialize();
 
         $.ajax({
-            url:'/admin/admin/get_member_list', //request 보낼 서버의 경로
+            url:'/admin/admin/get_marketing_list', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             async:false,
             success: function(data) {
 
-                var html = '';
+                let html = '';
 
                 if(data.list.length == 0){
                     html += '<tr>';
-                    html += '    <td colspan="9">저장된 고객이 없습니다.</td>';
+                    html += '    <td colspan="5">저장된 고객이 없습니다.</td>';
                     html += '<tr>';
                 }
 
-                for(var i = 0 ; data.list.length > i ; i++){
+                for(let i = 0 ; data.list.length > i ; i++){
                     html += '<tr>';
                     html += '    <td>';
                     html += '        <div class="check_wrap">';
@@ -180,36 +169,13 @@
                     html += '        '+data.list[i].no;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].ID;
-                    html += '    </td>';
-                    html += '    <td>';
-                    html += '    <a href="javascript:void(0);" onclick="update('+data.list[i].IDX+');">';
-                    html += '        '+data.list[i].NAME;
-                    html += '    </a>';
-                    html += '    </td>';
-                    html += '    <td>';
                     html += '        '+data.list[i].TEL;
                     html += '    </td>';
                     html += '    <td>';
-                    if(data.list[i].LEVEL == '10') {
-                        html += '[10]무료회원';
-                    } else if (data.list[i].LEVEL == '20') {
-                        html += '[20]유료회원';
-                    } else if (data.list[i].LEVEL == '100') {
-                        html += '[100]슈퍼관리자';
-                    }
+                    html += '        '+data.list[i].SEND_CNT;
                     html += '    </td>';
                     html += '    <td>';
-                    html += '        '+data.list[i].REGDATE;
-                    html += '    </td>';
-                    html += '    <td>';
-                    if(data.list[i].AGREE == 'N') {
-                        html += '        <div class="button_90">';
-                        html += '            <button type="button" style="width: 100%;" class="button_gray" onclick="javascript:agree('+data.list[i].IDX+')">승인</button>';
-                        html += '        </div>'
-                    } else {
-                        html += '승인완료';
-                    }
+                    html += '        '+data.list[i].USE_YN;
                     html += '    </td>';
                     html += '</tr>';
                 }
@@ -252,7 +218,7 @@
         ajax_data.idx = temp.substring(0 ,temp.length-1);
 
         $.ajax({
-            url:'/admin/member/member_delete', //request 보낼 서버의 경로
+            url:'/admin/admin/marketing_delete', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             success: function(data) {

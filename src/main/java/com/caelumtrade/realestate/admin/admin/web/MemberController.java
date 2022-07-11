@@ -81,7 +81,7 @@ public class MemberController extends Base {
     }
 
     /**
-     * 고객 리스트 호출 처리.
+     * 고객 승인 처리
      * @param map
      * @param request
      * @return
@@ -146,6 +146,80 @@ public class MemberController extends Base {
         }
 
         if(dao.member_save(map) > 0){
+            result.put("code", "S");
+        } else {
+            result.put("code", "E");
+        }
+
+        return result;
+    }
+
+    /**
+     * 고객관리 리스트 이동 처리.
+     * @param
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/marketingList")
+    public String marketingListMove(Device device, HttpServletRequest request) throws Exception {
+
+        if(!request.getSession().getAttribute("admin_level").equals(100)) {
+            return "/admin/user/login";
+        }
+
+        return CommonUtil.device_move(device)+"/admin/marketingList"+CommonUtil.device_gnb(device, "SUFFIX");
+    }
+
+    /**
+     * 고객 리스트 호출 처리.
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/get_marketing_list")
+    @ResponseBody
+    @Transactional
+    public Map get_marketing_list(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        if(!request.getSession().getAttribute("admin_level").equals(100)) {
+            return result;
+        }
+
+        int total_count = dao.get_total_marketing_count(map);
+
+        int page      = Integer.parseInt(map.get("page").toString());
+        int pageSize  = 20;
+        int blockSize = 10;
+
+        map.put("start", (page-1)* pageSize+1);
+        map.put("end",   page *pageSize);
+
+        result.put("list",         dao.get_marketing_list(map));
+        result.put("pagingString", PagingUtil.adminPaging(total_count, pageSize, blockSize, page));
+        result.put("total_count",  total_count);
+
+        return result;
+    }
+
+    //
+    /**
+     * 고객 상담 삭제
+     * @param map
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/customer/marketing_delete")
+    @ResponseBody
+    @Transactional
+    public Map marketing_delete(@RequestParam Map map, HttpServletRequest request) throws Exception {
+        Map result = new HashMap();
+
+        map.put("member_idx", request.getSession().getAttribute("admin_idx"));
+
+        if(dao.marketing_delete(map) > 0){
             result.put("code", "S");
         } else {
             result.put("code", "E");

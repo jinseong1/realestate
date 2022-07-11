@@ -39,6 +39,67 @@
         </if>
     </select>
 
+    <insert id="homepage_temp_save" parameterType="java.util.Map">
+        /* homepage_temp_save */
+        INSERT INTO HOMEPAGE_H
+        (
+            TEMPLATE_TYPE,
+            HOMEPAGE_NAME,
+            CONNECT_TEL,
+            MAIN_IMG_NAME,
+            MAIN_IMG_PATH,
+            TITLE1,
+            USE_YN1,
+            TITLE2,
+            USE_YN2,
+            TITLE3,
+            USE_YN3,
+            TITLE4,
+            USE_YN4,
+            TITLE5,
+            USE_YN5,
+            MATCH_KEY,
+            MEMBER_IDX,
+            REGDATE,
+            REGID,
+            MODDATE,
+            MODID,
+            URL,
+            TEMP_YN,
+            ZIP_NAME,
+            ZIP_PATH
+        )
+        VALUES
+        (
+            #{template_type},
+            #{homepage_name},
+            #{connect_tel},
+            'sample.png',
+            '/upload/homepage/202204231114239ddd50d8-ea6a-493d-a489-290033f5cdbe.png',
+            '사업개요',
+            'Y',
+            '입지안내',
+            'Y',
+            '개발호재',
+            'Y',
+            '층별안내',
+            'Y',
+            '모델하우스',
+            'Y',
+            NULL,
+            #{member_idx},
+            NOW(),
+            (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
+            NOW(),
+            (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
+            #{url},
+            'Y',
+            NULL,
+            NULL
+        )
+
+    </insert>
+
     <update id="homepage_save" parameterType="java.util.Map">
         /* homepage_save */
         <selectKey keyProperty="CNT" resultType="Integer" order="BEFORE">
@@ -94,7 +155,7 @@
                 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
                 NOW(),
                 (SELECT ID FROM MEMBER WHERE IDX = #{member_idx}),
-                #{URL}
+                #{url}
                 )
             </when>
             <otherwise>

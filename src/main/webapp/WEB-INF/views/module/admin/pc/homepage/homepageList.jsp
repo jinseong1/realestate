@@ -30,6 +30,11 @@
                                 <span class="search_result_number"></span>
                             </li>
                         </ul>
+<c:if test="${member_level == 100}">
+                        <div class="right_btn button_90 flex_center">
+                            <button class="download_btn" onclick="javascript:insertMove()">홈페이지 등록</button>
+                        </div>
+</c:if>
                     </div>
                 </div>
                 <div id="loader" style="display: none;">
@@ -93,7 +98,11 @@
             }
         }
     });
-
+<c:if test="${member_level == 100}">
+    function insertMove(){
+        location.href = "/admin/homepage/homepage_insert_move";
+    }
+</c:if>
     function detail(idx){
         location.href = "/admin/homepage/homepage_detail_move?idx="+idx+"&page="+$('#page').val();
     }

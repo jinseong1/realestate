@@ -12,5 +12,9 @@ public interface MemberDAO {
     Map get_member(Map map);
     int member_save(Map map);
     int member_agree(Map map);
+
+    int get_total_marketing_count(Map map);
+    List<Map> get_marketing_list(Map map);
+    int marketing_delete(Map map);
 }
 

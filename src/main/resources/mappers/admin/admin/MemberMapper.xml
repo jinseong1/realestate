@@ -49,4 +49,33 @@
 		WHERE  IDX = #{idx}
 	</update>
 
+	<select id="get_total_marketing_count" parameterType="java.util.Map" resultType="Integer">
+		/* get_total_marketing_count */
+		SELECT    COUNT(*)
+		FROM      MARKETING
+		WHERE     1=1
+	</select>
+
+	<select id="get_marketing_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_marketing_list */
+		SELECT    a.*
+		FROM      (
+					  SELECT    @rownum:=@rownum+1 AS no,
+								b.IDX, b.TEL, b.SEND_CNT, b.USE_YN
+					  FROM      MARKETING b, (SELECT @ROWNUM := 0) R
+					  WHERE     1 = 1
+					  ORDER BY  IDX DESC
+				  ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<delete id="marketing_delete">
+		/* marketing_delete */
+		DELETE FROM MARKETING
+		WHERE idx in
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item}
+		</foreach>
+	</delete>
+
 </mapper>

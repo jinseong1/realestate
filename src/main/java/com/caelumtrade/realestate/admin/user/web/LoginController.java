@@ -86,13 +86,12 @@ public class LoginController extends Base {
         if(loginDAO.singUp(map) > 0){
             model.addAttribute("code", "S");
             model.addAttribute("msg", "가입 신청 성공하였습니다.");
-            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
         } else {
             model.addAttribute("param", map);
             model.addAttribute("code", "F");
             model.addAttribute("msg", "에러가 발생하였습니다. 관리자에게 문의 바랍니다.");
-            return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
         }
+        return CommonUtil.device_move(device)+"/user/sing_up"+CommonUtil.device_gnb(device, "SIMPLE");
 
     }
 

@@ -12,6 +12,8 @@ public interface InquiryDAO {
     int get_total_inquiry_count(Map map);
     // 등록 고객 리스트
     List<Map> get_inquiry_list(Map map);
+    // 문의 처리
+    int inquiry_agree(Map map);
     // 문의 삭제
-    int inquiry_delete(Map mpa);
+    int inquiry_delete(List list);
 }
