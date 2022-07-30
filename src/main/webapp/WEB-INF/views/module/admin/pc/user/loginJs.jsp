@@ -53,20 +53,20 @@
         }
     });
 
-    function jsEnter(keyCode) {
-        if (keyCode == 13) {
-            $("#btnLogin").click();
-        }
-    }
-
     $(document).ready(function() {
-        sessionStorage.clear();
 
         let id = getCookie("admin_id_save");
         if(id != null){
             $('#id').val(id);
             $('#id_save').prop('checked', true);
         }
+
+        $('#id, #password').on('keyup', function(e){
+            if (e.keyCode == 13) {
+                $("#btnLogin").click();
+            }
+        });
+
     });
 
     const getCookie = function(name) {

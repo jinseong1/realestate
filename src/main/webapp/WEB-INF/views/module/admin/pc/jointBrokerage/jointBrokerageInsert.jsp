@@ -942,7 +942,10 @@
     /**
      * 리스트 이동
      */
-    function list(){
+    function list(type){
+        if(type == null && !confirm(go_list)) {
+            return;
+        }
         location.href = '/admin/jointBrokerage/jointBrokerageList?page=${page}';
     }
 
@@ -971,7 +974,7 @@
             success: function(data) {
                 if(data.code == 'S'){
                     alert(save_finish);
-                    list();
+                    list('N');
                 } else {
                     alert(save_error);
                 }

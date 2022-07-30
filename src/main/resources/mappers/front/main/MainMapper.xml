@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.caelumtrade.realestate.front.home.dao.MainDAO">
 
+	<insert id="connect_info_save" parameterType="java.util.Map">
+		INSERT INTO CONNECT_INFO(IP, URL) VALUES(#{ip}, #{url})
+	</insert>
+
 	<select id="get_main" parameterType="java.util.Map" resultType="java.util.Map">
 		/* get_main */
 		<![CDATA[
