@@ -37,4 +37,13 @@ public class Base {
     // 배너
     public String UPLOAD_HOMEPAGE        = upload_path+"homepage";
     public String UPLOAD_HOMEPAGE_URL    = "/upload/homepage/";
+
+    // 공동중개 비디오
+    public String UPLOAD_VIDEO        = upload_path+"video";
+    public String UPLOAD_VIDEO_URL    = "/upload/video/";
+
+    // 공동중개 이미지
+    public String UPLOAD_JOINT_BROKER_VIDEO        = upload_path+"jointbroket";
+    public String UPLOAD_JOINT_BROKER_VIDEO_URL    = "/upload/jointbroket/";
+
 }

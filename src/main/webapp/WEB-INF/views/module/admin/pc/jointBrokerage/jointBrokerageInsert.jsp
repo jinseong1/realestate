@@ -9,7 +9,6 @@
 
             <!-- 공통 검색폼 -->
             <div class="search_wrap basic_table_wrap">
-
                 <div class="common_title_wrap">
                     <div class="title_wrap">
                         <h2>공동 중개 등록</h2>
@@ -25,6 +24,21 @@
                                 <col style="width: 10%">
                                 <col style="width: 40%">
                             </colgroup>
+                            <tr>
+                                <td class="infotd">공유여부*</td>
+                                <td colspan="3">
+                                    <div class="input_wrap radio">
+                                        <label for="share_y">
+                                            <input type="radio" name="share_yn" id="share_y" value="Y" checked="checked">
+                                            <span>공유</span>
+                                        </label>
+                                        <label for="share_n">
+                                            <input type="radio" name="share_yn" id="share_n" value="N">
+                                            <span>나만보기</span>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>
                                 <td class="infotd">제목*</td>
                                 <td>
@@ -230,28 +244,28 @@
                                 </td>
                             </tr>
                             <!--방종류-->
-                            <tr class="type_charter" style="display: none">
+                            <tr class="type_charter type_rental" style="display: none">
                                 <td class="infotd">방종류*</td>
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="one_room" id="one_room" value="Y" class="blind"/>
+                                            <input type="checkbox" name="one_room" id="one_room" value="ONE" class="blind"/>
                                             <label for="one_room"><span>원룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="two_room" id="two_room" value="Y" class="blind"/>
+                                            <input type="checkbox" name="two_room" id="two_room" value="TWO" class="blind"/>
                                             <label for="two_room"><span>투룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="three_room" id="three_room" value="Y" class="blind"/>
+                                            <input type="checkbox" name="three_room" id="three_room" value="THREE" class="blind"/>
                                             <label for="three_room"><span>쓰리룸</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="for_room" id="for_room" value="Y" class="blind"/>
+                                            <input type="checkbox" name="for_room" id="for_room" value="FOR" class="blind"/>
                                             <label for="for_room"><span>포룸이상</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="office" id="office" value="Y" class="blind"/>
+                                            <input type="checkbox" name="office" id="office" value="OFFICE" class="blind"/>
                                             <label for="office"><span>오피스텔</span></label>
                                         </div>
                                     </div>
@@ -262,43 +276,43 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_1" id="sale_in_lots_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_1" id="sale_in_lots_1" value="1" class="blind"/>
                                             <label for="sale_in_lots_1"><span>아파트</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_2" id="sale_in_lots_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_2" id="sale_in_lots_2" value="2" class="blind"/>
                                             <label for="sale_in_lots_2"><span>오피스텔</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_3" id="sale_in_lots_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_3" id="sale_in_lots_3" value="3" class="blind"/>
                                             <label for="sale_in_lots_3"><span>상가주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_4" id="sale_in_lots_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_4" id="sale_in_lots_4" value="4" class="blind"/>
                                             <label for="sale_in_lots_4"><span>주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_5" id="sale_in_lots_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_5" id="sale_in_lots_5" value="5" class="blind"/>
                                             <label for="sale_in_lots_5"><span>상가</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_6" id="sale_in_lots_6" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_6" id="sale_in_lots_6" value="6" class="blind"/>
                                             <label for="sale_in_lots_6"><span>생활형숙박시설</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_7" id="sale_in_lots_7" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_7" id="sale_in_lots_7" value="7" class="blind"/>
                                             <label for="sale_in_lots_7"><span>도시형생활주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_8" id="sale_in_lots_8" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_8" id="sale_in_lots_8" value="8" class="blind"/>
                                             <label for="sale_in_lots_8"><span>호텔</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_9" id="sale_in_lots_9" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_9" id="sale_in_lots_9" value="9" class="blind"/>
                                             <label for="sale_in_lots_9"><span>토지</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sale_in_lots_10" id="sale_in_lots_10" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sale_in_lots_10" id="sale_in_lots_10" value="10" class="blind"/>
                                             <label for="sale_in_lots_10"><span>빌라</span></label>
                                         </div>
                                     </div>
@@ -309,43 +323,43 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_1" id="sell_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_1" id="sell_1" value="1" class="blind"/>
                                             <label for="sell_1"><span>아파트</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_2" id="sell_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_2" id="sell_2" value="2" class="blind"/>
                                             <label for="sell_2"><span>오피스텔</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_3" id="sell_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_3" id="sell_3" value="3" class="blind"/>
                                             <label for="sell_3"><span>상가주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_4" id="sell_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_4" id="sell_4" value="4" class="blind"/>
                                             <label for="sell_4"><span>주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_5" id="sell_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_5" id="sell_5" value="5" class="blind"/>
                                             <label for="sell_5"><span>상가</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_6" id="sell_6" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_6" id="sell_6" value="6" class="blind"/>
                                             <label for="sell_6"><span>생활형숙박시설</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_7" id="sell_7" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_7" id="sell_7" value="7" class="blind"/>
                                             <label for="sell_7"><span>도시형생활주택</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_8" id="sell_8" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_8" id="sell_8" value="8" class="blind"/>
                                             <label for="sell_8"><span>호텔</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_9" id="sell_9" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_9" id="sell_9" value="9" class="blind"/>
                                             <label for="sell_9"><span>토지</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="sell_10" id="sell_10" value="Y" class="blind"/>
+                                            <input type="checkbox" name="sell_10" id="sell_10" value="10" class="blind"/>
                                             <label for="sell_10"><span>빌라</span></label>
                                         </div>
                                     </div>
@@ -483,35 +497,35 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_1" id="maintenance_cost_type_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_1" id="maintenance_cost_type_1" value="1" class="blind"/>
                                             <label for="maintenance_cost_type_1"><span>난방비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_2" id="maintenance_cost_type_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_2" id="maintenance_cost_type_2" value="2" class="blind"/>
                                             <label for="maintenance_cost_type_2"><span>전기료</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_3" id="maintenance_cost_type_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_3" id="maintenance_cost_type_3" value="3" class="blind"/>
                                             <label for="maintenance_cost_type_3"><span>수도료</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_4" id="maintenance_cost_type_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_4" id="maintenance_cost_type_4" value="4" class="blind"/>
                                             <label for="maintenance_cost_type_4"><span>인터넷</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_5" id="maintenance_cost_type_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_5" id="maintenance_cost_type_5" value="5" class="blind"/>
                                             <label for="maintenance_cost_type_5"><span>청소비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_6" id="maintenance_cost_type_6" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_6" id="maintenance_cost_type_6" value="6" class="blind"/>
                                             <label for="maintenance_cost_type_6"><span>승강기유지비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_7" id="maintenance_cost_type_7" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_7" id="maintenance_cost_type_7" value="7" class="blind"/>
                                             <label for="maintenance_cost_type_7"><span>수선유지비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_type_8" id="maintenance_cost_type_8" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_type_8" id="maintenance_cost_type_8" value="8" class="blind"/>
                                             <label for="maintenance_cost_type_8"><span>기타</span></label>
                                         </div>
                                     </div>
@@ -522,35 +536,35 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_1" id="maintenance_cost_other_type_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_1" id="maintenance_cost_other_type_1" value="1" class="blind"/>
                                             <label for="maintenance_cost_type_1"><span>난방비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_2" id="maintenance_cost_other_type_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_2" id="maintenance_cost_other_type_2" value="2" class="blind"/>
                                             <label for="maintenance_cost_other_type_2"><span>전기료</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_3" id="maintenance_cost_other_type_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_3" id="maintenance_cost_other_type_3" value="3" class="blind"/>
                                             <label for="maintenance_cost_other_type_3"><span>수도료</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_4" id="maintenance_cost_other_type_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_4" id="maintenance_cost_other_type_4" value="4" class="blind"/>
                                             <label for="maintenance_cost_other_type_4"><span>인터넷</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_5" id="maintenance_cost_other_type_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_5" id="maintenance_cost_other_type_5" value="5" class="blind"/>
                                             <label for="maintenance_cost_other_type_5"><span>청소비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_6" id="maintenance_cost_other_type_6" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_6" id="maintenance_cost_other_type_6" value="6" class="blind"/>
                                             <label for="maintenance_cost_other_type_6"><span>승강기유지비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_7" id="maintenance_cost_other_type_7" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_7" id="maintenance_cost_other_type_7" value="7" class="blind"/>
                                             <label for="maintenance_cost_other_type_7"><span>수선유지비</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="maintenance_cost_other_type_8" id="maintenance_cost_other_type_8" value="Y" class="blind"/>
+                                            <input type="checkbox" name="maintenance_cost_other_type_8" id="maintenance_cost_other_type_8" value="8" class="blind"/>
                                             <label for="maintenance_cost_other_type_8"><span>기타</span></label>
                                         </div>
                                     </div>
@@ -609,19 +623,19 @@
                                 <td>
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="east" id="east" value="Y" class="blind"/>
+                                            <input type="checkbox" name="east" id="east" value="E" class="blind"/>
                                             <label for="east"><span>동</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="west" id="west" value="Y" class="blind"/>
+                                            <input type="checkbox" name="west" id="west" value="W" class="blind"/>
                                             <label for="west"><span>서</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="south" id="south" value="Y" class="blind"/>
+                                            <input type="checkbox" name="south" id="south" value="S" class="blind"/>
                                             <label for="south"><span>남</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="north" id="north" value="Y" class="blind"/>
+                                            <input type="checkbox" name="north" id="north" value="N" class="blind"/>
                                             <label for="north"><span>북</span></label>
                                         </div>
                                     </div>
@@ -687,7 +701,7 @@
                                 <td class="infotd">사용 승인일*</td>
                                 <td>
                                     <div class="td_inner">
-                                        <div class="input_wrap w120 start mr10">
+                                        <div class="input_wrap w120 mr10">
                                             <input type="text" class="picker" name="approval_date" readonly>
                                         </div>
                                     </div>
@@ -695,7 +709,7 @@
                                 <td class="infotd type_charter type_rental" style="display: none">입주 가능일</td>
                                 <td class="type_charter type_rental" style="display: none">
                                     <div class="td_inner">
-                                        <div class="input_wrap w120 start mr10">
+                                        <div class="input_wrap w120 mr10">
                                             <input type="text" class="picker" name="move_in_start_date" readonly>
                                         </div>
                                     </div>
@@ -706,31 +720,31 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_1" id="option_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_1" id="option_1" value="1" class="blind"/>
                                             <label for="option_1"><span>에어컨</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_2" id="option_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_2" id="option_2" value="2" class="blind"/>
                                             <label for="option_2"><span>냉장고</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_3" id="option_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_3" id="option_3" value="3" class="blind"/>
                                             <label for="option_3"><span>세탁기</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_4" id="option_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_4" id="option_4" value="4" class="blind"/>
                                             <label for="option_4"><span>빌트인</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_5" id="option_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_5" id="option_5" value="5" class="blind"/>
                                             <label for="option_5"><span>옷장</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_6" id="option_6" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_6" id="option_6" value="6" class="blind"/>
                                             <label for="option_6"><span>신발장</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="option_7" id="option_7" value="Y" class="blind"/>
+                                            <input type="checkbox" name="option_7" id="option_7" value="7" class="blind"/>
                                             <label for="option_7"><span>인덕션</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
@@ -749,23 +763,23 @@
                                 <td colspan="3">
                                     <div class="td_inner">
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="security_1" id="security_1" value="Y" class="blind"/>
+                                            <input type="checkbox" name="security_1" id="security_1" value="1" class="blind"/>
                                             <label for="security_1"><span>CCTV</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="security_2" id="security_2" value="Y" class="blind"/>
+                                            <input type="checkbox" name="security_2" id="security_2" value="2" class="blind"/>
                                             <label for="security_2"><span>공동현관</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="security_3" id="security_3" value="Y" class="blind"/>
+                                            <input type="checkbox" name="security_3" id="security_3" value="3" class="blind"/>
                                             <label for="security_3"><span>방범창</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="security_4" id="security_4" value="Y" class="blind"/>
+                                            <input type="checkbox" name="security_4" id="security_4" value="4" class="blind"/>
                                             <label for="security_4"><span>인터폰</span></label>
                                         </div>
                                         <div class="check_wrap routeCheck">
-                                            <input type="checkbox" name="security_5" id="security_5" value="Y" class="blind"/>
+                                            <input type="checkbox" name="security_5" id="security_5" value="5" class="blind"/>
                                             <label for="security_5"><span>화재경보기</span></label>
                                         </div>
                                     </div>
@@ -833,10 +847,11 @@
     </div>
 </main>
 <script>
+
     $(function(){
 
         // 돈 콤마 처리
-        $('[name=sale_in_lots_price], [name=sell_price], [name=charter_price], [name=monthly_rent_deposit_price], [name=monthly_rent_price], [name=maintenance_cost]').keyup(function(){
+        $('[name=sale_in_lots_price], [name=sell_price], [name=charter_deposit], [name=monthly_rent_deposit_price], [name=monthly_rent_price], [name=maintenance_cost]').keyup(function(){
             const $this = $(this);
             $this.val($this.val().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
         });
@@ -1005,7 +1020,7 @@
                 !$('[name=office]').is(':checked')) {
                 alert('방종류를 선택하여 주세요.');
                 return false;
-            } else if($('[name=charter_price]').val().trim() == '') {
+            } else if($('[name=charter_deposit]').val().trim() == '') {
                 alert('전세가격을 입력하여 주세요.');
                 return false;
             } else if($('[name=all_area]').val().trim() == '') {
@@ -1228,5 +1243,8 @@
                 return false;
             }
         }
+
+        return true;
     }
+
 </script>

@@ -13,4 +13,8 @@ public interface JointBrokerageDAO {
     int jointBrokerage_insert(Map mpa);
     int jointBrokerage_update(Map mpa);
     int jointBrokerage_delete(Map map);
+    int jointBrokerage_img_delete(Map map);
+    int jointBrokerage_img_save(Map map);
+    Map get_jointBrokerage(Map map);
+    int jointBrokerage_detail_save(Map map);
 }

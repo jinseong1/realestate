@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/views/common/admin/pc/include.jsp"%>
+<style>
+    .list_img{
+        width: 100%;
+        height: 150px;
+    }
+</style>
 <main id="main">
     <div class="main_inner">
 
@@ -109,7 +115,9 @@
                                 <col width="10%;">
                                 <col width="10%;">
                                 <col width="10%;">
+                                <col width="10%;">
                                 <col width="20%;">
+                                <col width="5%;">
                                 <col width="5%;">
                             </colgroup>
                             <thead>
@@ -117,10 +125,12 @@
                                 <th class="arrange">NO</th>
                                 <th class="arrange">구분</th>
                                 <th class="arrange">사진</th>
+                                <th class="arrange">제목</th>
                                 <th class="arrange">가격</th>
                                 <th class="arrange">방종류</th>
                                 <th class="arrange">주소</th>
                                 <th class="arrange">상태</th>
+                                <th class="arrange">등록일</th>
                             </tr>
                             </thead>
                             <tbody id="ajax_data">
@@ -150,16 +160,16 @@
                     $('.end .picker').val(localStorage.getItem("end_date"));
 
                     if('${page}' != ''){
-                        //getList(${page});
+                        getList(${page});
                     } else {
-                        //getList(1);
+                        getList(1);
                     }
                 }
             } else {
                 if('${page}' != ''){
-                    //getList(${page});
+                    getList(${page});
                 } else {
-                    //getList(1);
+                    getList(1);
                 }
             }
         }
@@ -231,7 +241,7 @@
         var ajax_data =  $('#searchForm').serialize();
 
         $.ajax({
-            url:'/admin/real/get_real_list', //request 보낼 서버의 경로
+            url:'/admin/jointBrokerage/get_jointBrokerage_list', //request 보낼 서버의 경로
             type:'post', // 메소드(get, post, put 등)
             data:ajax_data, //보낼 데이터
             async:false,
@@ -241,7 +251,7 @@
 
                 if(data.list.length == 0){
                     html += '<tr>';
-                    html += '    <td colspan="9">검색된 부동산이 없습니다.</td>';
+                    html += '    <td colspan="9">검색된 매물이 없습니다.</td>';
                     html += '<tr>';
                 }
 
@@ -258,32 +268,25 @@
                     html += '    </td>';
                     html += '    <td>';
                     html += '    <a href="javascript:void(0);" onclick="update('+data.list[i].IDX+');">';
-                    html += data.list[i].NAME;
+                    html += '        <img class="list_img" src="' +  data.list[i].IMG_PATH + '" alt="이미지" >';
                     html += '    </a>';
                     html += '    </td>';
                     html += '    <td>';
-                    html += data.list[i].TYPE;
+                    html += '    <a href="javascript:void(0);" onclick="update('+data.list[i].IDX+');">';
+                    html += data.list[i].TITLE;
+                    html += '    </a>';
                     html += '    </td>';
                     html += '    <td>';
-                    html += data.list[i].TEL;
+                    html += data.list[i].PRICE + '만원';
                     html += '    </td>';
                     html += '    <td>';
-                    html += data.list[i].PLACE_TYPE;
+                    html += data.list[i].ROOT_TYPE;
                     html += '    </td>';
                     html += '    <td>';
-
-                    let preference = data.list[i].PREFERENCE;
-                    preference = preference.replace('1A', ' 상가 |')
-                                           .replace('2A', ' 상가주택 |')
-                                           .replace('3A', ' 주택 |')
-                                           .replace('4A', ' 아파트 |')
-                                           .replace('5A', ' 오피스텔 |')
-                                           .replace('6A', ' 호텔 |')
-                                           .replace('7A', ' 토지 |')
-                                           .replace('8A', ' 생활형 숙박시설 |')
-                                           .replace('9A', ' 도시형 생활주택 |')
-                                           .replace('A', '');
-                    html += '        '+preference;
+                    html += data.list[i].ADDRESS1 + '<br/>' + data.list[i].ADDRESS2;
+                    html += '    </td>';
+                    html += '    <td>';
+                    html += '        '+data.list[i].STATUS_TXT;
                     html += '    </td>';
                     html += '    <td>';
                     html += '        '+data.list[i].REGDATE;

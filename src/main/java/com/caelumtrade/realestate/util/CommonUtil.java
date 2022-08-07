@@ -162,4 +162,48 @@ public class CommonUtil extends Base{
         }
     }
 
+    /**
+     * 객체에 값이 비어있는 경우 defaultVal 변경한다.
+     * @param map
+     * @param defaultVal
+     * @param keys
+     * @return
+     */
+    public static void mapNullChk(Map map, String defaultVal, String... keys) {
+        for(String key : keys) {
+            if(map.get(key) == null || "".equals(map.get(key).toString())) {
+                map.put(key, defaultVal);
+            }
+        }
+    }
+
+    /**
+     * 값이 여러개인 경우 한개로 통일 처리.
+     * @param map
+     * @param return_key
+     * @param keys
+     */
+    public static void mapAddVal(Map map, String return_key, String... keys) {
+        StringBuffer bf = new StringBuffer();
+        for(String key : keys) {
+            if(map.get(key) != null && !"".equals(map.get(key).toString())) {
+                bf.append(map.get(key).toString() + "&");
+            }
+        }
+        map.put(return_key, bf.toString());
+    }
+
+    /**
+     * 콤마 제거
+     * @param map
+     * @param keys
+     */
+    public static void mapRemoveComma(Map map, String... keys) {
+        for(String key : keys) {
+            if(map.get(key) != null && !"".equals(map.get(key).toString()) && map.get(key).toString().indexOf(",") != -1) {
+                map.put(key, map.get(key).toString().replace(",", ""));
+            }
+        }
+    }
+
 }

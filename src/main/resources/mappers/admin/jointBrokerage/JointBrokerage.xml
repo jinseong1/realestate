@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caelumtrade.realestate.admin.jointBrokerage.dao.JointBrokerageDAO">
+
+	<select id="get_total_jointBrokerage_count" parameterType="java.util.Map" resultType="Integer">
+		/* get_total_jointBrokerage_ */
+		SELECT    COUNT(*)
+		FROM      JOINT_BROKERAGE
+		WHERE     1=1
+	</select>
+
+	<select id="get_jointBrokerage_list" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_jointBrokerage_list */
+		SELECT    *
+		FROM      (SELECT     @rownum := @rownum + 1 AS no,
+		                      JB.IDX,
+		                      (SELECT IMG_PATH FROM JOINT_IMG WHERE J_IDX = JB.IDX AND ORDER_NUM = 1) AS IMG_PATH,
+		                      JB.TITLE,
+		                      JB.SHARE_YN,
+		                      JB.TYPE,
+		                      0 AS PRICE,
+		                      NULL AS ROOM_TYPE,
+		                      JB.ADDRESS1,
+		                      JB.ADDRESS2,
+		                      JB.STATUS,
+		                      CASE
+		                          WHEN STATUS = 'A'
+		                              THEN '중개가능'
+		                          WHEN STATUS = 'I'
+		                              THEN '계약상태'
+		                          WHEN STATUS = 'E'
+		                              THEN '계약완료'
+		                      END AS STATUS_TXT,
+	                          DATE_FORMAT(JB.REGDATE, '%Y-%m-%d %H:%i:%s') AS REGDATE
+		           FROM       JOINT_BROKERAGE JB,
+		                      (SELECT @ROWNUM := 0) R
+		           WHERE      1=1
+		           <if test="start_date != null and start_date != ''">
+		           AND       DATE_FORMAT(JB.REGDATE, '%Y-%m-%d') >= #{start_date}
+		           </if>
+		           <if test="end_date != null and end_date != ''">
+		           AND       DATE_FORMAT(JB.REGDATE, '%Y-%m-%d')  &lt;= #{end_date}
+		           </if>
+		           ORDER BY  IDX DESC
+		          ) a
+		WHERE     no BETWEEN #{start} AND #{end}
+	</select>
+
+	<insert id="jointBrokerage_insert" parameterType="java.util.Map" keyProperty="idx" useGeneratedKeys="true">
+		/* jointBrokerage_insert */
+		INSERT INTO JOINT_BROKERAGE
+		    (SHARE_YN,
+		     TITLE,
+		     TYPE,
+		     VIDEO_NAME,
+		     VIDEO_PATH,
+		     ALL_AREA,
+		     EXCLUSIVE_AREA,
+		     COMMON_AREA,
+		     MAINTENANCE_COST,
+		     MAINTENANCE_COST_LIST,
+		     MAINTENANCE_COST_OUT_LIST,
+		     ALL_PARKING_CNT,
+		     ONE_PARKING_CNT,
+		     DIRECTION,
+		     HEATING_SYSTEM,
+		     BUILT_IN_YN,
+		     ELEVATOR_YN,
+		     VERANDA_YN,
+		     PURPOSE,
+		     APPROVAL_DATE,
+			 MOVE_IN_START_DATE,
+		     `OPTION`,
+		     SECURITY,
+		     ZIP_CODE,
+		     ADDRESS1,
+		     ADDRESS2,
+			 MASTER_TEL,
+			 BROKER_TEL,
+		     MEMO,
+		     STATUS,
+		     REGDATE,
+		     REGID,
+		     MODDATE,
+		     MODID)
+		VALUES
+			(#{share_yn},
+			 #{title},
+			 #{type},
+			 #{video_name},
+			 #{video_path},
+			 #{all_area},
+			 #{exclusive_area},
+			 #{common_area},
+			 #{maintenance_cost},
+			 #{maintenance_cost_list},
+			 #{maintenance_cost_out_list},
+			 #{all_parking_cnt},
+			 #{one_parking_cnt},
+			 #{direction},
+			 #{heating_system},
+			 #{built_in_yn},
+			 #{elevator_yn},
+			 #{veranda_yn},
+			 #{purpose},
+			 #{approval_date},
+			 #{option},
+			 #{move_in_start_date},
+			 #{security},
+			 #{zip_code},
+			 #{address1},
+			 #{address2},
+			 #{master_tel},
+			 #{broker_tel},
+			 #{memo},
+			 'A',
+			 NOW(),
+			 #{id},
+			 NOW(),
+			 #{id})
+	</insert>
+
+	<insert id="jointBrokerage_detail_save" parameterType="java.util.Map">
+		/* jointBrokerage_detail_save */
+		INSERT INTO JOINT_BROKERAGE_DETAIL
+		    (J_IDX, TYPE, HOUSE_TYPE, PRICE, RENT_PRICE, FEE, REG_DATE, REG_ID)
+		VALUES
+			(#{idx}, #{type}, #{house_type}, #{price}, #{rent_price}, #{fee}, NOW(), #{id})
+	</insert>
+
+	<delete id="jointBrokerage_img_delete" parameterType="java.util.Map">
+		/* jointBrokerage_img_delete */
+		DELETE FROM JOINT_IMG WHERE J_IDX = #{idx}
+	</delete>
+
+	<insert id="jointBrokerage_img_save" parameterType="java.util.Map">
+		/* jointBrokerage_img_save */
+		INSERT INTO JOINT_IMG(J_IDX, IMG_PATH, IMG_NAME, ORDER_NUM, REG_DATE, REG_ID) VALUES(#{j_idx} , #{img_path}, #{img_name}, #{order_num}, NOW(), #{id})
+	</insert>
+
+	<select id="get_jointBrokerage" parameterType="java.util.Map" resultType="java.util.Map">
+		/* get_jointBrokerage */
+		SELECT    IDX, SHARE_YN, TITLE, TYPE, VIDEO_NAME, VIDEO_PATH, ALL_AREA, EXCLUSIVE_AREA,
+		          COMMON_AREA, MAINTENANCE_COST, MAINTENANCE_COST_LIST, MAINTENANCE_COST_OUT_LIST,
+		          ALL_PARKING_CNT, ONE_PARKING_CNT, DIRECTION, HEATING_SYSTEM, BUILT_IN_YN, ELEVATOR_YN,
+		          VERANDA_YN, PURPOSE, APPROVAL_DATE, `OPTION`, SECURITY, ZIP_CODE, ADDRESS1, ADDRESS2,
+		          MASTER_TEL, BROKER_TEL, MEMO, REGDATE, REGID, MODDATE, MODID, STATUS
+		FROM      JOINT_BROKERAGE
+		WHERE     IDX = #{idx}
+	</select>
+
+</mapper>
